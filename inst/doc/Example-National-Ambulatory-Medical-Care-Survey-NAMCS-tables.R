@@ -1,0 +1,129 @@
+## ---- include = FALSE---------------------------------------------------------
+knitr::opts_chunk$set(
+  collapse = TRUE
+  # , comment = "#>"
+)
+
+## ---- results=FALSE, message=FALSE, warning=FALSE-----------------------------
+library(surveytable)
+
+## -----------------------------------------------------------------------------
+mysurvey = namcs2019sv
+set_survey(mysurvey)
+
+## ---- results='asis'----------------------------------------------------------
+total()
+tab("MDDO", "SPECCAT", "MSA")
+
+## -----------------------------------------------------------------------------
+class(uspop2019)
+names(uspop2019)
+
+## -----------------------------------------------------------------------------
+uspop2019$total
+
+## ---- results='asis'----------------------------------------------------------
+total_rate(uspop2019$total)
+
+## -----------------------------------------------------------------------------
+levels(mysurvey$variables$MSA)
+
+## -----------------------------------------------------------------------------
+uspop2019$MSA
+
+## ---- results='asis'----------------------------------------------------------
+tab_rate("MSA", uspop2019$MSA)
+
+## ---- results='asis'----------------------------------------------------------
+tab_rate("MDDO", uspop2019$total)
+tab_rate("SPECCAT", uspop2019$total)
+
+## ---- results='asis'----------------------------------------------------------
+var_list("age")
+
+## -----------------------------------------------------------------------------
+var_cut("Age group", "AGE"
+        , c(-Inf, 0, 4, 14, 64, Inf)
+        , c("Under 1", "1-4", "5-14", "15-64", "65 and over") )
+
+## ---- results='asis'----------------------------------------------------------
+tab("AGER", "Age group", "SEX")
+tab_cross("AGER", "SEX")
+
+## ---- results='asis'----------------------------------------------------------
+tab_rate("AGER", uspop2019$AGER)
+tab_rate("Age group", uspop2019$`Age group`)
+tab_rate("SEX", uspop2019$SEX)
+
+## -----------------------------------------------------------------------------
+uspop2019$`AGER x SEX`
+
+## ---- results='asis'----------------------------------------------------------
+tab_subset_rate("AGER", "SEX", uspop2019$`AGER x SEX`)
+
+## -----------------------------------------------------------------------------
+mysurvey$variables = within(mysurvey$variables, {
+  `Medicare and Medicaid` = PAYMCARE & PAYMCAID
+  `Unknown or blank` = PAYDK | (NOPAY == "No categories marked")
+  nopwu = !( PAYPRIV | PAYMCARE | PAYMCAID | PAYWKCMP
+                | PAYOTH | PAYDK)
+  `Self-pay (real)` = PAYSELF & nopwu
+  `No charge (real)` = PAYNOCHG & nopwu
+  `No insurance` = `Self-pay (real)` | `No charge (real)`
+})
+set_survey(mysurvey)
+
+## ---- results='asis'----------------------------------------------------------
+tab("PAYPRIV", "PAYMCARE", "PAYMCAID", "Medicare and Medicaid"
+    , "No insurance", "Self-pay (real)", "No charge (real)"
+    , "PAYWKCMP", "PAYOTH", "Unknown or blank")
+
+## -----------------------------------------------------------------------------
+var_collapse("PRIMCARE", "Unknown if PCP", c("Unknown", "Blank"))
+var_collapse("REFER", "Unknown if referred", c("Unknown", "Blank"))
+
+## ---- results='asis'----------------------------------------------------------
+tab("PRIMCARE", "REFER", "SENBEFOR")
+
+## ---- results='asis'----------------------------------------------------------
+tab_subset("PRIMCARE", "SENBEFOR")
+tab_subset("REFER", "SENBEFOR")
+
+## -----------------------------------------------------------------------------
+var_cut("Age group", "AGE"
+        , c(-Inf, 0, 4, 14, 64, Inf)
+        , c("Under 1", "1-4", "5-14", "15-64", "65 and over") )
+var_cross("Age x Sex", "AGER", "SEX")
+
+## ---- results='asis'----------------------------------------------------------
+tab("MAJOR")
+
+## ---- results='asis'----------------------------------------------------------
+tab_subset("AGER", "MAJOR", "Preventive care")
+tab_subset("Age group", "MAJOR", "Preventive care")
+tab_subset("SEX", "MAJOR", "Preventive care")
+tab_subset("Age x Sex", "MAJOR", "Preventive care")
+
+## ---- results='asis'----------------------------------------------------------
+for (vr in c("AGER", "Age group", "SEX", "Age x Sex")) {
+	print( tab_subset(vr, "MAJOR", "Preventive care") )
+}
+
+## -----------------------------------------------------------------------------
+tmp_file = tempfile(fileext = ".csv")
+suppressMessages( set_output(csv = tmp_file) )
+
+for (vr in c("AGER", "Age group", "SEX", "Age x Sex")) {
+	var_cross("tmp", "MAJOR", vr)
+	for (lvl in levels(surveytable:::env$survey$variables[,vr])) {
+		tab_subset("SPECCAT", "tmp", paste0("Preventive care : ", lvl))
+	}
+}
+set_output(csv = "")
+
+## ---- results='asis'----------------------------------------------------------
+vr = "AGER"
+var_cross("tmp", "MAJOR", vr)
+lvl = levels(surveytable:::env$survey$variables[,vr])[1]
+tab_subset("SPECCAT", "tmp", paste0("Preventive care : ", lvl))
+
