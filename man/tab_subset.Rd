@@ -18,6 +18,7 @@ tab_subset(
   lvls = c(),
   test = FALSE,
   alpha = 0.05,
+  p_adjust = FALSE,
   drop_na = getOption("surveytable.drop_na"),
   max_levels = getOption("surveytable.max_levels"),
   csv = getOption("surveytable.csv")
@@ -37,6 +38,8 @@ tab_subset(
 \item{test}{perform hypothesis tests?}
 
 \item{alpha}{significance level for tests}
+
+\item{p_adjust}{adjust p-values for multiple comparisons?}
 
 \item{drop_na}{drop missing values (\code{NA})? Categorical variables only.}
 }
@@ -78,10 +81,10 @@ tab_subset("NUMMED", "AGER", test = TRUE)
 }
 \seealso{
 Other tables: 
+\code{\link{tab}()},
 \code{\link{tab_rate}()},
 \code{\link{tab_subset_rate}()},
-\code{\link{tab}()},
-\code{\link{total_rate}()},
-\code{\link{total}()}
+\code{\link{total}()},
+\code{\link{total_rate}()}
 }
 \concept{tables}

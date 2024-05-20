@@ -4,10 +4,15 @@
 \alias{set_survey}
 \title{Specify the survey to analyze}
 \usage{
-set_survey(design)
+set_survey(design, opts = "NCHS", csv = getOption("surveytable.csv"))
 }
 \arguments{
-\item{design}{a survey object (\code{survey.design} or \code{svyrep.design})}
+\item{design}{either a survey object (\code{survey.design} or \code{svyrep.design}) or a
+\code{data.frame} for an unweighted survey.}
+
+\item{opts}{set certain options. See below.}
+
+\item{csv}{name of a CSV file}
 }
 \value{
 Info about the survey.
@@ -17,6 +22,22 @@ You need to specify a survey before the other functions, such as \code{\link[=ta
 will work.
 }
 \details{
+\code{opts}:
+\itemize{
+\item \code{"nchs"}:
+\itemize{
+\item Round counts to the nearest 1,000 -- see \code{\link[=set_count_1k]{set_count_1k()}}.
+\item Identify low-precision estimates (\code{surveytable.find_lpe} option is \code{TRUE}).
+\item Percentage CI's: adjust Korn-Graubard CI's for the number of degrees of freedom, matching the SUDAAN calculation (\code{surveytable.adjust_svyciprop} option is \code{TRUE}).
+}
+\item \verb{"general":}
+\itemize{
+\item Round counts to the nearest integer -- see \code{\link[=set_count_int]{set_count_int()}}.
+\item Do not look for low-precision estimates (\code{surveytable.find_lpe} option is \code{FALSE}).
+\item Percentage CI's: use standard Korn-Graubard CI's (\code{surveytable.adjust_svyciprop} option is \code{FALSE}).
+}
+}
+
 Optionally, the survey can have an attribute called \code{label}, which is the
 long name of the survey.
 
@@ -26,3 +47,11 @@ which is the variable's long name.
 \examples{
 set_survey(namcs2019sv)
 }
+\seealso{
+Other options: 
+\code{\link{set_count_1k}()},
+\code{\link{set_output}()},
+\code{\link{show_options}()},
+\code{\link{surveytable-options}}
+}
+\concept{options}

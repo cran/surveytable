@@ -1,6 +1,6 @@
-#' Is any variable true? (Logical OR)
+#' Are all the variables true? (Logical AND)
 #'
-#' Create a new variable which is true if any of the variables in a list of
+#' Create a new variable which is true if all of the variables in a list of
 #' variables are true.
 #'
 #' @param newvr   name of the new variable to be created
@@ -12,23 +12,21 @@
 #'
 #' @examples
 #' set_survey(namcs2019sv)
-#' var_any("Imaging services"
-#' , c("ANYIMAGE", "BONEDENS", "CATSCAN", "ECHOCARD", "OTHULTRA"
-#' , "MAMMO", "MRI", "XRAY", "OTHIMAGE"))
-#' tab("Imaging services")
-var_any = function(newvr, vrs) {
+#' var_all("Medicare and Medicaid", c("PAYMCARE", "PAYMCAID"))
+#' tab("Medicare and Medicaid")
+var_all = function(newvr, vrs) {
   design = .load_survey()
   nm = names(design$variables)
   if(newvr %in% nm) {
     warning(newvr, ": overwriting a variable that already exists.")
   }
 
-  design$variables[,newvr] = FALSE
+  design$variables[,newvr] = TRUE
   for (vr in vrs) {
     assert_that(vr %in% nm, msg = paste("Variable", vr, "not in the data."))
     assert_that(is.logical(design$variables[,vr])
-      , msg = paste0(vr, ": must be logical. Is ", class(design$variables[,vr])[1] ))
-    design$variables[,newvr] = design$variables[,newvr] | design$variables[,vr]
+                , msg = paste0(vr, ": must be logical. Is ", class(design$variables[,vr])[1] ))
+    design$variables[,newvr] = design$variables[,newvr] & design$variables[,vr]
   }
   env$survey = design
 }

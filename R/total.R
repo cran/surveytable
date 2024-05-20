@@ -12,8 +12,6 @@
 total = function(csv = getOption("surveytable.csv") ) {
   design = .load_survey()
   m1 = .total(design)
-  assert_that(ncol(m1) %in% c(4L, 5L))
-  attr(m1, "num") = 1:4
   attr(m1, "title") = "Total"
 
   .write_out(m1, csv = csv)
@@ -24,18 +22,23 @@ total = function(csv = getOption("surveytable.csv") ) {
 
   ##
   counts = nrow(design$variables)
-  if (getOption("surveytable.check_present")) {
-    pro = getOption("surveytable.present_restricted") %>% do.call(list(counts))
+  if (getOption("surveytable.find_lpe")) {
+    pro = getOption("surveytable.lpe_n") %>% do.call(list(counts))
   } else {
     pro = list(flags = rep("", length(counts)), has.flag = c())
   }
 
   ##
-  sto = svytotal(~Total, design) # , deff = TRUE)
+  sto = svytotal(~Total, design) # , deff = "replace")
   mmcr = data.frame(x = as.numeric(sto)
               , s = sqrt(diag(attr(sto, "var"))) )
-  mmcr$samp.size = .calc_samp_size(design = design, vr = "Total", counts = counts)
   mmcr$counts = counts
+  counts_sum = sum(counts)
+
+  mmcr$deff = deffK(design$prob)
+  mmcr$samp.size = mmcr$counts / mmcr$deff
+  idx.bad = which(mmcr$samp.size > mmcr$counts)
+  mmcr$samp.size[idx.bad] = mmcr$counts[idx.bad]
 
   df1 = degf(design)
   mmcr$degf = df1
@@ -47,30 +50,37 @@ total = function(csv = getOption("surveytable.csv") ) {
   mmcr$ll = exp(mmcr$lnx - mmcr$k)
   mmcr$ul = exp(mmcr$lnx + mmcr$k)
 
-  if (getOption("surveytable.check_present")) {
-    pco = getOption("surveytable.present_count") %>% do.call(list(mmcr))
+  if (getOption("surveytable.find_lpe")) {
+    pco = getOption("surveytable.lpe_counts") %>% do.call(list(mmcr))
   } else {
     pco = list(flags = rep("", nrow(mmcr)), has.flag = c())
   }
 
-  mmcr = mmcr[,c("x", "s", "ll", "ul")]
-  mmc = getOption("surveytable.tx_count") %>% do.call(list(mmcr))
+  mmc = getOption("surveytable.tx_count") %>% do.call(list(mmcr[,c("x", "s", "ll", "ul")]))
+  mmc$counts = mmcr$counts
+  mmc = mmc[,c("counts", "x", "s", "ll", "ul")]
   names(mmc) = getOption("surveytable.names_count")
 
   ##
   assert_that(nrow(mmc) == 1
-              , nrow(mmcr) == 1
-              , nrow(mmc) == length(pro$flags)
-              , nrow(mmc) == length(pco$flags))
-
+              , nrow(mmcr) == 1)
   mp = mmc
-  flags = paste(pro$flags, pco$flags) %>% trimws
-  if (any(nzchar(flags))) {
-    mp$Flags = flags
-  }
-  mp %<>% .add_flags( c(pro$has.flag, pco$has.flag) )
 
   ##
   rownames(mp) = NULL
+
+  attr(mp, "num") = 1:5
+  attr(mp, "footer") = paste0("N = ", counts_sum, ".")
+
+  if (getOption("surveytable.find_lpe")) {
+    assert_that(nrow(mmc) == length(pro$flags)
+      , nrow(mmc) == length(pco$flags))
+    flags = paste(pro$flags, pco$flags) %>% trimws
+    if (any(nzchar(flags))) {
+      mp$Flags = flags
+    }
+    mp %<>% .add_flags( list(pro, pco) )
+  }
+
   mp
 }

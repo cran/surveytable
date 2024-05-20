@@ -14,9 +14,9 @@ knitr::opts_chunk$set(
 )
 ```
 
-This example uses the National Ambulatory Medical Care Survey (NAMCS) 2019 Public Use File (PUF) to replicate certain tables from the [National Ambulatory Medical Care Survey: 2019 National Summary Tables](https://www.cdc.gov/nchs/data/ahcd/namcs_summary/2019-namcs-web-tables-508.pdf). NAMCS is "an annual nationally representative sample survey of visits to non-federal office-based patient care physicians, excluding anesthesiologists, radiologists, and pathologists." Note that the unit of observation is visits, not patients – this distinction is important since a single patient can make multiple visits.
+This example uses the National Ambulatory Medical Care Survey (NAMCS) 2019 Public Use File (PUF) to replicate certain tables from the [National Ambulatory Medical Care Survey: 2019 National Summary Tables](https://www.cdc.gov/nchs/data/ahcd/namcs_summary/2019-namcs-web-tables-508.pdf). NAMCS is "an annual nationally representative sample survey of visits to non-federal office-based patient care physicians, excluding anesthesiologists, radiologists, and pathologists." Note that the unit of observation is visits, not patients -- this distinction is important since a single patient can make multiple visits.
 
-Selected variables from NAMCS 2019 come with the `surveytable` package, for use in examples, in an object called `namcs2019sv`. To make the below code more reusable, we'll call the survey by a generic name, namely, `mysurvey`.
+Selected variables from NAMCS 2019 come with the `surveytable` package, for use in examples, in an object called `namcs2019sv`.
 
 # Begin
 
@@ -28,9 +28,8 @@ library(surveytable)
 
 Now, specify the survey that you'd like to analyze.
 
-```{r}
-mysurvey = namcs2019sv
-set_survey(mysurvey)
+```{r, results='asis'}
+set_survey(namcs2019sv)
 ```
 
 Check the survey name, survey design variables, and the number of observations to verify that it all looks correct.
@@ -67,15 +66,9 @@ Once we have the overall population estimate, the overall rate is:
 total_rate(uspop2019$total)
 ```
 
-Recall that survey design objects have an element called `variables`, which is a data frame that contains the survey variables. Let's examine the levels of `MSA`.
+To calculate the rates for a particular variable, we need to provide a data frame with a variable called `Level` that matches the levels of the variable in the survey, and a variable called `Population` that gives the population size (which is assumed to be a constant rather than a random variable).
 
-```{r}
-levels(mysurvey$variables$MSA)
-```
-
-To calculate the rates for a particular variable, we need to provide a data frame with a variable called `Level` that matches the levels of the variable in the survey. `Population` gives the population estimate.
-
-For example, for `MSA`, we need a data frame as follows:
+For `MSA`, we can see the levels of the variables just by using the `tab()` command, just as we did above. Thus, to calculate rates, we need a data frame as follows:
 
 ```{r}
 uspop2019$MSA
@@ -137,34 +130,29 @@ tab_subset_rate("AGER", "SEX", uspop2019$`AGER x SEX`)
 
 # Table 5
 
-This table gives the expected sources of payment. We use the `PAY*` variables to create several new variables that are required by the table. Note that the `PAY*` variables are logical (`TRUE` or `FALSE`), which simplifies the syntax. (The survey was imported into R using the `importsurvey` package, which automatically detects binary variables and imports them as logical variables.)
-
-Recall that survey design objects have an element called `variables`, which is a data frame that contains the survey variables. 
-
-```{r}
-mysurvey$variables = within(mysurvey$variables, {
-  `Medicare and Medicaid` = PAYMCARE & PAYMCAID
-  `Unknown or blank` = PAYDK | (NOPAY == "No categories marked")
-  nopwu = !( PAYPRIV | PAYMCARE | PAYMCAID | PAYWKCMP
-                | PAYOTH | PAYDK)
-  `Self-pay (real)` = PAYSELF & nopwu
-  `No charge (real)` = PAYNOCHG & nopwu
-  `No insurance` = `Self-pay (real)` | `No charge (real)`
-})
-set_survey(mysurvey)
-```
-
-Notes:
-
-* We're using the `within()` function to simplify the syntax.
-* `nopwu` = No other payment was used, such as private, Medicare, etc.
-* `Self-pay (real)` = self-pay was used AND no other payment was used.
-* After making changes to `mysurvey`, we need to call `set_survey()` again.
+This table gives the expected sources of payment. We use the `PAY*` variables to create several new variables that are required by the table. Note that the `PAY*` variables are logical (`TRUE` or `FALSE`), which simplifies the workflow. (The survey was imported into R using the `importsurvey` package, which automatically detects binary variables and imports them as logical variables.)
 
 ```{r, results='asis'}
+#
+var_all("Medicare and Medicaid", c("PAYMCARE", "PAYMCAID"))
+
+#
+var_any("Payment used", c("PAYPRIV", "PAYMCARE", "PAYMCAID"
+  , "PAYWKCMP", "PAYOTH", "PAYDK"))
+var_not("No other payment used", "Payment used")
+
+var_all("Self-pay", c("PAYSELF", "No other payment used"))
+var_all("No charge", c("PAYNOCHG", "No other payment used"))
+var_any("No insurance", c("Self-pay", "No charge"))
+
+#
+var_case("No pay", "NOPAY", "No categories marked")
+var_any("Unknown or blank", c("PAYDK", "No pay"))
+
+##
 tab("PAYPRIV", "PAYMCARE", "PAYMCAID", "Medicare and Medicaid"
-    , "No insurance", "Self-pay (real)", "No charge (real)"
-    , "PAYWKCMP", "PAYOTH", "Unknown or blank")
+  , "No insurance", "Self-pay", "No charge"
+  , "PAYWKCMP", "PAYOTH", "Unknown or blank")
 ```
 
 Check the presentation standards flags! Under NCHS presentation standards rules, some of these estimates should not be shown.
@@ -244,7 +232,7 @@ suppressMessages( set_output(csv = tmp_file) )
 for (vr in c("AGER", "Age group", "SEX", "Age x Sex")) {
 	var_cross("tmp", "MAJOR", vr)
 	for (lvl in levels(surveytable:::env$survey$variables[,vr])) {
-		tab_subset("SPECCAT", "tmp", paste0("Preventive care : ", lvl))
+		tab_subset("SPECCAT", "tmp", paste0("Preventive care: ", lvl))
 	}
 }
 set_output(csv = "")
@@ -255,7 +243,7 @@ set_output(csv = "")
 * As before, the loop goes through the age, sex, and age / sex interaction variables, calling each of these variables `vr`. 
 * MAJOR and `vr` are crossed, with the result stored in a variable called `tmp`.
 * Next, the inner loop goes through all levels of `vr`, calling each of these levels `lvl`. 
-* The code tabulates `SPECCAT` (Type of specialty – Primary, Medical, Surgical) on a subset in which `tmp` (which is `MAJOR` crossed with `vr`) is restricted to “Preventive care:” followed by `lvl`, which is some level of `vr`, such as “Under 15 years” for `AGER`. 
+* The code tabulates `SPECCAT` (Type of specialty – Primary, Medical, Surgical) on a subset in which `tmp` (which is `MAJOR` crossed with `vr`) is restricted to `"Preventive care: "` followed by `lvl`, which is some level of `vr`, such as “Under 15 years” for `AGER`. 
 * Finally, CSV output is turned off. 
 
 If you run this code, all of the tables should be stored in the CSV file. To give you an idea of what the tables should look like, here is just one of the tables:
@@ -264,7 +252,7 @@ If you run this code, all of the tables should be stored in the CSV file. To giv
 vr = "AGER"
 var_cross("tmp", "MAJOR", vr)
 lvl = levels(surveytable:::env$survey$variables[,vr])[1]
-tab_subset("SPECCAT", "tmp", paste0("Preventive care : ", lvl))
+tab_subset("SPECCAT", "tmp", paste0("Preventive care: ", lvl))
 ```
 
 To match the percentage in the published table, see the "Primary care specialty" row. Be sure to check the presentation standards flags.

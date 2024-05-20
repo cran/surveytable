@@ -23,13 +23,13 @@ env = new.env()
   options(
     surveytable.survey_label = ""
 
-    , surveytable.check_present = TRUE
-    , surveytable.present_restricted = ".present_restricted"
-    , surveytable.present_count = ".present_count"
-    , surveytable.present_prop = ".present_prop"
+    , surveytable.find_lpe = TRUE
+    , surveytable.lpe_n = ".lpe_n"
+    , surveytable.lpe_counts = ".lpe_counts"
+    , surveytable.lpe_percents = ".lpe_percents"
 
     , surveytable.tx_count = ".tx_count_1k"
-    , surveytable.names_count = c("Number (000)", "SE (000)", "LL (000)", "UL (000)")
+    , surveytable.names_count = c("n", "Number (000)", "SE (000)", "LL (000)", "UL (000)")
 
     , surveytable.tx_prct = ".tx_prct"
     , surveytable.names_prct = c("Percent", "SE", "LL", "UL")
@@ -41,10 +41,13 @@ env = new.env()
     , surveytable.rate_per = 100
     , surveytable.tx_rate = ".tx_rate"
 
+    , surveytable.tx_numeric = ".tx_numeric"
+
     , surveytable.adjust_svyciprop = FALSE
     , surveytable.adjust_svyciprop.df_method = "NHIS"
 
     , surveytable.svychisq_statistic = "F"
+    , surveytable.p.adjust_method = "bonferroni"
   )
   # No - creates a startup message which cannot be suppressed.
   # set_count_1k()
@@ -56,4 +59,8 @@ env = new.env()
 
 .tx_rate = function(x) {
   round(x, 1)
+}
+
+.tx_numeric = function(x) {
+  signif(x, 3)
 }

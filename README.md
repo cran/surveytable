@@ -10,30 +10,30 @@ The `surveytable` package provides short and understandable commands
 that generate tabulated, formatted, and rounded survey estimates. One
 useful function, which operates on categorical and logical variables,
 tabulates estimated counts and percentages with their standard errors
-and confidence intervals. Other functions list the variables in a
-survey, estimate the total population, tabulate survey subsets and
-variable interactions, tabulate numeric variables, tabulate rates,
-create or modify survey variables, perform hypothesis tests, and save
-the output. All of the tabulation functions check the National Center
-for Health Statistics (NCHS) presentation standards to flag
-low-precision estimates. If the `surveytable` code is called from an R
-Markdown notebook or a Quarto document, it generates HTML tables, which
-can be incorporated directly into documents.
+and confidence intervals. Other functions estimate the total population,
+tabulate survey subsets and variable interactions, tabulate numeric
+variables, perform hypothesis tests, tabulate rates, modify survey
+variables, and save the output. All of the tabulation functions identify
+low-precision estimates using algorithms developed at the National
+Center for Health Statistics (NCHS). If the `surveytable` code is called
+from an R Markdown notebook, it automatically generates HTML or LaTeX
+tables, as appropriate. The package reduces the number of commands that
+users need to execute, which is especially helpful for users new to R or
+to programming.
 
 ## Installation
 
-You can install `surveytable` like so:
+Install from CRAN:
+
+``` r
+install.packages("surveytable")
+```
+
+or get a development version from GitHub:
 
 ``` r
 install.packages(c("remotes", "git2r"))
 remotes::install_github("CDCgov/surveytable", upgrade = "never")
-```
-
-Once `surveytable` is available on CRAN, you will be able to install it
-like this:
-
-``` r
-install.packages("surveytable")
 ```
 
 ## Documentation
@@ -51,22 +51,46 @@ library(surveytable)
 
 ``` r
 set_survey(namcs2019sv)
-#> * To adjust how counts are rounded, see ?set_count_int
-#>                        _                                                                    
-#> Survey name            NAMCS 2019 PUF                                                       
-#> Number of variables    33                                                                   
-#> Number of observations 8250                                                                 
-#> Info1                  Stratified 1 - level Cluster Sampling design (with replacement)      
-#> Info2                  With (398) clusters.                                                 
-#> Info3                  survey::svydesign(ids = ~CPSUM, strata = ~CSTRATM, weights = ~PATWT, 
-#> Info4                      data = namcs2019sv_df)
 ```
+
+<table class="huxtable" data-quarto-disable-processing="true" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  ">
+<caption style="caption-side: top; text-align: center;">
+Survey info {NAMCS 2019 PUF}
+</caption>
+<col>
+<col>
+<col>
+<tr>
+<th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0.4pt 0.4pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+Variables
+</th>
+<th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0.4pt 0.4pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+Observations
+</th>
+<th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0.4pt 0.4pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+Design
+</th>
+</tr>
+<tr>
+<td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0.4pt 0.4pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+33
+</td>
+<td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0.4pt 0.4pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+8,250
+</td>
+<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0.4pt 0.4pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+Stratified 1 - level Cluster Sampling design (with replacement)<br>With
+(398) clusters.<br>survey::svydesign(ids = ~CPSUM, strata = ~CSTRATM,
+weights = ~PATWT, <br> data = namcs2019sv_df)
+</td>
+</tr>
+</table>
 
 ``` r
 tab("AGER")
 ```
 
-<table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-4">
+<table class="huxtable" data-quarto-disable-processing="true" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  ">
 <caption style="caption-side: top; text-align: center;">
 Patient age recode {NAMCS 2019 PUF}
 </caption>
@@ -79,9 +103,13 @@ Patient age recode {NAMCS 2019 PUF}
 <col>
 <col>
 <col>
+<col>
 <tr>
 <th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0.4pt 0.4pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
 Level
+</th>
+<th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0.4pt 0.4pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+n
 </th>
 <th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0.4pt 0.4pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
 Number (000)
@@ -113,6 +141,9 @@ UL
 Under 15 years
 </td>
 <td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0.4pt 0.4pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+887
+</td>
+<td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0.4pt 0.4pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
 117,917
 </td>
 <td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0.4pt 0.4pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
@@ -140,6 +171,9 @@ Under 15 years
 <tr>
 <td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0.4pt 0.4pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
 15-24 years
+</td>
+<td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0.4pt 0.4pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+542
 </td>
 <td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0.4pt 0.4pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
 64,856
@@ -171,6 +205,9 @@ Under 15 years
 25-44 years
 </td>
 <td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0.4pt 0.4pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+1,435
+</td>
+<td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0.4pt 0.4pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
 170,271
 </td>
 <td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0.4pt 0.4pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
@@ -198,6 +235,9 @@ Under 15 years
 <tr>
 <td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0.4pt 0.4pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
 45-64 years
+</td>
+<td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0.4pt 0.4pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+2,283
 </td>
 <td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0.4pt 0.4pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
 309,506
@@ -229,6 +269,9 @@ Under 15 years
 65-74 years
 </td>
 <td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0.4pt 0.4pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+1,661
+</td>
+<td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0.4pt 0.4pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
 206,866
 </td>
 <td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0.4pt 0.4pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
@@ -258,6 +301,9 @@ Under 15 years
 75 years and over
 </td>
 <td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0.4pt 0.8pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+1,442
+</td>
+<td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0.4pt 0.8pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
 167,069
 </td>
 <td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0.4pt 0.8pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
@@ -283,8 +329,8 @@ Under 15 years
 </td>
 </tr>
 <tr>
-<td colspan="9" style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.8pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
-(Checked presentation standards. Nothing to report.)
+<td colspan="10" style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.8pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+N = 8250. Checked NCHS presentation standards. Nothing to report.
 </td>
 </tr>
 </table>

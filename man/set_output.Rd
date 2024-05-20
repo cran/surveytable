@@ -5,14 +5,16 @@
 \alias{show_output}
 \title{Set output defaults}
 \usage{
-set_output(csv = NULL, max_levels = NULL)
+set_output(drop_na = NULL, max_levels = NULL, csv = NULL)
 
 show_output()
 }
 \arguments{
-\item{csv}{name of a CSV file or "" to turn off CSV output}
+\item{drop_na}{drop missing values (\code{NA})? Categorical variables only.}
 
 \item{max_levels}{a categorical variable can have at most this many levels. Used to avoid printing huge tables.}
+
+\item{csv}{name of a CSV file or "" to turn off CSV output}
 }
 \value{
 (Nothing.)
@@ -23,11 +25,13 @@ show_output()
 \examples{
 tmp_file = tempfile(fileext = ".csv")
 suppressMessages( set_output(csv = tmp_file) )
+tab("AGER")
 set_output(csv = "") # Turn off CSV output
 }
 \seealso{
 Other options: 
 \code{\link{set_count_1k}()},
+\code{\link{set_survey}()},
 \code{\link{show_options}()},
 \code{\link{surveytable-options}}
 }
