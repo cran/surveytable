@@ -4,53 +4,36 @@
 \alias{set_survey}
 \title{Specify the survey to analyze}
 \usage{
-set_survey(design, opts = "NCHS", csv = getOption("surveytable.csv"))
+set_survey(design, csv = getOption("surveytable.csv"), ...)
 }
 \arguments{
-\item{design}{either a survey object (\code{survey.design} or \code{svyrep.design}) or a
-\code{data.frame} for an unweighted survey.}
-
-\item{opts}{set certain options. See below.}
+\item{design}{either a survey object (created with \code{\link[survey:svydesign]{survey::svydesign()}} or
+\code{\link[survey:svrepdesign]{survey::svrepdesign()}}); or, for an unweighted survey, a \code{data.frame}.}
 
 \item{csv}{name of a CSV file}
+
+\item{...}{arguments to \code{\link[=set_opts]{set_opts()}}.}
 }
 \value{
-Info about the survey.
+info about the survey
 }
 \description{
-You need to specify a survey before the other functions, such as \code{\link[=tab]{tab()}},
-will work.
+You must specify a survey before the other functions, such as \code{\link[=tab]{tab()}},
+will work. To convert a \code{data.frame} to a survey object, see \code{\link[survey:svydesign]{survey::svydesign()}}
+or \code{\link[survey:svrepdesign]{survey::svrepdesign()}}.
 }
 \details{
-\code{opts}:
-\itemize{
-\item \code{"nchs"}:
-\itemize{
-\item Round counts to the nearest 1,000 -- see \code{\link[=set_count_1k]{set_count_1k()}}.
-\item Identify low-precision estimates (\code{surveytable.find_lpe} option is \code{TRUE}).
-\item Percentage CI's: adjust Korn-Graubard CI's for the number of degrees of freedom, matching the SUDAAN calculation (\code{surveytable.adjust_svyciprop} option is \code{TRUE}).
-}
-\item \verb{"general":}
-\itemize{
-\item Round counts to the nearest integer -- see \code{\link[=set_count_int]{set_count_int()}}.
-\item Do not look for low-precision estimates (\code{surveytable.find_lpe} option is \code{FALSE}).
-\item Percentage CI's: use standard Korn-Graubard CI's (\code{surveytable.adjust_svyciprop} option is \code{FALSE}).
-}
-}
-
 Optionally, the survey can have an attribute called \code{label}, which is the
-long name of the survey.
-
-Optionally, each variable in the survey can have an attribute called \code{label},
-which is the variable's long name.
+long name of the survey. Optionally, each variable in the survey can have an
+attribute called \code{label}, which is the variable's long name.
 }
 \examples{
 set_survey(namcs2019sv)
+set_survey(namcs2019sv, mode = "general")
 }
 \seealso{
 Other options: 
-\code{\link{set_count_1k}()},
-\code{\link{set_output}()},
+\code{\link{set_opts}()},
 \code{\link{show_options}()},
 \code{\link{surveytable-options}}
 }

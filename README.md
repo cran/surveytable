@@ -6,20 +6,42 @@
 <!-- badges: start -->
 <!-- badges: end -->
 
-The `surveytable` package provides short and understandable commands
-that generate tabulated, formatted, and rounded survey estimates. One
-useful function, which operates on categorical and logical variables,
-tabulates estimated counts and percentages with their standard errors
-and confidence intervals. Other functions estimate the total population,
-tabulate survey subsets and variable interactions, tabulate numeric
-variables, perform hypothesis tests, tabulate rates, modify survey
-variables, and save the output. All of the tabulation functions identify
-low-precision estimates using algorithms developed at the National
-Center for Health Statistics (NCHS). If the `surveytable` code is called
-from an R Markdown notebook, it automatically generates HTML or LaTeX
-tables, as appropriate. The package reduces the number of commands that
-users need to execute, which is especially helpful for users new to R or
-to programming.
+`surveytable` is an R package for conveniently tabulating estimates from
+**complex surveys**.
+
+- If you deal with survey objects in R (created with
+  `survey::svydesign()`), then this package is for you.
+
+- Works with **complex surveys** (data systems that involve survey
+  design variables, like weights and strata).
+
+- Works with **unweighted** data as well.
+
+- The `surveytable` package provides short and understandable commands
+  that generate tabulated, formatted, and rounded survey estimates.
+
+- With `surveytable`, you can
+
+  - tabulate estimated counts and percentages, with their standard
+    errors and confidence intervals,
+  - estimate the total population,
+  - tabulate survey subsets and variable interactions,
+  - tabulate numeric variables,
+  - perform hypothesis tests,
+  - tabulate rates,
+  - modify survey variables, and
+  - save the output.
+
+- Optionally, all of the tabulation functions can identify low-precision
+  estimates using the National Center for Health Statistics (NCHS)
+  algorithms (or other algorithms).
+
+- If the `surveytable` code is called from an R Markdown notebook or a
+  Quarto document, it automatically generates HTML or LaTeX tables, as
+  appropriate.
+
+- The package reduces the number of commands that users need to execute,
+  which is especially helpful for users new to R or to programming.
 
 ## Installation
 
@@ -29,7 +51,7 @@ Install from CRAN:
 install.packages("surveytable")
 ```
 
-or get a development version from GitHub:
+or get the development version from GitHub:
 
 ``` r
 install.packages(c("remotes", "git2r"))
@@ -45,9 +67,14 @@ Find the documentation for `surveytable` here:
 
 Here is a basic example, to get you started.
 
+1.  Load the package:
+
 ``` r
 library(surveytable)
 ```
+
+2.  Specify the survey that you wish you analyze. `surveytable` comes
+    with a survey called `namcs2019sv`, for use in examples.
 
 ``` r
 set_survey(namcs2019sv)
@@ -80,11 +107,14 @@ Design
 </td>
 <td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0.4pt 0.4pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
 Stratified 1 - level Cluster Sampling design (with replacement)<br>With
-(398) clusters.<br>survey::svydesign(ids = ~CPSUM, strata = ~CSTRATM,
-weights = ~PATWT, <br> data = namcs2019sv_df)
+(398) clusters.<br>namcs2019sv = survey::svydesign(ids = ~CPSUM, strata
+= ~CSTRATM, weights = ~PATWT<br> , data = namcs2019sv_df)
 </td>
 </tr>
 </table>
+
+3.  Specify the variable to analyze. In NAMCS, `AGER` is the age
+    category variable:
 
 ``` r
 tab("AGER")
@@ -112,16 +142,16 @@ Level
 n
 </th>
 <th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0.4pt 0.4pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
-Number (000)
+Number
 </th>
 <th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0.4pt 0.4pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
-SE (000)
+SE
 </th>
 <th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0.4pt 0.4pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
-LL (000)
+LL
 </th>
 <th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0.4pt 0.4pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
-UL (000)
+UL
 </th>
 <th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0.4pt 0.4pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
 Percent
@@ -144,16 +174,16 @@ Under 15 years
 887
 </td>
 <td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0.4pt 0.4pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
-117,917
+117,916,772
 </td>
 <td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0.4pt 0.4pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
-14,097
+14,097,315
 </td>
 <td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0.4pt 0.4pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
-93,229
+93,228,928
 </td>
 <td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0.4pt 0.4pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
-149,142
+149,142,177
 </td>
 <td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0.4pt 0.4pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
 11.4
@@ -176,16 +206,16 @@ Under 15 years
 542
 </td>
 <td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0.4pt 0.4pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
-64,856
+64,855,698
 </td>
 <td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0.4pt 0.4pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
-7,018
+7,018,359
 </td>
 <td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0.4pt 0.4pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
-52,387
+52,386,950
 </td>
 <td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0.4pt 0.4pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
-80,292
+80,292,164
 </td>
 <td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0.4pt 0.4pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
 6.3
@@ -208,16 +238,16 @@ Under 15 years
 1,435
 </td>
 <td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0.4pt 0.4pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
-170,271
+170,270,604
 </td>
 <td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0.4pt 0.4pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
-13,966
+13,965,978
 </td>
 <td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0.4pt 0.4pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
-144,925
+144,924,545
 </td>
 <td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0.4pt 0.4pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
-200,049
+200,049,472
 </td>
 <td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0.4pt 0.4pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
 16.4
@@ -240,16 +270,16 @@ Under 15 years
 2,283
 </td>
 <td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0.4pt 0.4pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
-309,506
+309,505,956
 </td>
 <td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0.4pt 0.4pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
-23,290
+23,289,827
 </td>
 <td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0.4pt 0.4pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
-266,994
+266,994,092
 </td>
 <td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0.4pt 0.4pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
-358,787
+358,786,727
 </td>
 <td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0.4pt 0.4pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
 29.9
@@ -272,16 +302,16 @@ Under 15 years
 1,661
 </td>
 <td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0.4pt 0.4pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
-206,866
+206,865,982
 </td>
 <td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0.4pt 0.4pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
-14,366
+14,365,993
 </td>
 <td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0.4pt 0.4pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
-180,481
+180,480,708
 </td>
 <td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0.4pt 0.4pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
-237,109
+237,108,637
 </td>
 <td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0.4pt 0.4pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
 20  
@@ -304,16 +334,16 @@ Under 15 years
 1,442
 </td>
 <td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0.4pt 0.8pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
-167,069
+167,069,344
 </td>
 <td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0.4pt 0.8pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
-15,179
+15,179,082
 </td>
 <td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0.4pt 0.8pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
-139,746
+139,746,193
 </td>
 <td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0.4pt 0.8pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
-199,735
+199,734,713
 </td>
 <td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0.4pt 0.8pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
 16.1
@@ -330,10 +360,23 @@ Under 15 years
 </tr>
 <tr>
 <td colspan="10" style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.8pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
-N = 8250. Checked NCHS presentation standards. Nothing to report.
+N = 8250.
 </td>
 </tr>
 </table>
+
+The table shows:
+
+- Descriptive variable name
+- Survey name
+- For each level of the variable:
+  - Number of observations
+  - Estimated count with its SE and 95% CI
+  - Estimated percentage with its SE and 95% CI
+- Sample size
+- Optionally, the table can show whether any low-precision estimates
+  were found
+
 <!-- CDC standard text -->
 
 ## Public Domain Standard Notice

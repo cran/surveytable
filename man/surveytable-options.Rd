@@ -9,11 +9,22 @@ Run \code{\link[=show_options]{show_options()}} to see available options. Here i
 notable options.
 }
 \details{
-\strong{Low-precision estimates.}
+\subsection{Low-precision estimates.}{
+
+Optionally, all of the tabulation functions can identify low-precision estimates.
+Turn on this functionality using any of the following: \link{set_opts}(lpe = TRUE),
+\link{set_opts}(mode = "nchs"), \link{set_survey}(*, mode = "nchs"), or \code{options(surveytable.find_lpe = TRUE)}.
+
+By default, low-precision estimates are identified using National Center for
+Health Statistics (NCHS) algorithms. However, this can be changed, as described
+below.
+
+Here is a description of the options related to the identification of low-precision
+estimates.
 \itemize{
 \item \code{surveytable.find_lpe}: should the tabulation functions look for low-precision
-estimates? You can change this directly with \code{options()} or with the \code{opts} argument
-to \code{set_survey()}.
+estimates? You can change this directly with \code{options()} or with either \code{\link[=set_opts]{set_opts()}}
+or \code{\link[=set_survey]{set_survey()}}.
 \item \code{surveytable.lpe_n}, \code{surveytable.lpe_counts}, \code{surveytable.lpe_percents}: names
 of 3 functions.
 }
@@ -57,6 +68,7 @@ indicates that for the first and third level, nothing was found, whereas for the
 level, two different things were found, indicated by short codes \code{A1} and \code{A2}. In
 this case, \code{has.flag = c("A1", "A2")}, \code{descriptions = c(A1 = "A1: something", A2 = "A2: something else")}.
 }
+}
 \seealso{
 Useful links:
 \itemize{
@@ -66,8 +78,7 @@ Useful links:
 
 
 Other options: 
-\code{\link{set_count_1k}()},
-\code{\link{set_output}()},
+\code{\link{set_opts}()},
 \code{\link{set_survey}()},
 \code{\link{show_options}()}
 }

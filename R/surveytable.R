@@ -14,14 +14,25 @@ NULL
 
 #' Package options
 #'
-#' Run [`show_options()`] to see available options. Here is a description of some
+#' Run [show_options()] to see available options. Here is a description of some
 #' notable options.
 #'
-#' **Low-precision estimates.**
+#' ## Low-precision estimates.
+#'
+#' Optionally, all of the tabulation functions can identify low-precision estimates.
+#' Turn on this functionality using any of the following: [set_opts](lpe = TRUE),
+#' [set_opts](mode = "nchs"), [set_survey](*, mode = "nchs"), or `options(surveytable.find_lpe = TRUE)`.
+#'
+#' By default, low-precision estimates are identified using National Center for
+#' Health Statistics (NCHS) algorithms. However, this can be changed, as described
+#' below.
+#'
+#' Here is a description of the options related to the identification of low-precision
+#' estimates.
 #'
 #' * `surveytable.find_lpe`: should the tabulation functions look for low-precision
-#' estimates? You can change this directly with `options()` or with the `opts` argument
-#' to `set_survey()`.
+#' estimates? You can change this directly with `options()` or with either [set_opts()]
+#' or [set_survey()].
 #' * `surveytable.lpe_n`, `surveytable.lpe_counts`, `surveytable.lpe_percents`: names
 #' of 3 functions.
 #'
@@ -60,7 +71,6 @@ NULL
 #' indicates that for the first and third level, nothing was found, whereas for the second
 #' level, two different things were found, indicated by short codes `A1` and `A2`. In
 #' this case, `has.flag = c("A1", "A2")`, `descriptions = c(A1 = "A1: something", A2 = "A2: something else")`.
-#'
 #'
 #' @name surveytable-options
 #' @family options

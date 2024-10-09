@@ -11,6 +11,9 @@ library(surveytable)
 set_survey(namcs2019sv)
 
 ## ----results='asis'-----------------------------------------------------------
+set_opts(mode = "NCHS")
+
+## ----results='asis'-----------------------------------------------------------
 total()
 tab("MDDO", "SPECCAT", "MSA")
 
@@ -111,16 +114,13 @@ for (vr in c("AGER", "Age group", "SEX", "Age x Sex")) {
 }
 
 ## -----------------------------------------------------------------------------
-tmp_file = tempfile(fileext = ".csv")
-suppressMessages( set_output(csv = tmp_file) )
-
 for (vr in c("AGER", "Age group", "SEX", "Age x Sex")) {
 	var_cross("tmp", "MAJOR", vr)
 	for (lvl in levels(surveytable:::env$survey$variables[,vr])) {
 		tab_subset("SPECCAT", "tmp", paste0("Preventive care: ", lvl))
 	}
 }
-set_output(csv = "")
+set_opts(csv = "")
 
 ## ----results='asis'-----------------------------------------------------------
 vr = "AGER"

@@ -1,3 +1,8 @@
+# surveytable 0.9.5
+
+* Another public use data file for use in examples: `rccsu2018`.
+* `set_opts()` replaces several other functions for setting options.
+
 # surveytable 0.9.4
 
 * Optionally adjust p-values for multiple comparisons (`p_adjust` argument)

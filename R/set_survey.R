@@ -1,66 +1,32 @@
 #' Specify the survey to analyze
 #'
-#' You need to specify a survey before the other functions, such as [tab()],
-#' will work.
-#'
-#' `opts`:
-#' * `"nchs"`:
-#'    * Round counts to the nearest 1,000 -- see [set_count_1k()].
-#'    * Identify low-precision estimates (`surveytable.find_lpe` option is `TRUE`).
-#'    * Percentage CI's: adjust Korn-Graubard CI's for the number of degrees of freedom, matching the SUDAAN calculation (`surveytable.adjust_svyciprop` option is `TRUE`).
-#' * `"general":`
-#'    * Round counts to the nearest integer -- see [set_count_int()].
-#'    * Do not look for low-precision estimates (`surveytable.find_lpe` option is `FALSE`).
-#'    * Percentage CI's: use standard Korn-Graubard CI's (`surveytable.adjust_svyciprop` option is `FALSE`).
+#' You must specify a survey before the other functions, such as [tab()],
+#' will work. To convert a `data.frame` to a survey object, see [survey::svydesign()]
+#' or [survey::svrepdesign()].
 #'
 #' Optionally, the survey can have an attribute called `label`, which is the
-#' long name of the survey.
+#' long name of the survey. Optionally, each variable in the survey can have an
+#' attribute called `label`, which is the variable's long name.
 #'
-#' Optionally, each variable in the survey can have an attribute called `label`,
-#' which is the variable's long name.
-#'
-#' @param design either a survey object (`survey.design` or `svyrep.design`) or a
-#' `data.frame` for an unweighted survey.
-#' @param opts set certain options. See below.
+#' @param design either a survey object (created with [survey::svydesign()] or
+#' [survey::svrepdesign()]); or, for an unweighted survey, a `data.frame`.
 #' @param csv name of a CSV file
+#' @param ... arguments to [set_opts()].
 #'
 #' @family options
-#' @return Info about the survey.
+#' @return info about the survey
 #' @export
 #'
 #' @examples
 #' set_survey(namcs2019sv)
-set_survey = function(design, opts = "NCHS"
-  , csv = getOption("surveytable.csv")) {
-
-  ##
-  opts.table = c("nchs", "general")
-  idx = opts %>% tolower %>% pmatch(opts.table)
-  assert_that(noNA(idx), msg = paste("Unknown value of opts:", opts))
-  opts = opts.table[idx]
-
-  if (opts == "nchs") {
-    options(
-      surveytable.tx_count = ".tx_count_1k"
-      , surveytable.names_count = c("n", "Number (000)", "SE (000)", "LL (000)", "UL (000)")
-      , surveytable.find_lpe = TRUE
-      , surveytable.adjust_svyciprop = TRUE
-    )
-  } else if (opts == "general") {
-    options(
-      surveytable.tx_count = ".tx_count_int"
-      , surveytable.names_count = c("n", "Number", "SE", "LL", "UL")
-      , surveytable.find_lpe = FALSE
-      , surveytable.adjust_svyciprop = FALSE
-    )
-  } else {
-    stop("!!")
-  }
-
+#' set_survey(namcs2019sv, mode = "general")
+set_survey = function(design, csv = getOption("surveytable.csv"), ...) {
   # In case there's an error below and we don't set a new survey,
   # don't retain the previous survey either.
   env$survey = NULL
   options(surveytable.survey_label = "")
+
+  set_opts(...)
 
   if (is.string(design)) {
     label_default = design
@@ -89,6 +55,10 @@ set_survey = function(design, opts = "NCHS"
       , msg = paste0(label_default, ": must be either a survey object"
         , " (survey.design or svyrep.design) or a data.frame for an unweighted survey."
         , " Is: ", class(design)[1] ))
+
+  # get rid of non-`data.frame` classes (like tbl_df, tbl), which cause problems for some reason
+  assert_that(is.data.frame(design$variables))
+  design$variables %<>% as.data.frame()
 
   if(inherits(design, "svyrep.design") && !isTRUE(attr(design, "prob_set"))) {
     assert_that(!("prob" %in% names(design))
@@ -124,7 +94,6 @@ set_survey = function(design, opts = "NCHS"
   attr(out, "num") = c(1,2)
   .write_out(out, csv = csv)
 }
-
 
 .load_survey = function() {
   design = env$survey

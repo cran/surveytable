@@ -8,7 +8,7 @@ knitr::opts_chunk$set(
 head(iris)
 
 ## ----results=FALSE, message=FALSE, warning=FALSE------------------------------
-library("surveytable")
+library(surveytable)
 
 ## -----------------------------------------------------------------------------
 class(namcs2019sv_df$AGER)
@@ -28,10 +28,14 @@ mysurvey = survey::svydesign(ids = ~ CPSUM
 attr(mysurvey, "label") = "NAMCS 2019 PUF"
 
 ## -----------------------------------------------------------------------------
-identical(namcs2019sv, mysurvey)
+all.equal(namcs2019sv, mysurvey)
 
 ## ----results='asis'-----------------------------------------------------------
+library(surveytable)
 set_survey(namcs2019sv)
+
+## ----results='asis'-----------------------------------------------------------
+set_opts(mode = "NCHS")
 
 ## ----results='asis'-----------------------------------------------------------
 var_list("age")
@@ -127,9 +131,10 @@ tab("PRIMCARE")
 tab("AGE")
 
 ## ----results='asis'-----------------------------------------------------------
-var_cut("Age group", "AGE"
-        , c(-Inf, 0, 4, 14, 64, Inf)
-        , c("Under 1", "1-4", "5-14", "15-64", "65 and over") )
+var_cut("Age group"
+   , "AGE"
+   , c(-Inf, -0.1, 0, 4, 14, 64, Inf)
+   , c(NA, "Under 1", "1-4", "5-14", "15-64", "65 and over"))
 tab("Age group")
 
 ## ----results='asis'-----------------------------------------------------------
@@ -147,13 +152,7 @@ var_collapse("Age group", "65+", c("65-74 years", "75 years and over"))
 var_collapse("Age group", "25-64", c("25-44 years", "45-64 years"))
 tab("AGER", "Age group")
 
-## -----------------------------------------------------------------------------
-tmp_file = tempfile(fileext = ".csv")
-suppressMessages( set_output(csv = tmp_file) )
-
 ## ----results='asis'-----------------------------------------------------------
-tab("MDDO", "SPECCAT", "MSA")
-
-## -----------------------------------------------------------------------------
-set_output(csv = "")
+tab("MDDO")
+set_opts(csv = "")
 

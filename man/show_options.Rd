@@ -13,15 +13,14 @@ show_options(sw = "surveytable")
 List of options and their values.
 }
 \description{
-Show package options
+See \link{surveytable-options} for a discussion of some of the options.
 }
 \examples{
 show_options()
 }
 \seealso{
 Other options: 
-\code{\link{set_count_1k}()},
-\code{\link{set_output}()},
+\code{\link{set_opts}()},
 \code{\link{set_survey}()},
 \code{\link{surveytable-options}}
 }
