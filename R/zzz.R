@@ -1,22 +1,3 @@
-# .onAttach = function(libname, pkgname) {
-#   txt = paste0(
-#     "Before you can tabulate estimates, you have to specify which survey object"
-#     , " you would like to analyze. You can do this in a couple of ways:"
-#     , "\n\na) This package comes with a survey object for use in examples called"
-#     , " 'namcs2019sv'. This object has selected variables from the NAMCS 2019 PUF survey."
-#     , " To use this survey object:"
-#     , "\n\nset_survey(namcs2019sv)"
-#     , "\n\nb) If you have a survey object stored in a file:"
-#     , "\n\nmysurvey = readRDS('file_name.rds')"
-#     , "\n\nset_survey(mysurvey)"
-#     , "\n\nFor info on how to create a survey object from a data frame, see"
-#     , " ?survey::svydesign or ?survey::svrepdesign ."
-#   )
-#
-#   txt = paste(strwrap(txt), collapse = "\n")
-#   packageStartupMessage(txt)
-# }
-
 env = new.env()
 
 .onLoad = function(libname, pkgname) {
@@ -33,12 +14,14 @@ env = new.env()
     , surveytable.lpe_n = ".lpe_n"
     , surveytable.lpe_counts = ".lpe_counts"
     , surveytable.lpe_percents = ".lpe_percents"
-    , surveytable.adjust_svyciprop.df_method = "NHIS"
+    , surveytable.adjust_svyciprop.df_method = "default"
 
     ## other set_opts()
     , surveytable.drop_na = FALSE
     , surveytable.max_levels = 20
     , surveytable.csv = ""
+    , surveytable.output_object = ".as_object_auto"
+    , surveytable.output_print = ".print_auto"
 
     ## other
     , surveytable.tx_prct = ".tx_prct"
@@ -84,6 +67,6 @@ env = new.env()
 
   round(x)
 }
-.tx_count_none = function(x) {
+.tx_none = function(x) {
   x
 }

@@ -5,11 +5,67 @@
 \alias{surveytable-options}
 \title{Package options}
 \description{
-Run \code{\link[=show_options]{show_options()}} to see available options. Here is a description of some
-notable options.
+This article is for more advanced users. Typical users, see \code{\link[=set_opts]{set_opts()}}
+and \code{\link[=show_opts]{show_opts()}} to set and show certain options.
 }
 \details{
-\subsection{Low-precision estimates.}{
+To view all available options, use \code{\link[=show_options]{show_options()}}. Below is a description
+of some noteworthy options.
+\subsection{Changing the number of decimal places or significant digits}{
+
+By default, all estimates are rounded in a certain way. The user can change how the
+rounding is performed.
+
+The following options are the names of functions that control rounding:
+\code{surveytable.tx_count} (for estimates of counts), \code{surveytable.tx_prct} (for estimates
+of percentages), \code{surveytable.tx_rate} (for estimates of rates), and
+\code{surveytable.tx_numeric} (for estimates of numeric variables). To turn off all
+rounding, set each one of these options to \code{".tx_none"}.
+
+Each function takes one argument, a \code{data.frame} with the following columns:
+\code{x} (point estimates), \code{s} (standard errors), \code{ll} and \code{ul} (CI's).
+Each function outputs a \code{data.frame} with the same column names. For examples of
+how this works, see the internal functions \code{surveytable:::.tx_count_int} (counts,
+rounded to the nearest integer), \code{surveytable:::.tx_count_1k} (counts, rounded
+to the nearest one thousand), \code{surveytable:::.tx_prct} (percentages), \code{surveytable:::.tx_rate}
+(rates), and \code{surveytable:::.tx_numeric} (numeric variables).
+
+You can set the above options to your own custom functions. You might also want
+to adjust the following options, which are the names of
+columns in the printed tables: \code{surveytable.names_count} (by default, this
+changes when rounding counts to the nearest one thousand) and \code{surveytable.names_prct}.
+}
+
+\subsection{Printing using various table-making packages}{
+
+The tabulation functions return objects of class \code{surveytable_table} (for a single
+table) or \code{surveytable_list} (for multiple tables, which is just a list of \code{surveytable_table}
+objects). A \code{surveytable_table} object is just a \code{data.frame} with the following
+attributes: \code{title}, \code{footer}, and \code{num}, which is the index of columns that
+should be formatted as a number.
+
+Naturally, these objects can be printed using a variety of packages. \code{surveytable}
+ships with the ability to use \code{huxtable}, \code{gt}, or \code{kableExtra}. See the \code{output}
+argument of \code{\link[=set_opts]{set_opts()}}.
+
+You can supply custom code to use another table-making package or to use one of these
+table-making packages, but in a different way. The two relevant options are \code{surveytable.output_object}
+and \code{surveytable.output_print}.
+
+\code{surveytable.output_object} is the name of a function with the following arguments:
+\code{x} and \code{...}, where \code{x} is a \code{surveytable_table} object. This function returns
+an object from a table-making package, for example, it returns a \code{gt} object. Be sure
+that this package is installed.
+
+\code{surveytable.output_print} is the name of a function with the following arguments:
+\code{x} and \code{...}, where \code{x} is an object returned by the \code{surveytable.output_object}
+function. The \code{surveytable.output_print} function prints this object.
+
+For an example of how this works, see the internal functions \code{surveytable:::.as_object_huxtable}
+and \code{surveytable:::.print_huxtable}.
+}
+
+\subsection{Low-precision estimates}{
 
 Optionally, all of the tabulation functions can identify low-precision estimates.
 Turn on this functionality using any of the following: \link{set_opts}(lpe = TRUE),
@@ -83,7 +139,7 @@ Other options:
 \code{\link{show_options}()}
 }
 \author{
-\strong{Maintainer}: Alex Strashny \email{AStrashny@cdc.gov} (\href{https://orcid.org/0000-0002-6408-7745}{ORCID})
+\strong{Maintainer}: Alex Strashny \email{alex.strashny@gmail.com} (\href{https://orcid.org/0000-0002-6408-7745}{ORCID})
 
 }
 \concept{options}

@@ -1,3 +1,12 @@
+# surveytable 0.9.6
+
+* Ability to customize how the tables are printed.
+  * `output` argument to `set_opts()`
+  * New function: `as_object()`
+  * More details in `help("surveytable-options")`
+* Ability to customize rounding.
+  * More details in `help("surveytable-options")`
+
 # surveytable 0.9.5
 
 * Another public use data file for use in examples: `rccsu2018`.
@@ -15,7 +24,7 @@
   * Allows an unweighted survey as a `data.frame`.
   * Can set certain options using an argument.
 * Tabulation functions show the number of observations.
-* LaTeX printing.
+* PDF / LaTeX printing.
 
 # surveytable 0.9.2
 
