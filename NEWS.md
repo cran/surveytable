@@ -1,3 +1,7 @@
+# surveytable 0.9.7
+
+* Bugfixes.
+
 # surveytable 0.9.6
 
 * Ability to customize how the tables are printed.
