@@ -1,6 +1,6 @@
 Package: surveytable
 Title: Formatted Survey Estimates
-Version: 0.9.7
+Version: 0.9.8
 Authors@R: 
     person(given = "Alex"
         , family = "Strashny"
@@ -16,21 +16,22 @@ Description: Short and understandable commands that generate tabulated,
     Statistics (NCHS) presentation standards (Parker et al. (2017) 
     <https://www.cdc.gov/nchs/data/series/sr_02/sr02_175.pdf>,
     Parker et al. (2023) <doi:10.15620/cdc:124368>).
-Date/Publication: 2025-04-28 14:00:02 UTC
+Date/Publication: 2025-05-22 21:10:02 UTC
 License: Apache License (>= 2)
 Encoding: UTF-8
 RoxygenNote: 7.3.1
 Depends: R (>= 2.10)
 LazyData: true
 LazyDataCompression: bzip2
-Imports: assertthat, magrittr, glue, survey, huxtable, lifecycle
+Imports: assertthat, magrittr, glue, survey, huxtable
 Suggests: kableExtra, gt, knitr, rmarkdown
 VignetteBuilder: knitr
 URL: https://cdcgov.github.io/surveytable/,
         https://github.com/CDCgov/surveytable
 Language: en-US
 NeedsCompilation: no
-Packaged: 2025-04-28 13:42:22 UTC; kpr9
-Author: Alex Strashny [aut, cre] (<https://orcid.org/0000-0002-6408-7745>)
+Packaged: 2025-05-22 20:59:20 UTC; kpr9
+Author: Alex Strashny [aut, cre] (ORCID:
+    <https://orcid.org/0000-0002-6408-7745>)
 Maintainer: Alex Strashny <alex.strashny@gmail.com>
 Repository: CRAN

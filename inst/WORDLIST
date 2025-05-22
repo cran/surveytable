@@ -4,6 +4,7 @@ CDC's
 CDC’s
 CI's
 Codebook
+DataFrame
 Graubard
 Korn
 Lumley
@@ -15,6 +16,7 @@ NHIS
 NSLTCP
 ORCID
 PSU's
+PSU’s
 PUF
 RCC
 SEM
@@ -33,3 +35,4 @@ jss
 knowns
 lpe
 nchs
+tibble

@@ -93,8 +93,8 @@ tab_subset = function(vr, vrby, lvls = c()
     design$variables[,vrby] %<>% factor
   }
   assert_that(is.factor(design$variables[,vrby])
-        , msg = paste0(vrby, ": must be either factor or logical. Is "
-             , class(design$variables[,vrby])[1] ))
+        , msg = glue("{vrby}: must be either categorical (factor or character) or logical.",
+                     " Is {o2s(design$variables[,vrby])}"))
   design$variables[,vrby] %<>% droplevels %>% .fix_factor
   attr(design$variables[,vrby], "label") = lbl
 
@@ -102,6 +102,12 @@ tab_subset = function(vr, vrby, lvls = c()
   if (!is.null(lvls)) {
     assert_that(all(lvls %in% lvl0))
     lvl0 = lvls
+  }
+  if (drop_na) {
+    idx = which(lvl0 == "<N/A>")
+    if (length(idx) > 0) {
+      lvl0 = lvl0[-idx]
+    }
   }
 
   ret = list()
@@ -128,7 +134,10 @@ tab_subset = function(vr, vrby, lvls = c()
       frm = as.formula(paste0("~ `", vr, "` + `", vrby, "`"))
       fo = svychisq(frm, design
         , statistic = getOption("surveytable.svychisq_statistic", default = "F"))
-      rT = data.frame(`p-value` = fo$p.value, check.names = FALSE)
+      rT = data.frame(`Test statistic` = fo$statistic
+        , `Degrees of freedom` = glue_collapse(fo$parameter, sep = ", ")
+        , `p-value` = fo$p.value
+        , check.names = FALSE)
       test_name = fo$method
       test_title = paste0("Association between "
                           , .getvarname(design, vr)
@@ -201,7 +210,9 @@ tab_subset = function(vr, vrby, lvls = c()
       frm = as.formula(paste0("`", vr, "` ~ `", vrby, "`"))
       model1 = svyglm(frm, design)
       fo = regTermTest(model1, vrby, method = "Wald")
-      rT = data.frame(`p-value` = fo$p, check.names = FALSE)
+      rT = data.frame(`Test statistic` = fo$Ftest
+        , `Degrees of freedom` = glue_collapse(c(fo$df, fo$ddf), sep = ", ")
+        , `p-value` = fo$p, check.names = FALSE)
       # survey:::print.regTermTest
       test_name = "Wald test"
       test_title = paste0("Association between "
@@ -238,6 +249,8 @@ tab_subset = function(vr, vrby, lvls = c()
           d1 = design[which(design$variables[,vrby] %in% c(lvlA, lvlB)),]
           r1 = data.frame(`Level 1` = lvlA, `Level 2` = lvlB, check.names = FALSE)
           xx = svyttest(frm, d1)
+          r1$`Test statistic` = xx$statistic
+          r1$`Degrees of freedom` = xx$parameter
           r1$`p-value` = xx$p.value
           rT %<>% rbind(r1)
         }
