@@ -113,14 +113,17 @@ for (vr in c("AGER", "Age group", "SEX", "Age x Sex")) {
 	print( tab_subset(vr, "MAJOR", "Preventive care") )
 }
 
+## ----echo=FALSE---------------------------------------------------------------
+set_opts(output = "csv", file = "my_output.csv", .file_temp = TRUE)
+
 ## -----------------------------------------------------------------------------
 for (vr in c("AGER", "Age group", "SEX", "Age x Sex")) {
 	var_cross("tmp", "MAJOR", vr)
 	for (lvl in levels(surveytable:::env$survey$variables[,vr])) {
-		tab_subset("SPECCAT", "tmp", paste0("Preventive care: ", lvl))
+		print( tab_subset("SPECCAT", "tmp", paste0("Preventive care: ", lvl)) )
 	}
 }
-set_opts(csv = "")
+set_opts(output = "auto")
 
 ## ----results='asis'-----------------------------------------------------------
 vr = "AGER"

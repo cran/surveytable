@@ -2,29 +2,38 @@
 #'
 #' Tabulate categorical (factor or character), logical, or numeric variables.
 #'
-#' For categorical and logical variables, presents the
-#' estimated counts, their standard errors (SEs) and confidence
-#' intervals (CIs), percentages, and their SEs and CIs. Checks
-#' the presentation guidelines for counts and percentages and flags
-#' estimates if, according to the guidelines,
-#' they should be suppressed, footnoted, or reviewed by an analyst.
+#' For categorical and logical variables, for each category, this function presents the following:
 #'
-#' For numeric variables, presents the percentage of observations with
-#' known values, the mean of known values, the standard error of the mean (SEM), and
-#' the standard deviation (SD).
+#' * the number of observations (`n`);
+#' * the estimated count (`Number`), with its standard error (`SE`) and confidence
+#' interval (`LL` and `UL`); and
+#' * the estimated percentage (`Percent`), with its standard error (`SE`) and confidence
+#' interval (`LL` and `UL`).
 #'
-#' CIs are calculated at the 95% confidence level. CIs for
+#' Optionally, this function identifies low-precision estimates and flags
+#' them if, according to the guidelines (such as the NCHS presentation standards), they should
+#' be suppressed, footnoted, or reviewed by an analyst. To enable this functionality,
+#' see `set_opts()` with arguments `lpe = TRUE` or `mode = "NCHS"`.
+#'
+#' For numeric variables, this function presents the following:
+#'
+#' * percentage of observations with known values (`% known`);
+#' * the mean of known values (`Mean`), with its standard error (`SEM`) and confidence
+#' interval (`LL` and `UL`); and
+#' * the standard deviation (`SD`).
+#'
+#' Confidence intervals (CIs) are calculated at the 95% confidence level. CIs for
 #' count estimates are the log Student's t CIs, with adaptations
 #' for complex surveys. CIs for percentage estimates are
-#' the Korn and Graubard CIs.
+#' the Korn and Graubard CIs, with optional adjustments. See `set_opts()` argument
+#' `adj`. CIs for estimates of means are the Wald CIs.
 #'
 #' @param ...     names of variables (in quotes)
 #' @param test    perform hypothesis tests?
 #' @param alpha   significance level for tests
 #' @param p_adjust adjust p-values for multiple comparisons?
-#' @param drop_na drop missing values (`NA`)? Categorical variables only.
+#' @param drop_na drop missing values (`NA`)? Categorical or logical variables only.
 #' @param max_levels a categorical variable can have at most this many levels. Used to avoid printing huge tables.
-#' @param csv     name of a CSV file
 #'
 #' @return A list of tables or a single table.
 #' @family tables
@@ -44,7 +53,6 @@ tab = function(...
                , test = FALSE, alpha = 0.05, p_adjust = FALSE
                , drop_na = getOption("surveytable.drop_na")
                , max_levels = getOption("surveytable.max_levels")
-               , csv = getOption("surveytable.csv")
                ) {
 	ret = list()
 	if (...length() > 0) {
@@ -64,20 +72,17 @@ tab = function(...
 			  ret[[vr]] = .tab_factor(design = design
                       , vr = vr
                       , drop_na = drop_na
-                      , max_levels = max_levels
-                      , csv = csv)
+                      , max_levels = max_levels)
 			  if (test) {
 			    ret[[paste0(vr, " - test")]] = .test_factor(design = design
                                             , vr = vr
                                             , drop_na = drop_na
                                             , alpha = alpha
-                                            , p_adjust = p_adjust
-                                            , csv = csv)
+                                            , p_adjust = p_adjust)
 			  }
 			} else if (is.numeric(design$variables[,vr])) {
 			  ret[[vr]] = .tab_numeric(design = design
-                      , vr = vr
-                      , csv = csv)
+                      , vr = vr)
 			} else {
         warning(glue("{vr}: must be logical, categorical (factor or character),",
           " or numeric. Is {o2s(design$variables[,vr])}"))
@@ -89,7 +94,7 @@ tab = function(...
 	if (length(ret) == 1L) ret[[1]] else ret
 }
 
-.tab_factor = function(design, vr, drop_na, max_levels, csv) {
+.tab_factor = function(design, vr, drop_na, max_levels) {
   nm = names(design$variables)
   assert_that(vr %in% nm, msg = paste("Variable", vr, "not in the data."))
 
@@ -133,7 +138,7 @@ tab = function(...
 	  }
 	  attr(mp, "num") = 2:6
 	  attr(mp, "title") = .getvarname(design, vr)
-    return(.write_out(mp, csv = csv))
+    return(.finalize_tab(mp))
 	} else if (nlv > max_levels) {
 	  # don't use assert_that
 	  # if multiple tables are being produced, want to go to the next table
@@ -193,10 +198,11 @@ tab = function(...
 	              , all(pco$has.flag %in% names(pco$descriptions)))
 	}
 
-	mmc = getOption("surveytable.tx_count") %>% do.call(list(mmcr[,c("x", "s", "ll", "ul")]))
+  mmc = mmcr[,c("x", "s", "ll", "ul")]
+  mmc = getOption("surveytable.tx_count") %>% do.call(list(mmc))
 	mmc$counts = mmcr$counts
 	mmc = mmc[,c("counts", "x", "s", "ll", "ul")]
-	names(mmc) = getOption("surveytable.names_count")
+	names(mmc) = .get_names_count()
 
 	##
 	lvs = design$variables[,vr] %>% levels
@@ -206,12 +212,8 @@ tab = function(...
 		design$variables$.tmp = NULL
 		design$variables$.tmp = (design$variables[,vr] == lv)
 		# Korn and Graubard, 1998
-		xp = if ( getOption("surveytable.adjust_svyciprop") ) {
-		  svyciprop_adjusted(~ .tmp, design, method="beta", level = 0.95
-		      , df_method = getOption("surveytable.adjust_svyciprop.df_method"))
-		} else {
-		  svyciprop(~ .tmp, design, method="beta", level = 0.95)
-		}
+		xp = svyciprop_adjusted(formula = ~ .tmp, design = design, level = 0.95
+		                        , adj = getOption("surveytable.svyciprop_adj"))
 		ret1 = data.frame(Proportion = xp %>% as.numeric
 		                  , SE = attr(xp, "var") %>% as.numeric %>% sqrt)
 
@@ -242,7 +244,8 @@ tab = function(...
 	              , all(ppo$has.flag %in% names(ppo$descriptions)))
 	}
 
-	mp2 = getOption("surveytable.tx_prct") %>% do.call(list(ret[,c("Proportion", "SE", "LL", "UL")]))
+	mp2 = ret[,c("Proportion", "SE", "LL", "UL")]
+	mp2 = getOption("surveytable.tx_prct") %>% do.call(list(mp2))
 	names(mp2) = getOption("surveytable.names_prct")
 
 	##
@@ -269,7 +272,7 @@ tab = function(...
 	  mp %<>% .add_flags( list(pro, pco, ppo) )
 	}
 
-	.write_out(mp, csv = csv)
+	.finalize_tab(mp)
 }
 
 .add_flags = function(df1, lfo) {

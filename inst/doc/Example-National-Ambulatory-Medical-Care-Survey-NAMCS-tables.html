@@ -49,7 +49,7 @@ overflow: visible;
 </style>
 <style type="text/css" data-origin="pandoc">
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -60,7 +60,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
 { counter-reset: source-line 0; }
@@ -358,7 +358,7 @@ called <code>namcs2019sv</code>.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="fu">library</span>(surveytable)</span></code></pre></div>
 <p>Now, specify the survey that you’d like to analyze.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="fu">set_survey</span>(namcs2019sv)</span></code></pre></div>
-<div id="vigdxweifc" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="ebtsjincxr" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false" style="-webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-family: system-ui, &#39;Segoe UI&#39;, Roboto, Helvetica, Arial, sans-serif, &#39;Apple Color Emoji&#39;, &#39;Segoe UI Emoji&#39;, &#39;Segoe UI Symbol&#39;, &#39;Noto Color Emoji&#39;; display: table; border-collapse: collapse; line-height: normal; margin-left: auto; margin-right: auto; color: #333333; font-size: 16px; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: auto; border-top-style: solid; border-top-width: 2px; border-top-color: #004D80; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #004D80; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3;" bgcolor="#FFFFFF">
 <thead style="border-style: none;">
 <tr class="gt_heading" style="border-style: none; background-color: #FFFFFF; text-align: center; border-bottom-color: #FFFFFF; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3;" bgcolor="#FFFFFF" align="center">
@@ -414,7 +414,7 @@ statistical area.</p>
 <p>The variables that are necessary for creating this table are already
 in the survey, making the commands very straightforward.</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="fu">total</span>()</span></code></pre></div>
-<div id="rbbiwxbujq" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="fnkyzlelas" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false" style="-webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-family: system-ui, &#39;Segoe UI&#39;, Roboto, Helvetica, Arial, sans-serif, &#39;Apple Color Emoji&#39;, &#39;Segoe UI Emoji&#39;, &#39;Segoe UI Symbol&#39;, &#39;Noto Color Emoji&#39;; display: table; border-collapse: collapse; line-height: normal; margin-left: auto; margin-right: auto; color: #333333; font-size: 16px; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: auto; border-top-style: solid; border-top-width: 2px; border-top-color: #004D80; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #004D80; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3;" bgcolor="#FFFFFF">
 <thead style="border-style: none;">
 <tr class="gt_heading" style="border-style: none; background-color: #FFFFFF; text-align: center; border-bottom-color: #FFFFFF; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3;" bgcolor="#FFFFFF" align="center">
@@ -469,7 +469,7 @@ N = 8250. Checked NCHS presentation standards. Nothing to report.
 </table>
 </div>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="fu">tab</span>(<span class="st">&quot;MDDO&quot;</span>, <span class="st">&quot;SPECCAT&quot;</span>, <span class="st">&quot;MSA&quot;</span>)</span></code></pre></div>
-<div id="xbnmseuomi" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="jcexqpdznj" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false" style="-webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-family: system-ui, &#39;Segoe UI&#39;, Roboto, Helvetica, Arial, sans-serif, &#39;Apple Color Emoji&#39;, &#39;Segoe UI Emoji&#39;, &#39;Segoe UI Symbol&#39;, &#39;Noto Color Emoji&#39;; display: table; border-collapse: collapse; line-height: normal; margin-left: auto; margin-right: auto; color: #333333; font-size: 16px; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: auto; border-top-style: solid; border-top-width: 2px; border-top-color: #004D80; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #004D80; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3;" bgcolor="#FFFFFF">
 <thead style="border-style: none;">
 <tr class="gt_heading" style="border-style: none; background-color: #FFFFFF; text-align: center; border-bottom-color: #FFFFFF; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3;" bgcolor="#FFFFFF" align="center">
@@ -585,7 +585,7 @@ N = 8250. Checked NCHS presentation standards. Nothing to report.
 </tfoot>
 </table>
 </div>
-<div id="svehlmbztp" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="wpeahnfrlo" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false" style="-webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-family: system-ui, &#39;Segoe UI&#39;, Roboto, Helvetica, Arial, sans-serif, &#39;Apple Color Emoji&#39;, &#39;Segoe UI Emoji&#39;, &#39;Segoe UI Symbol&#39;, &#39;Noto Color Emoji&#39;; display: table; border-collapse: collapse; line-height: normal; margin-left: auto; margin-right: auto; color: #333333; font-size: 16px; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: auto; border-top-style: solid; border-top-width: 2px; border-top-color: #004D80; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #004D80; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3;" bgcolor="#FFFFFF">
 <thead style="border-style: none;">
 <tr class="gt_heading" style="border-style: none; background-color: #FFFFFF; text-align: center; border-bottom-color: #FFFFFF; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3;" bgcolor="#FFFFFF" align="center">
@@ -733,7 +733,7 @@ N = 8250. Checked NCHS presentation standards. Nothing to report.
 </tfoot>
 </table>
 </div>
-<div id="ixdzlcqqsv" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="bhywustajd" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false" style="-webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-family: system-ui, &#39;Segoe UI&#39;, Roboto, Helvetica, Arial, sans-serif, &#39;Apple Color Emoji&#39;, &#39;Segoe UI Emoji&#39;, &#39;Segoe UI Symbol&#39;, &#39;Noto Color Emoji&#39;; display: table; border-collapse: collapse; line-height: normal; margin-left: auto; margin-right: auto; color: #333333; font-size: 16px; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: auto; border-top-style: solid; border-top-width: 2px; border-top-color: #004D80; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #004D80; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3;" bgcolor="#FFFFFF">
 <thead style="border-style: none;">
 <tr class="gt_heading" style="border-style: none; background-color: #FFFFFF; text-align: center; border-bottom-color: #FFFFFF; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3;" bgcolor="#FFFFFF" align="center">
@@ -861,17 +861,17 @@ into the correct format. The <code>surveytable</code> package comes with
 an object called <code>uspop2019</code> that contains several population
 estimates for use in these examples.</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="fu">class</span>(uspop2019)</span>
-<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a><span class="do">## [1] &quot;list&quot;</span></span></code></pre></div>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="fu">names</span>(uspop2019)</span>
-<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a><span class="do">## [1] &quot;total&quot;       &quot;MSA&quot;         &quot;AGER&quot;        &quot;Age group&quot;   &quot;SEX&quot;        </span></span>
-<span id="cb7-3"><a href="#cb7-3" tabindex="-1"></a><span class="do">## [6] &quot;AGER x SEX&quot;  &quot;Age group 5&quot;</span></span></code></pre></div>
+<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a><span class="do">## [1] &quot;list&quot;</span></span>
+<span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a><span class="fu">names</span>(uspop2019)</span>
+<span id="cb6-4"><a href="#cb6-4" tabindex="-1"></a><span class="do">## [1] &quot;total&quot;       &quot;MSA&quot;         &quot;AGER&quot;        &quot;Age group&quot;   &quot;SEX&quot;        </span></span>
+<span id="cb6-5"><a href="#cb6-5" tabindex="-1"></a><span class="do">## [6] &quot;AGER x SEX&quot;  &quot;Age group 5&quot;</span></span></code></pre></div>
 <p>Here is the overall population estimate:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a>uspop2019<span class="sc">$</span>total</span>
-<span id="cb8-2"><a href="#cb8-2" tabindex="-1"></a><span class="do">## [1] 323186697</span></span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a>uspop2019<span class="sc">$</span>total</span>
+<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a><span class="do">## [1] 323186697</span></span></code></pre></div>
 <p>Once we have the overall population estimate, the overall rate
 is:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a><span class="fu">total_rate</span>(uspop2019<span class="sc">$</span>total)</span></code></pre></div>
-<div id="pzfdupewfw" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a><span class="fu">total_rate</span>(uspop2019<span class="sc">$</span>total)</span></code></pre></div>
+<div id="jmrnawgjya" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false" style="-webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-family: system-ui, &#39;Segoe UI&#39;, Roboto, Helvetica, Arial, sans-serif, &#39;Apple Color Emoji&#39;, &#39;Segoe UI Emoji&#39;, &#39;Segoe UI Symbol&#39;, &#39;Noto Color Emoji&#39;; display: table; border-collapse: collapse; line-height: normal; margin-left: auto; margin-right: auto; color: #333333; font-size: 16px; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: auto; border-top-style: solid; border-top-width: 2px; border-top-color: #004D80; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #004D80; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3;" bgcolor="#FFFFFF">
 <thead style="border-style: none;">
 <tr class="gt_heading" style="border-style: none; background-color: #FFFFFF; text-align: center; border-bottom-color: #FFFFFF; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3;" bgcolor="#FFFFFF" align="center">
@@ -933,14 +933,14 @@ to be a constant rather than a random variable).</p>
 <p>For <code>MSA</code>, we can see the levels of the variables just by
 using the <code>tab()</code> command, just as we did above. Thus, to
 calculate rates, we need a data frame as follows:</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a>uspop2019<span class="sc">$</span>MSA</span>
-<span id="cb10-2"><a href="#cb10-2" tabindex="-1"></a><span class="do">##                                 Level Population</span></span>
-<span id="cb10-3"><a href="#cb10-3" tabindex="-1"></a><span class="do">## 1 MSA (Metropolitan Statistical Area)  277229518</span></span>
-<span id="cb10-4"><a href="#cb10-4" tabindex="-1"></a><span class="do">## 2                             Non-MSA   45957179</span></span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a>uspop2019<span class="sc">$</span>MSA</span>
+<span id="cb9-2"><a href="#cb9-2" tabindex="-1"></a><span class="do">##                                 Level Population</span></span>
+<span id="cb9-3"><a href="#cb9-3" tabindex="-1"></a><span class="do">## 1 MSA (Metropolitan Statistical Area)  277229518</span></span>
+<span id="cb9-4"><a href="#cb9-4" tabindex="-1"></a><span class="do">## 2                             Non-MSA   45957179</span></span></code></pre></div>
 <p>Now that we have the appropriate population estimates, the rate
 is:</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a><span class="fu">tab_rate</span>(<span class="st">&quot;MSA&quot;</span>, uspop2019<span class="sc">$</span>MSA)</span></code></pre></div>
-<div id="tltyyerqgq" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a><span class="fu">tab_rate</span>(<span class="st">&quot;MSA&quot;</span>, uspop2019<span class="sc">$</span>MSA)</span></code></pre></div>
+<div id="kbuimtdxuv" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false" style="-webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-family: system-ui, &#39;Segoe UI&#39;, Roboto, Helvetica, Arial, sans-serif, &#39;Apple Color Emoji&#39;, &#39;Segoe UI Emoji&#39;, &#39;Segoe UI Symbol&#39;, &#39;Noto Color Emoji&#39;; display: table; border-collapse: collapse; line-height: normal; margin-left: auto; margin-right: auto; color: #333333; font-size: 16px; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: auto; border-top-style: solid; border-top-width: 2px; border-top-color: #004D80; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #004D80; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3;" bgcolor="#FFFFFF">
 <thead style="border-style: none;">
 <tr class="gt_heading" style="border-style: none; background-color: #FFFFFF; text-align: center; border-bottom-color: #FFFFFF; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3;" bgcolor="#FFFFFF" align="center">
@@ -1023,9 +1023,9 @@ N = 8250. Checked NCHS presentation standards. Nothing to report.
 </div>
 <p>We can also calculate rates of a specific variable based on the
 entire population:</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" tabindex="-1"></a><span class="fu">tab_rate</span>(<span class="st">&quot;MDDO&quot;</span>, uspop2019<span class="sc">$</span>total)</span>
-<span id="cb12-2"><a href="#cb12-2" tabindex="-1"></a><span class="do">## * Rate based on the entire population.</span></span></code></pre></div>
-<div id="aiemazzyzi" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a><span class="fu">tab_rate</span>(<span class="st">&quot;MDDO&quot;</span>, uspop2019<span class="sc">$</span>total)</span>
+<span id="cb11-2"><a href="#cb11-2" tabindex="-1"></a><span class="do">## * Rate based on the entire population.</span></span></code></pre></div>
+<div id="cbcuzkvsed" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false" style="-webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-family: system-ui, &#39;Segoe UI&#39;, Roboto, Helvetica, Arial, sans-serif, &#39;Apple Color Emoji&#39;, &#39;Segoe UI Emoji&#39;, &#39;Segoe UI Symbol&#39;, &#39;Noto Color Emoji&#39;; display: table; border-collapse: collapse; line-height: normal; margin-left: auto; margin-right: auto; color: #333333; font-size: 16px; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: auto; border-top-style: solid; border-top-width: 2px; border-top-color: #004D80; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #004D80; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3;" bgcolor="#FFFFFF">
 <thead style="border-style: none;">
 <tr class="gt_heading" style="border-style: none; background-color: #FFFFFF; text-align: center; border-bottom-color: #FFFFFF; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3;" bgcolor="#FFFFFF" align="center">
@@ -1105,9 +1105,9 @@ N = 8250. Checked NCHS presentation standards. Nothing to report.
 </tfoot>
 </table>
 </div>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" tabindex="-1"></a><span class="fu">tab_rate</span>(<span class="st">&quot;SPECCAT&quot;</span>, uspop2019<span class="sc">$</span>total)</span>
-<span id="cb13-2"><a href="#cb13-2" tabindex="-1"></a><span class="do">## * Rate based on the entire population.</span></span></code></pre></div>
-<div id="babgetolum" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" tabindex="-1"></a><span class="fu">tab_rate</span>(<span class="st">&quot;SPECCAT&quot;</span>, uspop2019<span class="sc">$</span>total)</span>
+<span id="cb12-2"><a href="#cb12-2" tabindex="-1"></a><span class="do">## * Rate based on the entire population.</span></span></code></pre></div>
+<div id="xyemcikiqz" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false" style="-webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-family: system-ui, &#39;Segoe UI&#39;, Roboto, Helvetica, Arial, sans-serif, &#39;Apple Color Emoji&#39;, &#39;Segoe UI Emoji&#39;, &#39;Segoe UI Symbol&#39;, &#39;Noto Color Emoji&#39;; display: table; border-collapse: collapse; line-height: normal; margin-left: auto; margin-right: auto; color: #333333; font-size: 16px; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: auto; border-top-style: solid; border-top-width: 2px; border-top-color: #004D80; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #004D80; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3;" bgcolor="#FFFFFF">
 <thead style="border-style: none;">
 <tr class="gt_heading" style="border-style: none; background-color: #FFFFFF; text-align: center; border-bottom-color: #FFFFFF; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3;" bgcolor="#FFFFFF" align="center">
@@ -1216,8 +1216,8 @@ N = 8250. Checked NCHS presentation standards. Nothing to report.
 <h2>Counts and percentages</h2>
 <p>This table presents estimates for each age group, as well as for each
 age group by sex.</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" tabindex="-1"></a><span class="fu">var_list</span>(<span class="st">&quot;age&quot;</span>)</span></code></pre></div>
-<div id="arnagdkadg" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" tabindex="-1"></a><span class="fu">var_list</span>(<span class="st">&quot;age&quot;</span>)</span></code></pre></div>
+<div id="ynerqyrzko" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false" style="-webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-family: system-ui, &#39;Segoe UI&#39;, Roboto, Helvetica, Arial, sans-serif, &#39;Apple Color Emoji&#39;, &#39;Segoe UI Emoji&#39;, &#39;Segoe UI Symbol&#39;, &#39;Noto Color Emoji&#39;; display: table; border-collapse: collapse; line-height: normal; margin-left: auto; margin-right: auto; color: #333333; font-size: 16px; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: auto; border-top-style: solid; border-top-width: 2px; border-top-color: #004D80; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #004D80; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3;" bgcolor="#FFFFFF">
 <thead style="border-style: none;">
 <tr class="gt_heading" style="border-style: none; background-color: #FFFFFF; text-align: center; border-bottom-color: #FFFFFF; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3;" bgcolor="#FFFFFF" align="center">
@@ -1269,13 +1269,13 @@ categorical variable based on <code>AGE</code>. However, for this table,
 in addition to <code>AGER</code>, we need another age group variable,
 with different age categories. We create it using the
 <code>var_cut</code> function.</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" tabindex="-1"></a><span class="fu">var_cut</span>(<span class="st">&quot;Age group&quot;</span>, <span class="st">&quot;AGE&quot;</span></span>
-<span id="cb15-2"><a href="#cb15-2" tabindex="-1"></a>        , <span class="fu">c</span>(<span class="sc">-</span><span class="cn">Inf</span>, <span class="dv">0</span>, <span class="dv">4</span>, <span class="dv">14</span>, <span class="dv">64</span>, <span class="cn">Inf</span>)</span>
-<span id="cb15-3"><a href="#cb15-3" tabindex="-1"></a>        , <span class="fu">c</span>(<span class="st">&quot;Under 1&quot;</span>, <span class="st">&quot;1-4&quot;</span>, <span class="st">&quot;5-14&quot;</span>, <span class="st">&quot;15-64&quot;</span>, <span class="st">&quot;65 and over&quot;</span>) )</span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" tabindex="-1"></a><span class="fu">var_cut</span>(<span class="st">&quot;Age group&quot;</span>, <span class="st">&quot;AGE&quot;</span></span>
+<span id="cb14-2"><a href="#cb14-2" tabindex="-1"></a>        , <span class="fu">c</span>(<span class="sc">-</span><span class="cn">Inf</span>, <span class="dv">0</span>, <span class="dv">4</span>, <span class="dv">14</span>, <span class="dv">64</span>, <span class="cn">Inf</span>)</span>
+<span id="cb14-3"><a href="#cb14-3" tabindex="-1"></a>        , <span class="fu">c</span>(<span class="st">&quot;Under 1&quot;</span>, <span class="st">&quot;1-4&quot;</span>, <span class="st">&quot;5-14&quot;</span>, <span class="st">&quot;15-64&quot;</span>, <span class="st">&quot;65 and over&quot;</span>) )</span></code></pre></div>
 <p>Now that we’ve created the <code>Age group</code> variable, we can
 create the tables:</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" tabindex="-1"></a><span class="fu">tab</span>(<span class="st">&quot;AGER&quot;</span>, <span class="st">&quot;Age group&quot;</span>, <span class="st">&quot;SEX&quot;</span>)</span></code></pre></div>
-<div id="ojiwsxgydc" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" tabindex="-1"></a><span class="fu">tab</span>(<span class="st">&quot;AGER&quot;</span>, <span class="st">&quot;Age group&quot;</span>, <span class="st">&quot;SEX&quot;</span>)</span></code></pre></div>
+<div id="ysjvtkojgq" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false" style="-webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-family: system-ui, &#39;Segoe UI&#39;, Roboto, Helvetica, Arial, sans-serif, &#39;Apple Color Emoji&#39;, &#39;Segoe UI Emoji&#39;, &#39;Segoe UI Symbol&#39;, &#39;Noto Color Emoji&#39;; display: table; border-collapse: collapse; line-height: normal; margin-left: auto; margin-right: auto; color: #333333; font-size: 16px; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: auto; border-top-style: solid; border-top-width: 2px; border-top-color: #004D80; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #004D80; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3;" bgcolor="#FFFFFF">
 <thead style="border-style: none;">
 <tr class="gt_heading" style="border-style: none; background-color: #FFFFFF; text-align: center; border-bottom-color: #FFFFFF; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3;" bgcolor="#FFFFFF" align="center">
@@ -1519,7 +1519,7 @@ N = 8250. Checked NCHS presentation standards. Nothing to report.
 </tfoot>
 </table>
 </div>
-<div id="bgjeqphgxp" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="ibxcevyiwi" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false" style="-webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-family: system-ui, &#39;Segoe UI&#39;, Roboto, Helvetica, Arial, sans-serif, &#39;Apple Color Emoji&#39;, &#39;Segoe UI Emoji&#39;, &#39;Segoe UI Symbol&#39;, &#39;Noto Color Emoji&#39;; display: table; border-collapse: collapse; line-height: normal; margin-left: auto; margin-right: auto; color: #333333; font-size: 16px; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: auto; border-top-style: solid; border-top-width: 2px; border-top-color: #004D80; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #004D80; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3;" bgcolor="#FFFFFF">
 <thead style="border-style: none;">
 <tr class="gt_heading" style="border-style: none; background-color: #FFFFFF; text-align: center; border-bottom-color: #FFFFFF; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3;" bgcolor="#FFFFFF" align="center">
@@ -1731,7 +1731,7 @@ N = 8250. Checked NCHS presentation standards. Nothing to report.
 </tfoot>
 </table>
 </div>
-<div id="creiaulsas" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="woofjoxsod" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false" style="-webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-family: system-ui, &#39;Segoe UI&#39;, Roboto, Helvetica, Arial, sans-serif, &#39;Apple Color Emoji&#39;, &#39;Segoe UI Emoji&#39;, &#39;Segoe UI Symbol&#39;, &#39;Noto Color Emoji&#39;; display: table; border-collapse: collapse; line-height: normal; margin-left: auto; margin-right: auto; color: #333333; font-size: 16px; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: auto; border-top-style: solid; border-top-width: 2px; border-top-color: #004D80; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #004D80; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3;" bgcolor="#FFFFFF">
 <thead style="border-style: none;">
 <tr class="gt_heading" style="border-style: none; background-color: #FFFFFF; text-align: center; border-bottom-color: #FFFFFF; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3;" bgcolor="#FFFFFF" align="center">
@@ -1847,8 +1847,8 @@ N = 8250. Checked NCHS presentation standards. Nothing to report.
 </tfoot>
 </table>
 </div>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" tabindex="-1"></a><span class="fu">tab_cross</span>(<span class="st">&quot;AGER&quot;</span>, <span class="st">&quot;SEX&quot;</span>)</span></code></pre></div>
-<div id="tbyvlbwcnf" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" tabindex="-1"></a><span class="fu">tab_cross</span>(<span class="st">&quot;AGER&quot;</span>, <span class="st">&quot;SEX&quot;</span>)</span></code></pre></div>
+<div id="tmcpuasaor" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false" style="-webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-family: system-ui, &#39;Segoe UI&#39;, Roboto, Helvetica, Arial, sans-serif, &#39;Apple Color Emoji&#39;, &#39;Segoe UI Emoji&#39;, &#39;Segoe UI Symbol&#39;, &#39;Noto Color Emoji&#39;; display: table; border-collapse: collapse; line-height: normal; margin-left: auto; margin-right: auto; color: #333333; font-size: 16px; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: auto; border-top-style: solid; border-top-width: 2px; border-top-color: #004D80; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #004D80; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3;" bgcolor="#FFFFFF">
 <thead style="border-style: none;">
 <tr class="gt_heading" style="border-style: none; background-color: #FFFFFF; text-align: center; border-bottom-color: #FFFFFF; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3;" bgcolor="#FFFFFF" align="center">
@@ -2287,8 +2287,8 @@ N = 8250. Checked NCHS presentation standards. Nothing to report.
 </div>
 <div id="rates-1" class="section level2">
 <h2>Rates</h2>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" tabindex="-1"></a><span class="fu">tab_rate</span>(<span class="st">&quot;AGER&quot;</span>, uspop2019<span class="sc">$</span>AGER)</span></code></pre></div>
-<div id="fumwlgbdoc" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" tabindex="-1"></a><span class="fu">tab_rate</span>(<span class="st">&quot;AGER&quot;</span>, uspop2019<span class="sc">$</span>AGER)</span></code></pre></div>
+<div id="gkrpsdugzc" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false" style="-webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-family: system-ui, &#39;Segoe UI&#39;, Roboto, Helvetica, Arial, sans-serif, &#39;Apple Color Emoji&#39;, &#39;Segoe UI Emoji&#39;, &#39;Segoe UI Symbol&#39;, &#39;Noto Color Emoji&#39;; display: table; border-collapse: collapse; line-height: normal; margin-left: auto; margin-right: auto; color: #333333; font-size: 16px; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: auto; border-top-style: solid; border-top-width: 2px; border-top-color: #004D80; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #004D80; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3;" bgcolor="#FFFFFF">
 <thead style="border-style: none;">
 <tr class="gt_heading" style="border-style: none; background-color: #FFFFFF; text-align: center; border-bottom-color: #FFFFFF; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3;" bgcolor="#FFFFFF" align="center">
@@ -2448,9 +2448,9 @@ N = 8250. Checked NCHS presentation standards. Nothing to report.
 </tfoot>
 </table>
 </div>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" tabindex="-1"></a><span class="fu">tab_rate</span>(<span class="st">&quot;Age group&quot;</span>, uspop2019<span class="sc">$</span><span class="st">`</span><span class="at">Age group</span><span class="st">`</span>)</span>
-<span id="cb19-2"><a href="#cb19-2" tabindex="-1"></a><span class="do">## * Population for some levels not defined: 15-64</span></span></code></pre></div>
-<div id="zvwsddswgg" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" tabindex="-1"></a><span class="fu">tab_rate</span>(<span class="st">&quot;Age group&quot;</span>, uspop2019<span class="sc">$</span><span class="st">`</span><span class="at">Age group</span><span class="st">`</span>)</span>
+<span id="cb18-2"><a href="#cb18-2" tabindex="-1"></a><span class="do">## * Population for some levels not defined: 15-64</span></span></code></pre></div>
+<div id="ouxdjceblg" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false" style="-webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-family: system-ui, &#39;Segoe UI&#39;, Roboto, Helvetica, Arial, sans-serif, &#39;Apple Color Emoji&#39;, &#39;Segoe UI Emoji&#39;, &#39;Segoe UI Symbol&#39;, &#39;Noto Color Emoji&#39;; display: table; border-collapse: collapse; line-height: normal; margin-left: auto; margin-right: auto; color: #333333; font-size: 16px; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: auto; border-top-style: solid; border-top-width: 2px; border-top-color: #004D80; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #004D80; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3;" bgcolor="#FFFFFF">
 <thead style="border-style: none;">
 <tr class="gt_heading" style="border-style: none; background-color: #FFFFFF; text-align: center; border-bottom-color: #FFFFFF; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3;" bgcolor="#FFFFFF" align="center">
@@ -2590,8 +2590,8 @@ N = 8250. Checked NCHS presentation standards. Nothing to report.
 </tfoot>
 </table>
 </div>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" tabindex="-1"></a><span class="fu">tab_rate</span>(<span class="st">&quot;SEX&quot;</span>, uspop2019<span class="sc">$</span>SEX)</span></code></pre></div>
-<div id="eozsodvnyo" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" tabindex="-1"></a><span class="fu">tab_rate</span>(<span class="st">&quot;SEX&quot;</span>, uspop2019<span class="sc">$</span>SEX)</span></code></pre></div>
+<div id="dyysxgojyx" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false" style="-webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-family: system-ui, &#39;Segoe UI&#39;, Roboto, Helvetica, Arial, sans-serif, &#39;Apple Color Emoji&#39;, &#39;Segoe UI Emoji&#39;, &#39;Segoe UI Symbol&#39;, &#39;Noto Color Emoji&#39;; display: table; border-collapse: collapse; line-height: normal; margin-left: auto; margin-right: auto; color: #333333; font-size: 16px; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: auto; border-top-style: solid; border-top-width: 2px; border-top-color: #004D80; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #004D80; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3;" bgcolor="#FFFFFF">
 <thead style="border-style: none;">
 <tr class="gt_heading" style="border-style: none; background-color: #FFFFFF; text-align: center; border-bottom-color: #FFFFFF; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3;" bgcolor="#FFFFFF" align="center">
@@ -2674,23 +2674,23 @@ N = 8250. Checked NCHS presentation standards. Nothing to report.
 <p>To calculate the rates for one variable (<code>AGER</code>) by
 another variable (<code>SEX</code>), we need population estimates in the
 following format:</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" tabindex="-1"></a>uspop2019<span class="sc">$</span><span class="st">`</span><span class="at">AGER x SEX</span><span class="st">`</span></span>
-<span id="cb21-2"><a href="#cb21-2" tabindex="-1"></a><span class="do">##                Level Subset Population</span></span>
-<span id="cb21-3"><a href="#cb21-3" tabindex="-1"></a><span class="do">## 1     Under 15 years Female   29604762</span></span>
-<span id="cb21-4"><a href="#cb21-4" tabindex="-1"></a><span class="do">## 2        15-24 years Female   20730118</span></span>
-<span id="cb21-5"><a href="#cb21-5" tabindex="-1"></a><span class="do">## 3        25-44 years Female   43192143</span></span>
-<span id="cb21-6"><a href="#cb21-6" tabindex="-1"></a><span class="do">## 4        45-64 years Female   42508901</span></span>
-<span id="cb21-7"><a href="#cb21-7" tabindex="-1"></a><span class="do">## 5        65-74 years Female   16673240</span></span>
-<span id="cb21-8"><a href="#cb21-8" tabindex="-1"></a><span class="do">## 6  75 years and over Female   12421444</span></span>
-<span id="cb21-9"><a href="#cb21-9" tabindex="-1"></a><span class="do">## 7     Under 15 years   Male   30921894</span></span>
-<span id="cb21-10"><a href="#cb21-10" tabindex="-1"></a><span class="do">## 8        15-24 years   Male   20988582</span></span>
-<span id="cb21-11"><a href="#cb21-11" tabindex="-1"></a><span class="do">## 9        25-44 years   Male   42407267</span></span>
-<span id="cb21-12"><a href="#cb21-12" tabindex="-1"></a><span class="do">## 10       45-64 years   Male   40053148</span></span>
-<span id="cb21-13"><a href="#cb21-13" tabindex="-1"></a><span class="do">## 11       65-74 years   Male   14586962</span></span>
-<span id="cb21-14"><a href="#cb21-14" tabindex="-1"></a><span class="do">## 12 75 years and over   Male    9098236</span></span></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" tabindex="-1"></a>uspop2019<span class="sc">$</span><span class="st">`</span><span class="at">AGER x SEX</span><span class="st">`</span></span>
+<span id="cb20-2"><a href="#cb20-2" tabindex="-1"></a><span class="do">##                Level Subset Population</span></span>
+<span id="cb20-3"><a href="#cb20-3" tabindex="-1"></a><span class="do">## 1     Under 15 years Female   29604762</span></span>
+<span id="cb20-4"><a href="#cb20-4" tabindex="-1"></a><span class="do">## 2        15-24 years Female   20730118</span></span>
+<span id="cb20-5"><a href="#cb20-5" tabindex="-1"></a><span class="do">## 3        25-44 years Female   43192143</span></span>
+<span id="cb20-6"><a href="#cb20-6" tabindex="-1"></a><span class="do">## 4        45-64 years Female   42508901</span></span>
+<span id="cb20-7"><a href="#cb20-7" tabindex="-1"></a><span class="do">## 5        65-74 years Female   16673240</span></span>
+<span id="cb20-8"><a href="#cb20-8" tabindex="-1"></a><span class="do">## 6  75 years and over Female   12421444</span></span>
+<span id="cb20-9"><a href="#cb20-9" tabindex="-1"></a><span class="do">## 7     Under 15 years   Male   30921894</span></span>
+<span id="cb20-10"><a href="#cb20-10" tabindex="-1"></a><span class="do">## 8        15-24 years   Male   20988582</span></span>
+<span id="cb20-11"><a href="#cb20-11" tabindex="-1"></a><span class="do">## 9        25-44 years   Male   42407267</span></span>
+<span id="cb20-12"><a href="#cb20-12" tabindex="-1"></a><span class="do">## 10       45-64 years   Male   40053148</span></span>
+<span id="cb20-13"><a href="#cb20-13" tabindex="-1"></a><span class="do">## 11       65-74 years   Male   14586962</span></span>
+<span id="cb20-14"><a href="#cb20-14" tabindex="-1"></a><span class="do">## 12 75 years and over   Male    9098236</span></span></code></pre></div>
 <p>Once we have these population estimates, the rates are:</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" tabindex="-1"></a><span class="fu">tab_subset_rate</span>(<span class="st">&quot;AGER&quot;</span>, <span class="st">&quot;SEX&quot;</span>, uspop2019<span class="sc">$</span><span class="st">`</span><span class="at">AGER x SEX</span><span class="st">`</span>)</span></code></pre></div>
-<div id="ogrkychjgx" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" tabindex="-1"></a><span class="fu">tab_subset_rate</span>(<span class="st">&quot;AGER&quot;</span>, <span class="st">&quot;SEX&quot;</span>, uspop2019<span class="sc">$</span><span class="st">`</span><span class="at">AGER x SEX</span><span class="st">`</span>)</span></code></pre></div>
+<div id="rvhbwvjdat" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false" style="-webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-family: system-ui, &#39;Segoe UI&#39;, Roboto, Helvetica, Arial, sans-serif, &#39;Apple Color Emoji&#39;, &#39;Segoe UI Emoji&#39;, &#39;Segoe UI Symbol&#39;, &#39;Noto Color Emoji&#39;; display: table; border-collapse: collapse; line-height: normal; margin-left: auto; margin-right: auto; color: #333333; font-size: 16px; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: auto; border-top-style: solid; border-top-width: 2px; border-top-color: #004D80; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #004D80; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3;" bgcolor="#FFFFFF">
 <thead style="border-style: none;">
 <tr class="gt_heading" style="border-style: none; background-color: #FFFFFF; text-align: center; border-bottom-color: #FFFFFF; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3;" bgcolor="#FFFFFF" align="center">
@@ -2851,7 +2851,7 @@ N = 4609. Checked NCHS presentation standards. Nothing to report.
 </tfoot>
 </table>
 </div>
-<div id="rdsuekuhhf" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="fzqvhxwpzb" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false" style="-webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-family: system-ui, &#39;Segoe UI&#39;, Roboto, Helvetica, Arial, sans-serif, &#39;Apple Color Emoji&#39;, &#39;Segoe UI Emoji&#39;, &#39;Segoe UI Symbol&#39;, &#39;Noto Color Emoji&#39;; display: table; border-collapse: collapse; line-height: normal; margin-left: auto; margin-right: auto; color: #333333; font-size: 16px; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: auto; border-top-style: solid; border-top-width: 2px; border-top-color: #004D80; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #004D80; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3;" bgcolor="#FFFFFF">
 <thead style="border-style: none;">
 <tr class="gt_heading" style="border-style: none; background-color: #FFFFFF; text-align: center; border-bottom-color: #FFFFFF; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3;" bgcolor="#FFFFFF" align="center">
@@ -3023,27 +3023,27 @@ logical (<code>TRUE</code> or <code>FALSE</code>), which simplifies the
 workflow. (The survey was imported into R using the
 <code>importsurvey</code> package, which automatically detects binary
 variables and imports them as logical variables.)</p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" tabindex="-1"></a><span class="co">#</span></span>
-<span id="cb23-2"><a href="#cb23-2" tabindex="-1"></a><span class="fu">var_all</span>(<span class="st">&quot;Medicare and Medicaid&quot;</span>, <span class="fu">c</span>(<span class="st">&quot;PAYMCARE&quot;</span>, <span class="st">&quot;PAYMCAID&quot;</span>))</span>
-<span id="cb23-3"><a href="#cb23-3" tabindex="-1"></a></span>
-<span id="cb23-4"><a href="#cb23-4" tabindex="-1"></a><span class="co">#</span></span>
-<span id="cb23-5"><a href="#cb23-5" tabindex="-1"></a><span class="fu">var_any</span>(<span class="st">&quot;Payment used&quot;</span>, <span class="fu">c</span>(<span class="st">&quot;PAYPRIV&quot;</span>, <span class="st">&quot;PAYMCARE&quot;</span>, <span class="st">&quot;PAYMCAID&quot;</span></span>
-<span id="cb23-6"><a href="#cb23-6" tabindex="-1"></a>  , <span class="st">&quot;PAYWKCMP&quot;</span>, <span class="st">&quot;PAYOTH&quot;</span>, <span class="st">&quot;PAYDK&quot;</span>))</span>
-<span id="cb23-7"><a href="#cb23-7" tabindex="-1"></a><span class="fu">var_not</span>(<span class="st">&quot;No other payment used&quot;</span>, <span class="st">&quot;Payment used&quot;</span>)</span>
-<span id="cb23-8"><a href="#cb23-8" tabindex="-1"></a></span>
-<span id="cb23-9"><a href="#cb23-9" tabindex="-1"></a><span class="fu">var_all</span>(<span class="st">&quot;Self-pay&quot;</span>, <span class="fu">c</span>(<span class="st">&quot;PAYSELF&quot;</span>, <span class="st">&quot;No other payment used&quot;</span>))</span>
-<span id="cb23-10"><a href="#cb23-10" tabindex="-1"></a><span class="fu">var_all</span>(<span class="st">&quot;No charge&quot;</span>, <span class="fu">c</span>(<span class="st">&quot;PAYNOCHG&quot;</span>, <span class="st">&quot;No other payment used&quot;</span>))</span>
-<span id="cb23-11"><a href="#cb23-11" tabindex="-1"></a><span class="fu">var_any</span>(<span class="st">&quot;No insurance&quot;</span>, <span class="fu">c</span>(<span class="st">&quot;Self-pay&quot;</span>, <span class="st">&quot;No charge&quot;</span>))</span>
-<span id="cb23-12"><a href="#cb23-12" tabindex="-1"></a></span>
-<span id="cb23-13"><a href="#cb23-13" tabindex="-1"></a><span class="co">#</span></span>
-<span id="cb23-14"><a href="#cb23-14" tabindex="-1"></a><span class="fu">var_case</span>(<span class="st">&quot;No pay&quot;</span>, <span class="st">&quot;NOPAY&quot;</span>, <span class="st">&quot;No categories marked&quot;</span>)</span>
-<span id="cb23-15"><a href="#cb23-15" tabindex="-1"></a><span class="fu">var_any</span>(<span class="st">&quot;Unknown or blank&quot;</span>, <span class="fu">c</span>(<span class="st">&quot;PAYDK&quot;</span>, <span class="st">&quot;No pay&quot;</span>))</span>
-<span id="cb23-16"><a href="#cb23-16" tabindex="-1"></a></span>
-<span id="cb23-17"><a href="#cb23-17" tabindex="-1"></a><span class="do">##</span></span>
-<span id="cb23-18"><a href="#cb23-18" tabindex="-1"></a><span class="fu">tab</span>(<span class="st">&quot;PAYPRIV&quot;</span>, <span class="st">&quot;PAYMCARE&quot;</span>, <span class="st">&quot;PAYMCAID&quot;</span>, <span class="st">&quot;Medicare and Medicaid&quot;</span></span>
-<span id="cb23-19"><a href="#cb23-19" tabindex="-1"></a>  , <span class="st">&quot;No insurance&quot;</span>, <span class="st">&quot;Self-pay&quot;</span>, <span class="st">&quot;No charge&quot;</span></span>
-<span id="cb23-20"><a href="#cb23-20" tabindex="-1"></a>  , <span class="st">&quot;PAYWKCMP&quot;</span>, <span class="st">&quot;PAYOTH&quot;</span>, <span class="st">&quot;Unknown or blank&quot;</span>)</span></code></pre></div>
-<div id="ihvtzbchii" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb22-2"><a href="#cb22-2" tabindex="-1"></a><span class="fu">var_all</span>(<span class="st">&quot;Medicare and Medicaid&quot;</span>, <span class="fu">c</span>(<span class="st">&quot;PAYMCARE&quot;</span>, <span class="st">&quot;PAYMCAID&quot;</span>))</span>
+<span id="cb22-3"><a href="#cb22-3" tabindex="-1"></a></span>
+<span id="cb22-4"><a href="#cb22-4" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb22-5"><a href="#cb22-5" tabindex="-1"></a><span class="fu">var_any</span>(<span class="st">&quot;Payment used&quot;</span>, <span class="fu">c</span>(<span class="st">&quot;PAYPRIV&quot;</span>, <span class="st">&quot;PAYMCARE&quot;</span>, <span class="st">&quot;PAYMCAID&quot;</span></span>
+<span id="cb22-6"><a href="#cb22-6" tabindex="-1"></a>  , <span class="st">&quot;PAYWKCMP&quot;</span>, <span class="st">&quot;PAYOTH&quot;</span>, <span class="st">&quot;PAYDK&quot;</span>))</span>
+<span id="cb22-7"><a href="#cb22-7" tabindex="-1"></a><span class="fu">var_not</span>(<span class="st">&quot;No other payment used&quot;</span>, <span class="st">&quot;Payment used&quot;</span>)</span>
+<span id="cb22-8"><a href="#cb22-8" tabindex="-1"></a></span>
+<span id="cb22-9"><a href="#cb22-9" tabindex="-1"></a><span class="fu">var_all</span>(<span class="st">&quot;Self-pay&quot;</span>, <span class="fu">c</span>(<span class="st">&quot;PAYSELF&quot;</span>, <span class="st">&quot;No other payment used&quot;</span>))</span>
+<span id="cb22-10"><a href="#cb22-10" tabindex="-1"></a><span class="fu">var_all</span>(<span class="st">&quot;No charge&quot;</span>, <span class="fu">c</span>(<span class="st">&quot;PAYNOCHG&quot;</span>, <span class="st">&quot;No other payment used&quot;</span>))</span>
+<span id="cb22-11"><a href="#cb22-11" tabindex="-1"></a><span class="fu">var_any</span>(<span class="st">&quot;No insurance&quot;</span>, <span class="fu">c</span>(<span class="st">&quot;Self-pay&quot;</span>, <span class="st">&quot;No charge&quot;</span>))</span>
+<span id="cb22-12"><a href="#cb22-12" tabindex="-1"></a></span>
+<span id="cb22-13"><a href="#cb22-13" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb22-14"><a href="#cb22-14" tabindex="-1"></a><span class="fu">var_case</span>(<span class="st">&quot;No pay&quot;</span>, <span class="st">&quot;NOPAY&quot;</span>, <span class="st">&quot;No categories marked&quot;</span>)</span>
+<span id="cb22-15"><a href="#cb22-15" tabindex="-1"></a><span class="fu">var_any</span>(<span class="st">&quot;Unknown or blank&quot;</span>, <span class="fu">c</span>(<span class="st">&quot;PAYDK&quot;</span>, <span class="st">&quot;No pay&quot;</span>))</span>
+<span id="cb22-16"><a href="#cb22-16" tabindex="-1"></a></span>
+<span id="cb22-17"><a href="#cb22-17" tabindex="-1"></a><span class="do">##</span></span>
+<span id="cb22-18"><a href="#cb22-18" tabindex="-1"></a><span class="fu">tab</span>(<span class="st">&quot;PAYPRIV&quot;</span>, <span class="st">&quot;PAYMCARE&quot;</span>, <span class="st">&quot;PAYMCAID&quot;</span>, <span class="st">&quot;Medicare and Medicaid&quot;</span></span>
+<span id="cb22-19"><a href="#cb22-19" tabindex="-1"></a>  , <span class="st">&quot;No insurance&quot;</span>, <span class="st">&quot;Self-pay&quot;</span>, <span class="st">&quot;No charge&quot;</span></span>
+<span id="cb22-20"><a href="#cb22-20" tabindex="-1"></a>  , <span class="st">&quot;PAYWKCMP&quot;</span>, <span class="st">&quot;PAYOTH&quot;</span>, <span class="st">&quot;Unknown or blank&quot;</span>)</span></code></pre></div>
+<div id="xdgzhbrjsu" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false" style="-webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-family: system-ui, &#39;Segoe UI&#39;, Roboto, Helvetica, Arial, sans-serif, &#39;Apple Color Emoji&#39;, &#39;Segoe UI Emoji&#39;, &#39;Segoe UI Symbol&#39;, &#39;Noto Color Emoji&#39;; display: table; border-collapse: collapse; line-height: normal; margin-left: auto; margin-right: auto; color: #333333; font-size: 16px; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: auto; border-top-style: solid; border-top-width: 2px; border-top-color: #004D80; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #004D80; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3;" bgcolor="#FFFFFF">
 <thead style="border-style: none;">
 <tr class="gt_heading" style="border-style: none; background-color: #FFFFFF; text-align: center; border-bottom-color: #FFFFFF; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3;" bgcolor="#FFFFFF" align="center">
@@ -3159,7 +3159,7 @@ N = 8250. Checked NCHS presentation standards. Nothing to report.
 </tfoot>
 </table>
 </div>
-<div id="lpuqpkscom" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="abwinhyxta" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false" style="-webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-family: system-ui, &#39;Segoe UI&#39;, Roboto, Helvetica, Arial, sans-serif, &#39;Apple Color Emoji&#39;, &#39;Segoe UI Emoji&#39;, &#39;Segoe UI Symbol&#39;, &#39;Noto Color Emoji&#39;; display: table; border-collapse: collapse; line-height: normal; margin-left: auto; margin-right: auto; color: #333333; font-size: 16px; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: auto; border-top-style: solid; border-top-width: 2px; border-top-color: #004D80; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #004D80; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3;" bgcolor="#FFFFFF">
 <thead style="border-style: none;">
 <tr class="gt_heading" style="border-style: none; background-color: #FFFFFF; text-align: center; border-bottom-color: #FFFFFF; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3;" bgcolor="#FFFFFF" align="center">
@@ -3275,7 +3275,7 @@ N = 8250. Checked NCHS presentation standards. Nothing to report.
 </tfoot>
 </table>
 </div>
-<div id="hwomgbqmwp" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="ignstfcbtl" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false" style="-webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-family: system-ui, &#39;Segoe UI&#39;, Roboto, Helvetica, Arial, sans-serif, &#39;Apple Color Emoji&#39;, &#39;Segoe UI Emoji&#39;, &#39;Segoe UI Symbol&#39;, &#39;Noto Color Emoji&#39;; display: table; border-collapse: collapse; line-height: normal; margin-left: auto; margin-right: auto; color: #333333; font-size: 16px; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: auto; border-top-style: solid; border-top-width: 2px; border-top-color: #004D80; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #004D80; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3;" bgcolor="#FFFFFF">
 <thead style="border-style: none;">
 <tr class="gt_heading" style="border-style: none; background-color: #FFFFFF; text-align: center; border-bottom-color: #FFFFFF; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3;" bgcolor="#FFFFFF" align="center">
@@ -3392,7 +3392,7 @@ N = 8250. Checked NCHS presentation standards. Nothing to report.
 </tfoot>
 </table>
 </div>
-<div id="kuoyljnqws" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="qdhmykkcnv" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false" style="-webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-family: system-ui, &#39;Segoe UI&#39;, Roboto, Helvetica, Arial, sans-serif, &#39;Apple Color Emoji&#39;, &#39;Segoe UI Emoji&#39;, &#39;Segoe UI Symbol&#39;, &#39;Noto Color Emoji&#39;; display: table; border-collapse: collapse; line-height: normal; margin-left: auto; margin-right: auto; color: #333333; font-size: 16px; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: auto; border-top-style: solid; border-top-width: 2px; border-top-color: #004D80; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #004D80; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3;" bgcolor="#FFFFFF">
 <thead style="border-style: none;">
 <tr class="gt_heading" style="border-style: none; background-color: #FFFFFF; text-align: center; border-bottom-color: #FFFFFF; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3;" bgcolor="#FFFFFF" align="center">
@@ -3508,7 +3508,7 @@ N = 8250. Checked NCHS presentation standards. Nothing to report.
 </tfoot>
 </table>
 </div>
-<div id="mldzjgigbm" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="hzjwljjxwu" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false" style="-webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-family: system-ui, &#39;Segoe UI&#39;, Roboto, Helvetica, Arial, sans-serif, &#39;Apple Color Emoji&#39;, &#39;Segoe UI Emoji&#39;, &#39;Segoe UI Symbol&#39;, &#39;Noto Color Emoji&#39;; display: table; border-collapse: collapse; line-height: normal; margin-left: auto; margin-right: auto; color: #333333; font-size: 16px; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: auto; border-top-style: solid; border-top-width: 2px; border-top-color: #004D80; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #004D80; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3;" bgcolor="#FFFFFF">
 <thead style="border-style: none;">
 <tr class="gt_heading" style="border-style: none; background-color: #FFFFFF; text-align: center; border-bottom-color: #FFFFFF; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3;" bgcolor="#FFFFFF" align="center">
@@ -3634,7 +3634,7 @@ rate); Px: suppress percent; Pc: footnote percent - complement.
 </tfoot>
 </table>
 </div>
-<div id="sckgryuwjp" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="kffdvlxlka" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false" style="-webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-family: system-ui, &#39;Segoe UI&#39;, Roboto, Helvetica, Arial, sans-serif, &#39;Apple Color Emoji&#39;, &#39;Segoe UI Emoji&#39;, &#39;Segoe UI Symbol&#39;, &#39;Noto Color Emoji&#39;; display: table; border-collapse: collapse; line-height: normal; margin-left: auto; margin-right: auto; color: #333333; font-size: 16px; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: auto; border-top-style: solid; border-top-width: 2px; border-top-color: #004D80; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #004D80; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3;" bgcolor="#FFFFFF">
 <thead style="border-style: none;">
 <tr class="gt_heading" style="border-style: none; background-color: #FFFFFF; text-align: center; border-bottom-color: #FFFFFF; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3;" bgcolor="#FFFFFF" align="center">
@@ -3760,7 +3760,7 @@ rate); Px: suppress percent; Pc: footnote percent - complement.
 </tfoot>
 </table>
 </div>
-<div id="qvhxtrqpwj" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="hbdhbyhldx" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false" style="-webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-family: system-ui, &#39;Segoe UI&#39;, Roboto, Helvetica, Arial, sans-serif, &#39;Apple Color Emoji&#39;, &#39;Segoe UI Emoji&#39;, &#39;Segoe UI Symbol&#39;, &#39;Noto Color Emoji&#39;; display: table; border-collapse: collapse; line-height: normal; margin-left: auto; margin-right: auto; color: #333333; font-size: 16px; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: auto; border-top-style: solid; border-top-width: 2px; border-top-color: #004D80; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #004D80; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3;" bgcolor="#FFFFFF">
 <thead style="border-style: none;">
 <tr class="gt_heading" style="border-style: none; background-color: #FFFFFF; text-align: center; border-bottom-color: #FFFFFF; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3;" bgcolor="#FFFFFF" align="center">
@@ -3885,7 +3885,7 @@ rate).
 </tfoot>
 </table>
 </div>
-<div id="oiymdkihiu" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="mqqitzmzcz" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false" style="-webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-family: system-ui, &#39;Segoe UI&#39;, Roboto, Helvetica, Arial, sans-serif, &#39;Apple Color Emoji&#39;, &#39;Segoe UI Emoji&#39;, &#39;Segoe UI Symbol&#39;, &#39;Noto Color Emoji&#39;; display: table; border-collapse: collapse; line-height: normal; margin-left: auto; margin-right: auto; color: #333333; font-size: 16px; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: auto; border-top-style: solid; border-top-width: 2px; border-top-color: #004D80; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #004D80; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3;" bgcolor="#FFFFFF">
 <thead style="border-style: none;">
 <tr class="gt_heading" style="border-style: none; background-color: #FFFFFF; text-align: center; border-bottom-color: #FFFFFF; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3;" bgcolor="#FFFFFF" align="center">
@@ -4012,7 +4012,7 @@ rate); Px: suppress percent; Pc: footnote percent - complement.
 </tfoot>
 </table>
 </div>
-<div id="zhcrfnckpk" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="bflacjngzo" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false" style="-webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-family: system-ui, &#39;Segoe UI&#39;, Roboto, Helvetica, Arial, sans-serif, &#39;Apple Color Emoji&#39;, &#39;Segoe UI Emoji&#39;, &#39;Segoe UI Symbol&#39;, &#39;Noto Color Emoji&#39;; display: table; border-collapse: collapse; line-height: normal; margin-left: auto; margin-right: auto; color: #333333; font-size: 16px; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: auto; border-top-style: solid; border-top-width: 2px; border-top-color: #004D80; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #004D80; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3;" bgcolor="#FFFFFF">
 <thead style="border-style: none;">
 <tr class="gt_heading" style="border-style: none; background-color: #FFFFFF; text-align: center; border-bottom-color: #FFFFFF; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3;" bgcolor="#FFFFFF" align="center">
@@ -4128,7 +4128,7 @@ N = 8250. Checked NCHS presentation standards. Nothing to report.
 </tfoot>
 </table>
 </div>
-<div id="zirgkeaayk" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="zztdojdpwd" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false" style="-webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-family: system-ui, &#39;Segoe UI&#39;, Roboto, Helvetica, Arial, sans-serif, &#39;Apple Color Emoji&#39;, &#39;Segoe UI Emoji&#39;, &#39;Segoe UI Symbol&#39;, &#39;Noto Color Emoji&#39;; display: table; border-collapse: collapse; line-height: normal; margin-left: auto; margin-right: auto; color: #333333; font-size: 16px; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: auto; border-top-style: solid; border-top-width: 2px; border-top-color: #004D80; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #004D80; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3;" bgcolor="#FFFFFF">
 <thead style="border-style: none;">
 <tr class="gt_heading" style="border-style: none; background-color: #FFFFFF; text-align: center; border-bottom-color: #FFFFFF; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3;" bgcolor="#FFFFFF" align="center">
@@ -4254,11 +4254,11 @@ prior-visit status.</p>
 <p>In the table, the “Unknown” and “Blank” values are collapsed into a
 single value. We can collapse two or more levels of a factor into a
 single level using the <code>var_collapse</code> function.</p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" tabindex="-1"></a><span class="fu">var_collapse</span>(<span class="st">&quot;PRIMCARE&quot;</span>, <span class="st">&quot;Unknown if PCP&quot;</span>, <span class="fu">c</span>(<span class="st">&quot;Unknown&quot;</span>, <span class="st">&quot;Blank&quot;</span>))</span>
-<span id="cb24-2"><a href="#cb24-2" tabindex="-1"></a><span class="fu">var_collapse</span>(<span class="st">&quot;REFER&quot;</span>, <span class="st">&quot;Unknown if referred&quot;</span>, <span class="fu">c</span>(<span class="st">&quot;Unknown&quot;</span>, <span class="st">&quot;Blank&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" tabindex="-1"></a><span class="fu">var_collapse</span>(<span class="st">&quot;PRIMCARE&quot;</span>, <span class="st">&quot;Unknown if PCP&quot;</span>, <span class="fu">c</span>(<span class="st">&quot;Unknown&quot;</span>, <span class="st">&quot;Blank&quot;</span>))</span>
+<span id="cb23-2"><a href="#cb23-2" tabindex="-1"></a><span class="fu">var_collapse</span>(<span class="st">&quot;REFER&quot;</span>, <span class="st">&quot;Unknown if referred&quot;</span>, <span class="fu">c</span>(<span class="st">&quot;Unknown&quot;</span>, <span class="st">&quot;Blank&quot;</span>))</span></code></pre></div>
 <p>Now, for the table:</p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" tabindex="-1"></a><span class="fu">tab</span>(<span class="st">&quot;PRIMCARE&quot;</span>, <span class="st">&quot;REFER&quot;</span>, <span class="st">&quot;SENBEFOR&quot;</span>)</span></code></pre></div>
-<div id="xzoawzcvas" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" tabindex="-1"></a><span class="fu">tab</span>(<span class="st">&quot;PRIMCARE&quot;</span>, <span class="st">&quot;REFER&quot;</span>, <span class="st">&quot;SENBEFOR&quot;</span>)</span></code></pre></div>
+<div id="nfyzsvchjr" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false" style="-webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-family: system-ui, &#39;Segoe UI&#39;, Roboto, Helvetica, Arial, sans-serif, &#39;Apple Color Emoji&#39;, &#39;Segoe UI Emoji&#39;, &#39;Segoe UI Symbol&#39;, &#39;Noto Color Emoji&#39;; display: table; border-collapse: collapse; line-height: normal; margin-left: auto; margin-right: auto; color: #333333; font-size: 16px; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: auto; border-top-style: solid; border-top-width: 2px; border-top-color: #004D80; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #004D80; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3;" bgcolor="#FFFFFF">
 <thead style="border-style: none;">
 <tr class="gt_heading" style="border-style: none; background-color: #FFFFFF; text-align: center; border-bottom-color: #FFFFFF; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3;" bgcolor="#FFFFFF" align="center">
@@ -4406,7 +4406,7 @@ N = 8250. Checked NCHS presentation standards. Nothing to report.
 </tfoot>
 </table>
 </div>
-<div id="vijnoseayd" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="jxsklmolum" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false" style="-webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-family: system-ui, &#39;Segoe UI&#39;, Roboto, Helvetica, Arial, sans-serif, &#39;Apple Color Emoji&#39;, &#39;Segoe UI Emoji&#39;, &#39;Segoe UI Symbol&#39;, &#39;Noto Color Emoji&#39;; display: table; border-collapse: collapse; line-height: normal; margin-left: auto; margin-right: auto; color: #333333; font-size: 16px; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: auto; border-top-style: solid; border-top-width: 2px; border-top-color: #004D80; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #004D80; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3;" bgcolor="#FFFFFF">
 <thead style="border-style: none;">
 <tr class="gt_heading" style="border-style: none; background-color: #FFFFFF; text-align: center; border-bottom-color: #FFFFFF; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3;" bgcolor="#FFFFFF" align="center">
@@ -4586,7 +4586,7 @@ N = 8250. Checked NCHS presentation standards. Nothing to report.
 </tfoot>
 </table>
 </div>
-<div id="yvghrtowtj" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="kzvequxirp" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false" style="-webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-family: system-ui, &#39;Segoe UI&#39;, Roboto, Helvetica, Arial, sans-serif, &#39;Apple Color Emoji&#39;, &#39;Segoe UI Emoji&#39;, &#39;Segoe UI Symbol&#39;, &#39;Noto Color Emoji&#39;; display: table; border-collapse: collapse; line-height: normal; margin-left: auto; margin-right: auto; color: #333333; font-size: 16px; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: auto; border-top-style: solid; border-top-width: 2px; border-top-color: #004D80; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #004D80; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3;" bgcolor="#FFFFFF">
 <thead style="border-style: none;">
 <tr class="gt_heading" style="border-style: none; background-color: #FFFFFF; text-align: center; border-bottom-color: #FFFFFF; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3;" bgcolor="#FFFFFF" align="center">
@@ -4705,8 +4705,8 @@ N = 8250. Checked NCHS presentation standards. Nothing to report.
 <p>The percentages within each subset that is defined by
 <code>SENBEFOR</code> add up to 100% – for this reason, we want to use
 <code>tab_subset()</code>, not <code>tab_cross()</code>.</p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" tabindex="-1"></a><span class="fu">tab_subset</span>(<span class="st">&quot;PRIMCARE&quot;</span>, <span class="st">&quot;SENBEFOR&quot;</span>)</span></code></pre></div>
-<div id="nfitrzjskq" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" tabindex="-1"></a><span class="fu">tab_subset</span>(<span class="st">&quot;PRIMCARE&quot;</span>, <span class="st">&quot;SENBEFOR&quot;</span>)</span></code></pre></div>
+<div id="ghudjkscuw" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false" style="-webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-family: system-ui, &#39;Segoe UI&#39;, Roboto, Helvetica, Arial, sans-serif, &#39;Apple Color Emoji&#39;, &#39;Segoe UI Emoji&#39;, &#39;Segoe UI Symbol&#39;, &#39;Noto Color Emoji&#39;; display: table; border-collapse: collapse; line-height: normal; margin-left: auto; margin-right: auto; color: #333333; font-size: 16px; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: auto; border-top-style: solid; border-top-width: 2px; border-top-color: #004D80; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #004D80; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3;" bgcolor="#FFFFFF">
 <thead style="border-style: none;">
 <tr class="gt_heading" style="border-style: none; background-color: #FFFFFF; text-align: center; border-bottom-color: #FFFFFF; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3;" bgcolor="#FFFFFF" align="center">
@@ -4855,7 +4855,7 @@ N = 6771. Checked NCHS presentation standards. Nothing to report.
 </tfoot>
 </table>
 </div>
-<div id="jlpkxueurj" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="rtmzkursvm" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false" style="-webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-family: system-ui, &#39;Segoe UI&#39;, Roboto, Helvetica, Arial, sans-serif, &#39;Apple Color Emoji&#39;, &#39;Segoe UI Emoji&#39;, &#39;Segoe UI Symbol&#39;, &#39;Noto Color Emoji&#39;; display: table; border-collapse: collapse; line-height: normal; margin-left: auto; margin-right: auto; color: #333333; font-size: 16px; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: auto; border-top-style: solid; border-top-width: 2px; border-top-color: #004D80; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #004D80; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3;" bgcolor="#FFFFFF">
 <thead style="border-style: none;">
 <tr class="gt_heading" style="border-style: none; background-color: #FFFFFF; text-align: center; border-bottom-color: #FFFFFF; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3;" bgcolor="#FFFFFF" align="center">
@@ -5015,8 +5015,8 @@ rate); Px: suppress percent.
 </tfoot>
 </table>
 </div>
-<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" tabindex="-1"></a><span class="fu">tab_subset</span>(<span class="st">&quot;REFER&quot;</span>, <span class="st">&quot;SENBEFOR&quot;</span>)</span></code></pre></div>
-<div id="fwwsbasnxd" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" tabindex="-1"></a><span class="fu">tab_subset</span>(<span class="st">&quot;REFER&quot;</span>, <span class="st">&quot;SENBEFOR&quot;</span>)</span></code></pre></div>
+<div id="kwajpganmy" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false" style="-webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-family: system-ui, &#39;Segoe UI&#39;, Roboto, Helvetica, Arial, sans-serif, &#39;Apple Color Emoji&#39;, &#39;Segoe UI Emoji&#39;, &#39;Segoe UI Symbol&#39;, &#39;Noto Color Emoji&#39;; display: table; border-collapse: collapse; line-height: normal; margin-left: auto; margin-right: auto; color: #333333; font-size: 16px; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: auto; border-top-style: solid; border-top-width: 2px; border-top-color: #004D80; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #004D80; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3;" bgcolor="#FFFFFF">
 <thead style="border-style: none;">
 <tr class="gt_heading" style="border-style: none; background-color: #FFFFFF; text-align: center; border-bottom-color: #FFFFFF; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3;" bgcolor="#FFFFFF" align="center">
@@ -5197,7 +5197,7 @@ N = 6771. Checked NCHS presentation standards. Nothing to report.
 </tfoot>
 </table>
 </div>
-<div id="qzgggugetg" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="wygthzleyr" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false" style="-webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-family: system-ui, &#39;Segoe UI&#39;, Roboto, Helvetica, Arial, sans-serif, &#39;Apple Color Emoji&#39;, &#39;Segoe UI Emoji&#39;, &#39;Segoe UI Symbol&#39;, &#39;Noto Color Emoji&#39;; display: table; border-collapse: collapse; line-height: normal; margin-left: auto; margin-right: auto; color: #333333; font-size: 16px; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: auto; border-top-style: solid; border-top-width: 2px; border-top-color: #004D80; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #004D80; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3;" bgcolor="#FFFFFF">
 <thead style="border-style: none;">
 <tr class="gt_heading" style="border-style: none; background-color: #FFFFFF; text-align: center; border-bottom-color: #FFFFFF; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3;" bgcolor="#FFFFFF" align="center">
@@ -5387,17 +5387,17 @@ as for each age group by sex, but only for preventive care visits.</p>
 <p>Let’s create <code>Age group</code> from <code>AGE</code> and cross
 <code>AGER</code> and <code>SEX</code> to create a variable called
 <code>Age x Sex</code>:</p>
-<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" tabindex="-1"></a><span class="fu">var_cut</span>(<span class="st">&quot;Age group&quot;</span>, <span class="st">&quot;AGE&quot;</span></span>
-<span id="cb28-2"><a href="#cb28-2" tabindex="-1"></a>        , <span class="fu">c</span>(<span class="sc">-</span><span class="cn">Inf</span>, <span class="dv">0</span>, <span class="dv">4</span>, <span class="dv">14</span>, <span class="dv">64</span>, <span class="cn">Inf</span>)</span>
-<span id="cb28-3"><a href="#cb28-3" tabindex="-1"></a>        , <span class="fu">c</span>(<span class="st">&quot;Under 1&quot;</span>, <span class="st">&quot;1-4&quot;</span>, <span class="st">&quot;5-14&quot;</span>, <span class="st">&quot;15-64&quot;</span>, <span class="st">&quot;65 and over&quot;</span>) )</span>
-<span id="cb28-4"><a href="#cb28-4" tabindex="-1"></a><span class="do">## Warning in var_cut(&quot;Age group&quot;, &quot;AGE&quot;, c(-Inf, 0, 4, 14, 64, Inf), c(&quot;Under 1&quot;,</span></span>
-<span id="cb28-5"><a href="#cb28-5" tabindex="-1"></a><span class="do">## : Age group: overwriting a variable that already exists.</span></span></code></pre></div>
-<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" tabindex="-1"></a><span class="fu">var_cross</span>(<span class="st">&quot;Age x Sex&quot;</span>, <span class="st">&quot;AGER&quot;</span>, <span class="st">&quot;SEX&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" tabindex="-1"></a><span class="fu">var_cut</span>(<span class="st">&quot;Age group&quot;</span>, <span class="st">&quot;AGE&quot;</span></span>
+<span id="cb27-2"><a href="#cb27-2" tabindex="-1"></a>        , <span class="fu">c</span>(<span class="sc">-</span><span class="cn">Inf</span>, <span class="dv">0</span>, <span class="dv">4</span>, <span class="dv">14</span>, <span class="dv">64</span>, <span class="cn">Inf</span>)</span>
+<span id="cb27-3"><a href="#cb27-3" tabindex="-1"></a>        , <span class="fu">c</span>(<span class="st">&quot;Under 1&quot;</span>, <span class="st">&quot;1-4&quot;</span>, <span class="st">&quot;5-14&quot;</span>, <span class="st">&quot;15-64&quot;</span>, <span class="st">&quot;65 and over&quot;</span>) )</span>
+<span id="cb27-4"><a href="#cb27-4" tabindex="-1"></a><span class="do">## Warning in var_cut(&quot;Age group&quot;, &quot;AGE&quot;, c(-Inf, 0, 4, 14, 64, Inf), c(&quot;Under 1&quot;,</span></span>
+<span id="cb27-5"><a href="#cb27-5" tabindex="-1"></a><span class="do">## : Age group: overwriting a variable that already exists.</span></span>
+<span id="cb27-6"><a href="#cb27-6" tabindex="-1"></a><span class="fu">var_cross</span>(<span class="st">&quot;Age x Sex&quot;</span>, <span class="st">&quot;AGER&quot;</span>, <span class="st">&quot;SEX&quot;</span>)</span></code></pre></div>
 <p>To see the possible values of <code>MAJOR</code> (Major reason for
 this visit), and to estimate the total count for preventive care
 visits:</p>
-<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" tabindex="-1"></a><span class="fu">tab</span>(<span class="st">&quot;MAJOR&quot;</span>)</span></code></pre></div>
-<div id="gvcxvbjexi" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" tabindex="-1"></a><span class="fu">tab</span>(<span class="st">&quot;MAJOR&quot;</span>)</span></code></pre></div>
+<div id="qmnynlnanp" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false" style="-webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-family: system-ui, &#39;Segoe UI&#39;, Roboto, Helvetica, Arial, sans-serif, &#39;Apple Color Emoji&#39;, &#39;Segoe UI Emoji&#39;, &#39;Segoe UI Symbol&#39;, &#39;Noto Color Emoji&#39;; display: table; border-collapse: collapse; line-height: normal; margin-left: auto; margin-right: auto; color: #333333; font-size: 16px; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: auto; border-top-style: solid; border-top-width: 2px; border-top-color: #004D80; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #004D80; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3;" bgcolor="#FFFFFF">
 <thead style="border-style: none;">
 <tr class="gt_heading" style="border-style: none; background-color: #FFFFFF; text-align: center; border-bottom-color: #FFFFFF; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3;" bgcolor="#FFFFFF" align="center">
@@ -5675,8 +5675,8 @@ N = 8250. Checked NCHS presentation standards. Nothing to report.
 </div>
 <p>To create the tables of age, sex, and their interaction, and limit
 them to only the preventive care visits:</p>
-<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" tabindex="-1"></a><span class="fu">tab_subset</span>(<span class="st">&quot;AGER&quot;</span>, <span class="st">&quot;MAJOR&quot;</span>, <span class="st">&quot;Preventive care&quot;</span>)</span></code></pre></div>
-<div id="znbkvebwhj" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" tabindex="-1"></a><span class="fu">tab_subset</span>(<span class="st">&quot;AGER&quot;</span>, <span class="st">&quot;MAJOR&quot;</span>, <span class="st">&quot;Preventive care&quot;</span>)</span></code></pre></div>
+<div id="lpufepbupe" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false" style="-webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-family: system-ui, &#39;Segoe UI&#39;, Roboto, Helvetica, Arial, sans-serif, &#39;Apple Color Emoji&#39;, &#39;Segoe UI Emoji&#39;, &#39;Segoe UI Symbol&#39;, &#39;Noto Color Emoji&#39;; display: table; border-collapse: collapse; line-height: normal; margin-left: auto; margin-right: auto; color: #333333; font-size: 16px; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: auto; border-top-style: solid; border-top-width: 2px; border-top-color: #004D80; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #004D80; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3;" bgcolor="#FFFFFF">
 <thead style="border-style: none;">
 <tr class="gt_heading" style="border-style: none; background-color: #FFFFFF; text-align: center; border-bottom-color: #FFFFFF; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3;" bgcolor="#FFFFFF" align="center">
@@ -5921,8 +5921,8 @@ N = 1568. Checked NCHS presentation standards. Nothing to report.
 </tfoot>
 </table>
 </div>
-<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" tabindex="-1"></a><span class="fu">tab_subset</span>(<span class="st">&quot;Age group&quot;</span>, <span class="st">&quot;MAJOR&quot;</span>, <span class="st">&quot;Preventive care&quot;</span>)</span></code></pre></div>
-<div id="jipgobodvq" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" tabindex="-1"></a><span class="fu">tab_subset</span>(<span class="st">&quot;Age group&quot;</span>, <span class="st">&quot;MAJOR&quot;</span>, <span class="st">&quot;Preventive care&quot;</span>)</span></code></pre></div>
+<div id="riujiciklw" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false" style="-webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-family: system-ui, &#39;Segoe UI&#39;, Roboto, Helvetica, Arial, sans-serif, &#39;Apple Color Emoji&#39;, &#39;Segoe UI Emoji&#39;, &#39;Segoe UI Symbol&#39;, &#39;Noto Color Emoji&#39;; display: table; border-collapse: collapse; line-height: normal; margin-left: auto; margin-right: auto; color: #333333; font-size: 16px; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: auto; border-top-style: solid; border-top-width: 2px; border-top-color: #004D80; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #004D80; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3;" bgcolor="#FFFFFF">
 <thead style="border-style: none;">
 <tr class="gt_heading" style="border-style: none; background-color: #FFFFFF; text-align: center; border-bottom-color: #FFFFFF; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3;" bgcolor="#FFFFFF" align="center">
@@ -6135,8 +6135,8 @@ N = 1568. Checked NCHS presentation standards. Nothing to report.
 </tfoot>
 </table>
 </div>
-<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" tabindex="-1"></a><span class="fu">tab_subset</span>(<span class="st">&quot;SEX&quot;</span>, <span class="st">&quot;MAJOR&quot;</span>, <span class="st">&quot;Preventive care&quot;</span>)</span></code></pre></div>
-<div id="sqljgibccj" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" tabindex="-1"></a><span class="fu">tab_subset</span>(<span class="st">&quot;SEX&quot;</span>, <span class="st">&quot;MAJOR&quot;</span>, <span class="st">&quot;Preventive care&quot;</span>)</span></code></pre></div>
+<div id="rqepmlcpjo" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false" style="-webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-family: system-ui, &#39;Segoe UI&#39;, Roboto, Helvetica, Arial, sans-serif, &#39;Apple Color Emoji&#39;, &#39;Segoe UI Emoji&#39;, &#39;Segoe UI Symbol&#39;, &#39;Noto Color Emoji&#39;; display: table; border-collapse: collapse; line-height: normal; margin-left: auto; margin-right: auto; color: #333333; font-size: 16px; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: auto; border-top-style: solid; border-top-width: 2px; border-top-color: #004D80; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #004D80; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3;" bgcolor="#FFFFFF">
 <thead style="border-style: none;">
 <tr class="gt_heading" style="border-style: none; background-color: #FFFFFF; text-align: center; border-bottom-color: #FFFFFF; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3;" bgcolor="#FFFFFF" align="center">
@@ -6253,8 +6253,8 @@ N = 1568. Checked NCHS presentation standards. Nothing to report.
 </tfoot>
 </table>
 </div>
-<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" tabindex="-1"></a><span class="fu">tab_subset</span>(<span class="st">&quot;Age x Sex&quot;</span>, <span class="st">&quot;MAJOR&quot;</span>, <span class="st">&quot;Preventive care&quot;</span>)</span></code></pre></div>
-<div id="oiqvyvghfs" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" tabindex="-1"></a><span class="fu">tab_subset</span>(<span class="st">&quot;Age x Sex&quot;</span>, <span class="st">&quot;MAJOR&quot;</span>, <span class="st">&quot;Preventive care&quot;</span>)</span></code></pre></div>
+<div id="spinmurxkb" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false" style="-webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-family: system-ui, &#39;Segoe UI&#39;, Roboto, Helvetica, Arial, sans-serif, &#39;Apple Color Emoji&#39;, &#39;Segoe UI Emoji&#39;, &#39;Segoe UI Symbol&#39;, &#39;Noto Color Emoji&#39;; display: table; border-collapse: collapse; line-height: normal; margin-left: auto; margin-right: auto; color: #333333; font-size: 16px; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: auto; border-top-style: solid; border-top-width: 2px; border-top-color: #004D80; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #004D80; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3;" bgcolor="#FFFFFF">
 <thead style="border-style: none;">
 <tr class="gt_heading" style="border-style: none; background-color: #FFFFFF; text-align: center; border-bottom-color: #FFFFFF; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3;" bgcolor="#FFFFFF" align="center">
@@ -6694,10 +6694,10 @@ N = 1568. Checked NCHS presentation standards. Nothing to report.
 <p>As each of the above commands is similar, and differs only in the
 first variable that is passed to the <code>tab_subset()</code> function,
 this code can be streamlined with a <code>for</code> loop:</p>
-<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" tabindex="-1"></a><span class="cf">for</span> (vr <span class="cf">in</span> <span class="fu">c</span>(<span class="st">&quot;AGER&quot;</span>, <span class="st">&quot;Age group&quot;</span>, <span class="st">&quot;SEX&quot;</span>, <span class="st">&quot;Age x Sex&quot;</span>)) {</span>
-<span id="cb35-2"><a href="#cb35-2" tabindex="-1"></a>    <span class="fu">print</span>( <span class="fu">tab_subset</span>(vr, <span class="st">&quot;MAJOR&quot;</span>, <span class="st">&quot;Preventive care&quot;</span>) )</span>
-<span id="cb35-3"><a href="#cb35-3" tabindex="-1"></a>}</span></code></pre></div>
-<div id="gvviypsnxl" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" tabindex="-1"></a><span class="cf">for</span> (vr <span class="cf">in</span> <span class="fu">c</span>(<span class="st">&quot;AGER&quot;</span>, <span class="st">&quot;Age group&quot;</span>, <span class="st">&quot;SEX&quot;</span>, <span class="st">&quot;Age x Sex&quot;</span>)) {</span>
+<span id="cb33-2"><a href="#cb33-2" tabindex="-1"></a>    <span class="fu">print</span>( <span class="fu">tab_subset</span>(vr, <span class="st">&quot;MAJOR&quot;</span>, <span class="st">&quot;Preventive care&quot;</span>) )</span>
+<span id="cb33-3"><a href="#cb33-3" tabindex="-1"></a>}</span></code></pre></div>
+<div id="fyzavctxcl" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false" style="-webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-family: system-ui, &#39;Segoe UI&#39;, Roboto, Helvetica, Arial, sans-serif, &#39;Apple Color Emoji&#39;, &#39;Segoe UI Emoji&#39;, &#39;Segoe UI Symbol&#39;, &#39;Noto Color Emoji&#39;; display: table; border-collapse: collapse; line-height: normal; margin-left: auto; margin-right: auto; color: #333333; font-size: 16px; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: auto; border-top-style: solid; border-top-width: 2px; border-top-color: #004D80; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #004D80; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3;" bgcolor="#FFFFFF">
 <thead style="border-style: none;">
 <tr class="gt_heading" style="border-style: none; background-color: #FFFFFF; text-align: center; border-bottom-color: #FFFFFF; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3;" bgcolor="#FFFFFF" align="center">
@@ -6942,7 +6942,7 @@ N = 1568. Checked NCHS presentation standards. Nothing to report.
 </tfoot>
 </table>
 </div>
-<div id="zhjuvhyjuz" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="muunuqweje" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false" style="-webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-family: system-ui, &#39;Segoe UI&#39;, Roboto, Helvetica, Arial, sans-serif, &#39;Apple Color Emoji&#39;, &#39;Segoe UI Emoji&#39;, &#39;Segoe UI Symbol&#39;, &#39;Noto Color Emoji&#39;; display: table; border-collapse: collapse; line-height: normal; margin-left: auto; margin-right: auto; color: #333333; font-size: 16px; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: auto; border-top-style: solid; border-top-width: 2px; border-top-color: #004D80; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #004D80; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3;" bgcolor="#FFFFFF">
 <thead style="border-style: none;">
 <tr class="gt_heading" style="border-style: none; background-color: #FFFFFF; text-align: center; border-bottom-color: #FFFFFF; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3;" bgcolor="#FFFFFF" align="center">
@@ -7155,7 +7155,7 @@ N = 1568. Checked NCHS presentation standards. Nothing to report.
 </tfoot>
 </table>
 </div>
-<div id="vemsnxtghb" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="rixlepypdl" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false" style="-webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-family: system-ui, &#39;Segoe UI&#39;, Roboto, Helvetica, Arial, sans-serif, &#39;Apple Color Emoji&#39;, &#39;Segoe UI Emoji&#39;, &#39;Segoe UI Symbol&#39;, &#39;Noto Color Emoji&#39;; display: table; border-collapse: collapse; line-height: normal; margin-left: auto; margin-right: auto; color: #333333; font-size: 16px; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: auto; border-top-style: solid; border-top-width: 2px; border-top-color: #004D80; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #004D80; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3;" bgcolor="#FFFFFF">
 <thead style="border-style: none;">
 <tr class="gt_heading" style="border-style: none; background-color: #FFFFFF; text-align: center; border-bottom-color: #FFFFFF; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3;" bgcolor="#FFFFFF" align="center">
@@ -7272,7 +7272,7 @@ N = 1568. Checked NCHS presentation standards. Nothing to report.
 </tfoot>
 </table>
 </div>
-<div id="rhzjtoyhjt" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="ofairocsdd" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false" style="-webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-family: system-ui, &#39;Segoe UI&#39;, Roboto, Helvetica, Arial, sans-serif, &#39;Apple Color Emoji&#39;, &#39;Segoe UI Emoji&#39;, &#39;Segoe UI Symbol&#39;, &#39;Noto Color Emoji&#39;; display: table; border-collapse: collapse; line-height: normal; margin-left: auto; margin-right: auto; color: #333333; font-size: 16px; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: auto; border-top-style: solid; border-top-width: 2px; border-top-color: #004D80; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #004D80; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3;" bgcolor="#FFFFFF">
 <thead style="border-style: none;">
 <tr class="gt_heading" style="border-style: none; background-color: #FFFFFF; text-align: center; border-bottom-color: #FFFFFF; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3;" bgcolor="#FFFFFF" align="center">
@@ -7719,28 +7719,54 @@ physicians.</p>
 <p>To calculate these percentages, a slightly more involved
 <code>for</code> loop is needed. Below is the code, followed by an
 explanation:</p>
-<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" tabindex="-1"></a><span class="fu">set_opts</span>(<span class="at">csv =</span> <span class="st">&quot;output.csv&quot;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" tabindex="-1"></a><span class="cf">for</span> (vr <span class="cf">in</span> <span class="fu">c</span>(<span class="st">&quot;AGER&quot;</span>, <span class="st">&quot;Age group&quot;</span>, <span class="st">&quot;SEX&quot;</span>, <span class="st">&quot;Age x Sex&quot;</span>)) {</span>
-<span id="cb37-2"><a href="#cb37-2" tabindex="-1"></a>    <span class="fu">var_cross</span>(<span class="st">&quot;tmp&quot;</span>, <span class="st">&quot;MAJOR&quot;</span>, vr)</span>
-<span id="cb37-3"><a href="#cb37-3" tabindex="-1"></a>    <span class="cf">for</span> (lvl <span class="cf">in</span> <span class="fu">levels</span>(surveytable<span class="sc">:::</span>env<span class="sc">$</span>survey<span class="sc">$</span>variables[,vr])) {</span>
-<span id="cb37-4"><a href="#cb37-4" tabindex="-1"></a>        <span class="fu">tab_subset</span>(<span class="st">&quot;SPECCAT&quot;</span>, <span class="st">&quot;tmp&quot;</span>, <span class="fu">paste0</span>(<span class="st">&quot;Preventive care: &quot;</span>, lvl))</span>
-<span id="cb37-5"><a href="#cb37-5" tabindex="-1"></a>    }</span>
-<span id="cb37-6"><a href="#cb37-6" tabindex="-1"></a>}</span>
-<span id="cb37-7"><a href="#cb37-7" tabindex="-1"></a><span class="do">## Warning in var_cross(&quot;tmp&quot;, &quot;MAJOR&quot;, vr): tmp: overwriting a variable that</span></span>
-<span id="cb37-8"><a href="#cb37-8" tabindex="-1"></a><span class="do">## already exists.</span></span>
-<span id="cb37-9"><a href="#cb37-9" tabindex="-1"></a><span class="do">## Warning in var_cross(&quot;tmp&quot;, &quot;MAJOR&quot;, vr): tmp: overwriting a variable that</span></span>
-<span id="cb37-10"><a href="#cb37-10" tabindex="-1"></a><span class="do">## already exists.</span></span>
-<span id="cb37-11"><a href="#cb37-11" tabindex="-1"></a><span class="do">## Warning in var_cross(&quot;tmp&quot;, &quot;MAJOR&quot;, vr): tmp: overwriting a variable that</span></span>
-<span id="cb37-12"><a href="#cb37-12" tabindex="-1"></a><span class="do">## already exists.</span></span></code></pre></div>
-<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" tabindex="-1"></a><span class="fu">set_opts</span>(<span class="at">csv =</span> <span class="st">&quot;&quot;</span>)</span>
-<span id="cb38-2"><a href="#cb38-2" tabindex="-1"></a><span class="do">## * Turning off CSV output.</span></span></code></pre></div>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" tabindex="-1"></a><span class="fu">set_opts</span>(<span class="at">output =</span> <span class="st">&quot;csv&quot;</span>, <span class="at">file =</span> <span class="st">&quot;my_output.csv&quot;</span>)</span></code></pre></div>
+<pre><code>## * Printing to CSV file my_output.csv.</code></pre>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" tabindex="-1"></a><span class="cf">for</span> (vr <span class="cf">in</span> <span class="fu">c</span>(<span class="st">&quot;AGER&quot;</span>, <span class="st">&quot;Age group&quot;</span>, <span class="st">&quot;SEX&quot;</span>, <span class="st">&quot;Age x Sex&quot;</span>)) {</span>
+<span id="cb36-2"><a href="#cb36-2" tabindex="-1"></a>    <span class="fu">var_cross</span>(<span class="st">&quot;tmp&quot;</span>, <span class="st">&quot;MAJOR&quot;</span>, vr)</span>
+<span id="cb36-3"><a href="#cb36-3" tabindex="-1"></a>    <span class="cf">for</span> (lvl <span class="cf">in</span> <span class="fu">levels</span>(surveytable<span class="sc">:::</span>env<span class="sc">$</span>survey<span class="sc">$</span>variables[,vr])) {</span>
+<span id="cb36-4"><a href="#cb36-4" tabindex="-1"></a>        <span class="fu">print</span>( <span class="fu">tab_subset</span>(<span class="st">&quot;SPECCAT&quot;</span>, <span class="st">&quot;tmp&quot;</span>, <span class="fu">paste0</span>(<span class="st">&quot;Preventive care: &quot;</span>, lvl)) )</span>
+<span id="cb36-5"><a href="#cb36-5" tabindex="-1"></a>    }</span>
+<span id="cb36-6"><a href="#cb36-6" tabindex="-1"></a>}</span>
+<span id="cb36-7"><a href="#cb36-7" tabindex="-1"></a><span class="do">## * Printing Type of specialty (Primary, Medical, Surgical) (tmp = Preventive care: Under 15 years) {NAMCS 2019 PUF} to CSV file my_output.csv.</span></span>
+<span id="cb36-8"><a href="#cb36-8" tabindex="-1"></a><span class="do">## * Printing Type of specialty (Primary, Medical, Surgical) (tmp = Preventive care: 15-24 years) {NAMCS 2019 PUF} to CSV file my_output.csv.</span></span>
+<span id="cb36-9"><a href="#cb36-9" tabindex="-1"></a><span class="do">## * Printing Type of specialty (Primary, Medical, Surgical) (tmp = Preventive care: 25-44 years) {NAMCS 2019 PUF} to CSV file my_output.csv.</span></span>
+<span id="cb36-10"><a href="#cb36-10" tabindex="-1"></a><span class="do">## * Printing Type of specialty (Primary, Medical, Surgical) (tmp = Preventive care: 45-64 years) {NAMCS 2019 PUF} to CSV file my_output.csv.</span></span>
+<span id="cb36-11"><a href="#cb36-11" tabindex="-1"></a><span class="do">## * Printing Type of specialty (Primary, Medical, Surgical) (tmp = Preventive care: 65-74 years) {NAMCS 2019 PUF} to CSV file my_output.csv.</span></span>
+<span id="cb36-12"><a href="#cb36-12" tabindex="-1"></a><span class="do">## * Printing Type of specialty (Primary, Medical, Surgical) (tmp = Preventive care: 75 years and over) {NAMCS 2019 PUF} to CSV file my_output.csv.</span></span>
+<span id="cb36-13"><a href="#cb36-13" tabindex="-1"></a><span class="do">## Warning in var_cross(&quot;tmp&quot;, &quot;MAJOR&quot;, vr): tmp: overwriting a variable that</span></span>
+<span id="cb36-14"><a href="#cb36-14" tabindex="-1"></a><span class="do">## already exists.</span></span>
+<span id="cb36-15"><a href="#cb36-15" tabindex="-1"></a><span class="do">## * Printing Type of specialty (Primary, Medical, Surgical) (tmp = Preventive care: Under 1) {NAMCS 2019 PUF} to CSV file my_output.csv.</span></span>
+<span id="cb36-16"><a href="#cb36-16" tabindex="-1"></a><span class="do">## * Printing Type of specialty (Primary, Medical, Surgical) (tmp = Preventive care: 1-4) {NAMCS 2019 PUF} to CSV file my_output.csv.</span></span>
+<span id="cb36-17"><a href="#cb36-17" tabindex="-1"></a><span class="do">## * Printing Type of specialty (Primary, Medical, Surgical) (tmp = Preventive care: 5-14) {NAMCS 2019 PUF} to CSV file my_output.csv.</span></span>
+<span id="cb36-18"><a href="#cb36-18" tabindex="-1"></a><span class="do">## * Printing Type of specialty (Primary, Medical, Surgical) (tmp = Preventive care: 15-64) {NAMCS 2019 PUF} to CSV file my_output.csv.</span></span>
+<span id="cb36-19"><a href="#cb36-19" tabindex="-1"></a><span class="do">## * Printing Type of specialty (Primary, Medical, Surgical) (tmp = Preventive care: 65 and over) {NAMCS 2019 PUF} to CSV file my_output.csv.</span></span>
+<span id="cb36-20"><a href="#cb36-20" tabindex="-1"></a><span class="do">## Warning in var_cross(&quot;tmp&quot;, &quot;MAJOR&quot;, vr): tmp: overwriting a variable that</span></span>
+<span id="cb36-21"><a href="#cb36-21" tabindex="-1"></a><span class="do">## already exists.</span></span>
+<span id="cb36-22"><a href="#cb36-22" tabindex="-1"></a><span class="do">## * Printing Type of specialty (Primary, Medical, Surgical) (tmp = Preventive care: Female) {NAMCS 2019 PUF} to CSV file my_output.csv.</span></span>
+<span id="cb36-23"><a href="#cb36-23" tabindex="-1"></a><span class="do">## * Printing Type of specialty (Primary, Medical, Surgical) (tmp = Preventive care: Male) {NAMCS 2019 PUF} to CSV file my_output.csv.</span></span>
+<span id="cb36-24"><a href="#cb36-24" tabindex="-1"></a><span class="do">## Warning in var_cross(&quot;tmp&quot;, &quot;MAJOR&quot;, vr): tmp: overwriting a variable that</span></span>
+<span id="cb36-25"><a href="#cb36-25" tabindex="-1"></a><span class="do">## already exists.</span></span>
+<span id="cb36-26"><a href="#cb36-26" tabindex="-1"></a><span class="do">## * Printing Type of specialty (Primary, Medical, Surgical) (tmp = Preventive care: Under 15 years: Female) {NAMCS 2019 PUF} to CSV file my_output.csv.</span></span>
+<span id="cb36-27"><a href="#cb36-27" tabindex="-1"></a><span class="do">## * Printing Type of specialty (Primary, Medical, Surgical) (tmp = Preventive care: 15-24 years: Female) {NAMCS 2019 PUF} to CSV file my_output.csv.</span></span>
+<span id="cb36-28"><a href="#cb36-28" tabindex="-1"></a><span class="do">## * Printing Type of specialty (Primary, Medical, Surgical) (tmp = Preventive care: 25-44 years: Female) {NAMCS 2019 PUF} to CSV file my_output.csv.</span></span>
+<span id="cb36-29"><a href="#cb36-29" tabindex="-1"></a><span class="do">## * Printing Type of specialty (Primary, Medical, Surgical) (tmp = Preventive care: 45-64 years: Female) {NAMCS 2019 PUF} to CSV file my_output.csv.</span></span>
+<span id="cb36-30"><a href="#cb36-30" tabindex="-1"></a><span class="do">## * Printing Type of specialty (Primary, Medical, Surgical) (tmp = Preventive care: 65-74 years: Female) {NAMCS 2019 PUF} to CSV file my_output.csv.</span></span>
+<span id="cb36-31"><a href="#cb36-31" tabindex="-1"></a><span class="do">## * Printing Type of specialty (Primary, Medical, Surgical) (tmp = Preventive care: 75 years and over: Female) {NAMCS 2019 PUF} to CSV file my_output.csv.</span></span>
+<span id="cb36-32"><a href="#cb36-32" tabindex="-1"></a><span class="do">## * Printing Type of specialty (Primary, Medical, Surgical) (tmp = Preventive care: Under 15 years: Male) {NAMCS 2019 PUF} to CSV file my_output.csv.</span></span>
+<span id="cb36-33"><a href="#cb36-33" tabindex="-1"></a><span class="do">## * Printing Type of specialty (Primary, Medical, Surgical) (tmp = Preventive care: 15-24 years: Male) {NAMCS 2019 PUF} to CSV file my_output.csv.</span></span>
+<span id="cb36-34"><a href="#cb36-34" tabindex="-1"></a><span class="do">## * Printing Type of specialty (Primary, Medical, Surgical) (tmp = Preventive care: 25-44 years: Male) {NAMCS 2019 PUF} to CSV file my_output.csv.</span></span>
+<span id="cb36-35"><a href="#cb36-35" tabindex="-1"></a><span class="do">## * Printing Type of specialty (Primary, Medical, Surgical) (tmp = Preventive care: 45-64 years: Male) {NAMCS 2019 PUF} to CSV file my_output.csv.</span></span>
+<span id="cb36-36"><a href="#cb36-36" tabindex="-1"></a><span class="do">## * Printing Type of specialty (Primary, Medical, Surgical) (tmp = Preventive care: 65-74 years: Male) {NAMCS 2019 PUF} to CSV file my_output.csv.</span></span>
+<span id="cb36-37"><a href="#cb36-37" tabindex="-1"></a><span class="do">## * Printing Type of specialty (Primary, Medical, Surgical) (tmp = Preventive care: 75 years and over: Male) {NAMCS 2019 PUF} to CSV file my_output.csv.</span></span>
+<span id="cb36-38"><a href="#cb36-38" tabindex="-1"></a><span class="fu">set_opts</span>(<span class="at">output =</span> <span class="st">&quot;auto&quot;</span>)</span>
+<span id="cb36-39"><a href="#cb36-39" tabindex="-1"></a><span class="do">## * Printing with huxtable for screen, gt for HTML, or kableExtra for PDF.</span></span></code></pre></div>
 <ul>
+<li>Because so many tables will be printed, we don’t want to print them
+to the screen. Rather, we print them to a CSV file called
+<code>my_output.csv</code>.</li>
 <li>Since <code>tab_subset()</code> is called from within a
-<code>for</code> loop, if we wanted to print to the screen, we would
-need to use <code>print( tab_subset(*) )</code>. Since we don’t want to
-print to the screen, a call to <code>print()</code> is omitted.</li>
-<li>Since so many tables are being produced, the output is being sent to
-a CSV file.</li>
+<code>for</code> loop, to print the tables, we need to call the
+<code>print()</code> function explicitly.</li>
 <li>As before, the loop goes through the age, sex, and age / sex
 interaction variables, calling each of these variables
 <code>vr</code>.</li>
@@ -7759,13 +7785,13 @@ some level of <code>vr</code>, such as “Under 15 years” for
 <p>If you run this code, all of the tables should be stored in the CSV
 file. To give you an idea of what the tables should look like, here is
 just one of the tables:</p>
-<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" tabindex="-1"></a>vr <span class="ot">=</span> <span class="st">&quot;AGER&quot;</span></span>
-<span id="cb39-2"><a href="#cb39-2" tabindex="-1"></a><span class="fu">var_cross</span>(<span class="st">&quot;tmp&quot;</span>, <span class="st">&quot;MAJOR&quot;</span>, vr)</span>
-<span id="cb39-3"><a href="#cb39-3" tabindex="-1"></a><span class="do">## Warning in var_cross(&quot;tmp&quot;, &quot;MAJOR&quot;, vr): tmp: overwriting a variable that</span></span>
-<span id="cb39-4"><a href="#cb39-4" tabindex="-1"></a><span class="do">## already exists.</span></span></code></pre></div>
-<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" tabindex="-1"></a>lvl <span class="ot">=</span> <span class="fu">levels</span>(surveytable<span class="sc">:::</span>env<span class="sc">$</span>survey<span class="sc">$</span>variables[,vr])[<span class="dv">1</span>]</span>
-<span id="cb40-2"><a href="#cb40-2" tabindex="-1"></a><span class="fu">tab_subset</span>(<span class="st">&quot;SPECCAT&quot;</span>, <span class="st">&quot;tmp&quot;</span>, <span class="fu">paste0</span>(<span class="st">&quot;Preventive care: &quot;</span>, lvl))</span></code></pre></div>
-<div id="zwoxebelfn" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" tabindex="-1"></a>vr <span class="ot">=</span> <span class="st">&quot;AGER&quot;</span></span>
+<span id="cb37-2"><a href="#cb37-2" tabindex="-1"></a><span class="fu">var_cross</span>(<span class="st">&quot;tmp&quot;</span>, <span class="st">&quot;MAJOR&quot;</span>, vr)</span>
+<span id="cb37-3"><a href="#cb37-3" tabindex="-1"></a><span class="do">## Warning in var_cross(&quot;tmp&quot;, &quot;MAJOR&quot;, vr): tmp: overwriting a variable that</span></span>
+<span id="cb37-4"><a href="#cb37-4" tabindex="-1"></a><span class="do">## already exists.</span></span>
+<span id="cb37-5"><a href="#cb37-5" tabindex="-1"></a>lvl <span class="ot">=</span> <span class="fu">levels</span>(surveytable<span class="sc">:::</span>env<span class="sc">$</span>survey<span class="sc">$</span>variables[,vr])[<span class="dv">1</span>]</span>
+<span id="cb37-6"><a href="#cb37-6" tabindex="-1"></a><span class="fu">tab_subset</span>(<span class="st">&quot;SPECCAT&quot;</span>, <span class="st">&quot;tmp&quot;</span>, <span class="fu">paste0</span>(<span class="st">&quot;Preventive care: &quot;</span>, lvl))</span></code></pre></div>
+<div id="unjiuktabs" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false" style="-webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-family: system-ui, &#39;Segoe UI&#39;, Roboto, Helvetica, Arial, sans-serif, &#39;Apple Color Emoji&#39;, &#39;Segoe UI Emoji&#39;, &#39;Segoe UI Symbol&#39;, &#39;Noto Color Emoji&#39;; display: table; border-collapse: collapse; line-height: normal; margin-left: auto; margin-right: auto; color: #333333; font-size: 16px; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: auto; border-top-style: solid; border-top-width: 2px; border-top-color: #004D80; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #004D80; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3;" bgcolor="#FFFFFF">
 <thead style="border-style: none;">
 <tr class="gt_heading" style="border-style: none; background-color: #FFFFFF; text-align: center; border-bottom-color: #FFFFFF; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3;" bgcolor="#FFFFFF" align="center">

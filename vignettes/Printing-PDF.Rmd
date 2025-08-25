@@ -81,15 +81,14 @@ tab("AGER")
 
 Note the `format` setting, which specifies that this document will create PDF tables. Also note that you do have to add the `results='asis'` argument to the code chunks that print tables. 
 
-
 # Print using various table-making packages
 
 Use the `output` argument of `set_opts()` to select a table-making package. By default (`output = "auto"`), `surveytable` automatically selects a package depending on whether the output is to the screen (`huxtable`), HTML (`gt`), or PDF (`kableExtra`). You can also explicitly select one of these packages.
 
 Changing the table-making package has a couple of uses:
 
-* Use `as_object()` to generate an object from your favorite table-making package, customize this object, and then finally print it, so the table looks exactly the way you want it to look.
-* Print to destinations other than the screen, HTML, or PDF.
+* It allows you to generate tables in the way that you prefer.
+* It allows you to print those tables to a variety of destinations, including the screen, HTML files, or PDF files.
 
 ## `kableExtra`
 
@@ -130,54 +129,76 @@ tab("AGER")
 tab("AGER")
 ```
 
-# Advanced printing
+# Generate unformatted output
 
-## The proper approach
-
-Advanced users can add functionality to use **any** table-making package that they want. For more information, see `help("surveytable-options")`.
-
-## The "quick-and-dirty" approach
-
-The tabulation functions return either:
-
-* for a single table, a data frame, with certain attributes set; or
-* for more than one table, a list of such data frames. 
-
-You can convert a single table to a `data.frame` with `as.data.frame()`, like so:
+Some analysts might wish to compare the output from `surveytable` to the output from other statistical software, such as SAS / SUDAAN. In this situation, `set_opts(output = "raw")` might be useful. This command tells `surveytable` to print unformatted and unrounded tables.  
 
 ```{r}
-tab("AGER") |> as.data.frame()
+set_opts(output = "raw")
 ```
-
-Alternatively, you can pass this data frame to your favorite table-making package. This example passes it to `gt`:
-
+```r
+tab("AGER")
+```
+```{r, echo=FALSE}
+print(tab("AGER"), destination = "")
+```
 ```{r}
-set_opts(count = "1k")
-tab("AGER") |> gt::gt()
+set_opts(output = "auto")
 ```
-
-(Because of how LaTeX works, the table is likely not here, but elsewhere on the page.)
-
-The reason that this is the "quick-and-dirty" approach is that the output it creates is not as nice as conventional tables, described above. The output does not have table title (which has important information about the variable and the survey), table footer (which has important information about sample size and low-precision estimates), and it does not format the estimates. Nevertheless, there could be situations in which this approach is helpful, such as 
-
-* extracting an exact value from a table using `as.data.frame()`; or 
-* quickly using your favorite table-making package.
 
 # Save the tables
 
-## Save to a CSV file
+## Save tables and charts to an Excel workbook
 
-All tabulation functions have an argument called `csv`. Use it to specify the name of a CSV (comma-separated values) file, like so:
+Before using Excel printing, please be sure to install these packages: `openxlsx2` and `mschart`.
+
+To save tables and charts to an Excel file, turn on Excel printing with `set_opts( output = "Excel", file = "my_workbook" )`. Set the `file` argument to the name of an Excel file. 
 
 ```r
-tab("AGER", csv = "myfile.csv")
+set_opts(output = "excel", file = "my_workbook")
 ```
 
-```{r, results='asis', echo=FALSE}
+```{r, echo=FALSE}
+set_opts(output = "excel", file = "my_workbook", .file_temp = TRUE)
+```
+
+Generate some tables:
+
+```{r}
+total()
 tab("AGER")
 ```
 
-Open this CSV file in Excel or your favorite text editor or spreadsheet. 
+To turn off Excel printing, set the `output` argument to a value other than `"Excel"`, such as `"auto"`:
+
+```{r}
+set_opts(output = "auto")
+```
+
+## Save to a CSV file
+
+To save tables to a CSV file, turn on CSV printing with `set_opts( output = "CSV", file = "my_output" )`. Set the `file` argument to the name of a CSV file. 
+
+```r
+set_opts(output = "csv", file = "my_output")
+```
+
+```{r, echo=FALSE}
+set_opts(output = "csv", file = "my_output", .file_temp = TRUE)
+```
+
+Generate some tables:
+
+```{r}
+total()
+tab("AGER")
+```
+
+To turn off CSV printing, set the `output` argument to a value other than `"CSV"`, such as `"auto"`:
+
+```{r}
+set_opts(output = "auto")
+```
 
 ## Save to an R data file
 
@@ -197,14 +218,35 @@ readRDS("myfile.rds")
 tab("AGER")
 ```
 
-# Suppress printing
 
-There are times when you might want to prevent the tabulation functions from printing tables. If you are saving the tables to a CSV file anyway, you might not need screen printing. 
+# Advanced printing
 
-As mentioned above, if the tabulation functions are called from within a loop without using the `print()` command, they won't print. 
+## The proper approach
 
-An easy way to suppress printing when the tabulation functions are called from the top level is to assign the output to some variable. For example, this will save the table to a CSV file, but won't print it to the screen:
+Advanced users can add functionality to use **any** table-making package that they want. For more information, see `help("surveytable-options")`.
 
-```r
-tmp = tab("AGER", csv = "myfile.csv")
+## The "quick-and-dirty" approach
+
+The tabulation functions return either:
+
+* for a single table, which is basically a data frame, with certain attributes set; or
+* for more than one table, a list of such tables.
+
+You can convert a single table to a `data.frame` with `as.data.frame()`, like so:
+
+```{r}
+tab("AGER") |> as.data.frame()
 ```
+
+Note that this produces a `data.frame` with unique column names, which improves its usability.
+
+Alternatively, you can pass this `data.frame` to your favorite table-making package. This example passes a table to `gt`. To ensure unique column names, pass the table through `as.data.frame()` first.
+
+```{r}
+tab("AGER") |> as.data.frame() |> gt::gt()
+```
+
+The reason that this is the "quick-and-dirty" approach is that the output it creates is not as nice as conventional tables, described above. The output does not have table title (which has important information about the variable and the survey), table footer (which has important information about sample size and low-precision estimates), and it does not format the estimates. Nevertheless, there could be situations in which this approach is helpful, such as 
+
+* extracting an exact value from a table using `as.data.frame()`; or 
+* quickly using your favorite table-making package.

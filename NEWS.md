@@ -1,3 +1,15 @@
+# surveytable 0.9.9
+
+* `set_opts(output = "raw")`: unformatted / raw output. This is useful for getting lots of significant digits.
+* Simplified confidence interval for proportions adjustment: `adj` argument to `set_opts()` and `svyciprop_adjusted()`.
+* Show the test statistic for all tests.
+* Conditional independence test: `tab_subset()` with argument `test` set to the 
+value of interest. 
+* Confidence intervals for numeric variables. 
+* Excel tables and charts! `set_opts( output = "excel", file = "my_workbook" )`
+* Improved conversion of tables to data frames with `as.data.frame()`.
+* The interface for CSV printing is now the same as for all other kinds of printing: `set_opts( output = "CSV", file = "my_file" )`
+
 # surveytable 0.9.8
 
 * Optionally, show the test statistic, control rounding of the p-value.
@@ -13,7 +25,6 @@
 
 * Ability to customize how the tables are printed.
   * `output` argument to `set_opts()`
-  * New function: `as_object()`
   * More details in `help("surveytable-options")`
 * Ability to customize rounding.
   * More details in `help("surveytable-options")`
@@ -25,7 +36,7 @@
 
 # surveytable 0.9.4
 
-* Optionally adjust p-values for multiple comparisons (`p_adjust` argument)
+* Optionally adjust p-values for multiple comparisons (`p_adjust` argument).
 
 # surveytable 0.9.3
 
