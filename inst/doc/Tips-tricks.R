@@ -9,9 +9,6 @@ library(surveytable)
 set_survey(namcs2019sv)
 tab_subset("AGER", "SPECCAT", test = "65-74 years")
 
-## ----echo=FALSE---------------------------------------------------------------
-version = packageVersion("surveytable")
-
 ## ----results='asis', message=FALSE--------------------------------------------
 library(surveytable)
 set_survey(namcs2019sv)
