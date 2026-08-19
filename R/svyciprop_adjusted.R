@@ -18,15 +18,28 @@
 #' adjustment.
 #'
 #' To use these adjustments in `surveytable` tabulations, call [set_survey()] or [set_opts()] with the
-#' appropriate `mode` or `adj` argument.
+#' appropriate `mode` or `adj` argument. Age-adjustment can be turned on with [set_survey()]. But if
+#' `adj = "none"`, no age-adjustment is performed.
 #'
-#' Originally written by Makram Talih in 2019.
+#' For age-adjustment, `aa_pop$Population` can contain either population counts
+#' or proportions/weights for each level. Values are normalized internally, so
+#' counts and proportions produce the same confidence intervals when they
+#' describe the same standard population distribution.
+#'
+#' Originally written by Makram Talih (2019). Age-adjusted calculation based on
+#' Natalie Young (2026).
 #'
 #' @param formula see `survey::svyciprop()`.
 #' @param design see `survey::svyciprop()`.
 #' @param level see `survey::svyciprop()`.
 #' @param adj adjustment to the Korn and Graubard confidence intervals: `"none"` (default),
 #' `"NCHS"`, or `"NHIS"`.
+#' @param aa_vr used to produce age-adjusted confidence intervals only. The name of a
+#' categorical age variable located in `design`.
+#' @param aa_pop used to produce age-adjusted confidence intervals only. A `data.frame`
+#' with columns named `Level` and `Population`. `Level` must exactly match the levels
+#' of `aa_vr`. `Population` is the population count or proportion/weight for
+#' that level of `aa_vr`.
 #' @param ... see `survey::svyciprop()`.
 #'
 #' @return The point estimate of the proportion, with the confidence interval as an attribute.
@@ -41,8 +54,11 @@ svyciprop_adjusted = function(formula
                     , design
                     , level = 0.95
                     , adj = "none"
+                    , aa_vr = NULL
+                    , aa_pop = NULL
                     , ...) {
   adj %<>% .mymatch(c("none", "nchs", "nhis"))
+  .svyciprop_aa_requested(aa_vr = aa_vr, aa_pop = aa_pop)
   if ( !(level %in% c(0.95, 0.9, 0.99)) ) {
     warning("Value of level is not typical: ", level)
   }
@@ -64,7 +80,14 @@ svyciprop_adjusted = function(formula
   rval = coef(m)[1]
 
   #Effective sample size
-  n.eff = coef(m) * (1 - coef(m))/stats::vcov(m)
+  n.eff = .svyciprop_n_eff(
+    formula = formula
+    , design = design
+    , m = m
+    , aa_vr = aa_vr
+    , aa_pop = aa_pop
+    , ...
+  )
 
   attr(rval, "var") = stats::vcov(m)
   alpha = 1 - level
@@ -94,6 +117,43 @@ svyciprop_adjusted = function(formula
   names(ci) = paste(round(c(halfalpha, (1 - halfalpha))*100, 1), "%", sep = "")
   names(rval) = deparse(formula[[2]])
   attr(rval, "ci") = ci
+  attr(rval, "n.eff") = n.eff
   class(rval) = "svyciprop"
   rval
+}
+
+.svyciprop_aa_requested = function(aa_vr, aa_pop) {
+  tmp1 = is.null(aa_vr) + is.null(aa_pop)
+  assert_that(tmp1 %in% c(0,2)
+              , msg = "For age-adjusted confidence intervals, specify both aa_vr and aa_pop.")
+  tmp1 == 0
+}
+
+.svyciprop_n_eff = function(formula, design, m, aa_vr = NULL, aa_pop = NULL, ...) {
+  p = coef(m)[1]
+  v = stats::vcov(m)[1,1]
+
+  if (!.svyciprop_aa_requested(aa_vr = aa_vr, aa_pop = aa_pop)) {
+    return(p * (1 - p) / v)
+  }
+
+  aa_info = .aa_pop_info(design = design, aa_vr = aa_vr, aa_pop = aa_pop)
+
+  p_k = n_k = rep_len(NA, length(aa_info$by_levels))
+  for (ii in seq_along(aa_info$by_levels)) {
+    idx = which(design$variables[,aa_vr] == aa_info$by_levels[ii])
+    n_k[ii] = length(idx)
+    assert_that(n_k[ii] > 0
+                , msg = glue("Cannot calculate age-adjusted CI: no observations for {aa_vr} = {aa_info$by_levels[ii]}."))
+    d_k = design[idx,]
+    m_k = eval(bquote(svymean(~as.numeric(.(formula[[2]])), d_k, ...)))
+    p_k[ii] = coef(m_k)[1]
+  }
+
+  srsvar = sum(aa_info$population_weights^2 * p_k * (1 - p_k) / n_k)
+  if (srsvar <= 0) {
+    return(sum(n_k))
+  }
+  deffmean = v / srsvar
+  sum(n_k) / deffmean
 }

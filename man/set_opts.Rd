@@ -10,6 +10,7 @@ set_opts(
   mode = NULL,
   adj = NULL,
   output = NULL,
+  raw = NULL,
   file = NULL,
   .file_temp = NULL,
   count = NULL,
@@ -28,9 +29,11 @@ show_opts()
 \item{adj}{adjustment to the Korn and Graubard confidence intervals for proportions. See
 \code{svyciprop_adjusted()} for details.}
 
-\item{output}{specify how the output is printed: \code{"auto"} (default); \code{"huxtable"}, \code{"gt"}, or
-\code{"kableExtra"}; \code{"raw"}; \code{"Excel"} or \code{"CSV"}. If \code{output} is \code{"Excel"} or \code{"CSV"}, must also specify
-\code{file}. If \code{output} is \code{"Excel"}, be sure to install \code{openxlsx2} and \code{mschart}.}
+\item{output}{specify how the output is printed: \code{"auto"} (default); \code{"huxtable"}, \code{"gt"},
+\code{"kableExtra"}, \code{"flextable"}; \code{"screen"}. For the following output types, please
+also specify the \code{file} argument: \code{"Excel"}, \code{"Excel_v1"}, \code{"Word"}, \code{"CSV"}.}
+
+\item{raw}{print unformatted / raw values?}
 
 \item{file}{file name (see \code{output}).}
 
@@ -63,12 +66,14 @@ If you are not setting a particular option, leave it as \code{NULL}.
 \itemize{
 \item Round counts to the nearest integer -- same as \code{count = "int"}.
 \item Do not look for low-precision estimates -- same as \code{lpe = FALSE}.
+\item Retain missing values -- same as \code{drop_na = FALSE}.
 \item Percentage CI's: use standard Korn-Graubard CI's -- same as \code{adj = "none"}.
 }
 \item \code{"nchs"}:
 \itemize{
 \item Round counts to the nearest 1,000 -- same as \code{count = "1k"}.
 \item Identify low-precision estimates -- same as \code{lpe = TRUE}.
+\item Drop missing values -- same as \code{drop_na = TRUE}.
 \item Percentage CI's: adjust Korn-Graubard CI's for the number of degrees of
 freedom, matching the SUDAAN calculation -- same as \code{adj = "nchs"}. This
 is appropriate for some, but not all, NCHS data systems. For some NCHS
@@ -83,15 +88,23 @@ proportions. See \code{svyciprop_adjusted()} for details.
 \itemize{
 \item \code{"auto"} (default): automatically select the table-making package, depending on the
 destination (such as screen, HTML, or PDF / LaTeX).
-\item \code{"huxtable"}, \code{"gt"}, or \code{"kableExtra"}: use this table-making package. Be sure
+\item \code{"huxtable"}, \code{"gt"}, \code{"kableExtra"}, \code{"flextable"}: use this table-making package. Be sure
 that this package is installed.
-\item \code{"raw"}: unformatted / raw output. This is useful for getting lots of significant digits.
-\item \code{"Excel"}: print to an Excel workbook. Please specify the name of an Excel file using
-the \code{file} argument. Before using Excel printing, please be sure to install these
+\item \code{"screen"}: print plain-text tables to the screen.
+\item \code{"Excel"}, \code{"Excel_v1"}: print to an Excel workbook. Please specify the name of an Excel
+file using the \code{file} argument. Before using Excel printing, please be sure to install these
 packages: \code{openxlsx2} and \code{mschart}.
+\item \code{"Word"}: print to a Word document. Please specify the name of a Word
+file using the \code{file} argument. Before using Word printing, please be sure to install these
+packages: \code{flextable} and \code{officer}.
 \item \code{"CSV"}: print to a comma-separated values (CSV) file. Please specify the name of a
 CSV file using the \code{file} argument.
 }
+
+\code{raw = TRUE} prints unformatted / raw values. This is useful for getting lots of
+significant digits. It is supported with \code{output = "screen"}, \code{output = "CSV"},
+and \code{output = "Excel"}. Also see \code{\link[=as.data.frame.astra_table]{as.data.frame.astra_table()}} and
+\code{\link[=restructure]{restructure()}}.
 }
 \examples{
 set_survey(namcs2019sv)
@@ -108,5 +121,11 @@ Other options:
 \code{\link{set_survey}()},
 \code{\link{show_options}()},
 \code{\link{surveytable-options}}
+
+Other print: 
+\code{\link{as.data.frame.astra_table}()},
+\code{\link{print.astra_table}()},
+\code{\link{restructure}()}
 }
 \concept{options}
+\concept{print}

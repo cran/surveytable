@@ -10,15 +10,6 @@ An object of class \code{survey.design2} (inherits from \code{survey.design}) wi
 
 An object of class \code{data.frame} with 8250 rows and 33 columns.
 }
-\source{
-\itemize{
-\item SAS data: \url{https://ftp.cdc.gov/pub/Health_Statistics/NCHS/Dataset_Documentation/NAMCS/sas/namcs2019_sas.zip}
-\item Survey design variables: \url{https://ftp.cdc.gov/pub/Health_Statistics/NCHS/Dataset_Documentation/NAMCS/sas/readme2019-sas.txt}
-\item SAS formats: \url{https://ftp.cdc.gov/pub/Health_Statistics/NCHS/Dataset_Documentation/NAMCS/sas/nam19for.txt}
-\item Documentation: \url{https://ftp.cdc.gov/pub/Health_Statistics/NCHS/Dataset_Documentation/NAMCS/doc2019-508.pdf}
-\item National Summary Tables: \url{https://www.cdc.gov/nchs/data/ahcd/namcs_summary/2019-namcs-web-tables-508.pdf}
-}
-}
 \usage{
 namcs2019sv
 

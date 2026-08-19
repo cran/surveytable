@@ -86,26 +86,26 @@ tab_subset("NUMMED", "SPECCAT", test = TRUE)
 tab("SPECCAT", test = TRUE)
 
 ## -----------------------------------------------------------------------------
-class(uspop2019)
-names(uspop2019)
+class(uspop_example)
+names(uspop_example)
 
 ## -----------------------------------------------------------------------------
-uspop2019$total
+uspop_example$total
 
 ## ----results='asis'-----------------------------------------------------------
-total_rate(uspop2019$total)
+total_rate(uspop_example$total)
 
 ## -----------------------------------------------------------------------------
-uspop2019$AGER
+uspop_example$AGER
 
 ## ----results='asis'-----------------------------------------------------------
-tab_rate("AGER", uspop2019$AGER)
+tab_rate("AGER", uspop_example$AGER)
 
 ## -----------------------------------------------------------------------------
-uspop2019$`AGER x SEX`
+uspop_example$`AGER x SEX`
 
 ## ----results='asis'-----------------------------------------------------------
-tab_subset_rate("AGER", "SEX", uspop2019$`AGER x SEX`)
+tab_subset_rate("AGER", "SEX", uspop_example$`AGER x SEX`)
 
 ## ----results='asis'-----------------------------------------------------------
 tab("MAJOR")

@@ -17,20 +17,13 @@ show_opts = function() {
     message("* Korn and Graubard confidence intervals for proportions with an adjustment that might be required by NHIS.")
   }
 
-  xx = getOption("surveytable.print")
+  xx = getOption("astra.print")
   assert_that(is.string(xx), nzchar(xx))
-  switch(xx
-         , ".print_huxtable" = "* Printing with huxtable."
-         , ".print_gt" = "* Printing with gt."
-         , ".print_kableextra" = "* Printing with kableExtra."
-         , ".print_auto" = "* Printing with huxtable for screen, gt for HTML, or kableExtra for PDF."
-         , ".print_raw" = "* Generating unformatted / raw output."
-         , ".print_excel" = glue("* Printing to Excel workbook {getOption('surveytable.file_show')}.")
-         , ".print_csv" = glue("* Printing to CSV file {getOption('surveytable.file_show')}.")
-         , glue("* Printing with a custom function: {xx}")) %>% message
+  .astra_print_info(print = xx)$message %>% message
 
   if (getOption("surveytable.raw")) {
-    message("* To perform rounding, first turn off raw output.")
+    message("* Generating unformatted / raw values.")
+    message("* To perform rounding, first call set_opts(raw = FALSE).")
   } else {
     tx_count = getOption("surveytable.tx_count")
     assert_that(is.string(tx_count), nzchar(tx_count))
@@ -55,6 +48,12 @@ show_opts = function() {
     message("* Dropping missing values. Showing knowns only.")
   } else {
     message("* Retaining missing values.")
+  }
+
+  if (getOption("surveytable.age_adjusted")) {
+    message(glue("* {.age_adjustment_label()}."))
+  } else {
+    message("* Not producing age-adjusted estimates.")
   }
 
   max_levels = getOption("surveytable.max_levels")

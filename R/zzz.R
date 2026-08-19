@@ -7,6 +7,11 @@ env = new.env()
   options(
     surveytable.survey_label = ""
 
+    ## astra print options
+    , astra.print = ".print_auto"
+    , astra.file = ""
+    , astra.file_show = ""
+
     ## set_opts(mode = "general")
     , surveytable.tx_count = ".tx_count_int"
     , surveytable.names_count = c("n", "Number", "SE", "LL", "UL")
@@ -23,10 +28,6 @@ env = new.env()
     , surveytable.raw = FALSE
     , surveytable.drop_na = FALSE
     , surveytable.max_levels = 20
-    , surveytable.print = ".print_auto"
-    , surveytable.file = ""
-    , surveytable.file_show = ""
-
     ## other
     , surveytable.tx_prct = ".tx_prct"
     , surveytable.names_prct = c("Percent", "SE", "LL", "UL")
@@ -41,7 +42,22 @@ env = new.env()
     , surveytable.tx_pval = ".tx_pval"
     , surveytable.tx_test_stat = ".tx_test_stat"
     , surveytable.tx_df = ".tx_df"
+
+    , surveytable.restructure_attr = c("title", "footer")
+    , surveytable.restructure_flags = c("R", "Cx", "Cdf", "Px", "Pc", "Pdf", "P0")
+
+    ##
+    , surveytable.age_adjusted = FALSE
   )
+}
+
+.onAttach = function(libname, pkgname) {
+  if (stats::runif(1) <= 0.20) {
+    msg = c("If you use 'surveytable' in your research, please cite it."
+            , "\nType 'citation(\"surveytable\")' for details.")
+    packageStartupMessage(msg)
+  }
+  invisible()
 }
 
 .get_names_count = function() {

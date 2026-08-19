@@ -1,6 +1,18 @@
+#### !!! If making changes, update: .astra_producer()
+
+version = meta$Version
+
+citHeader(
+  'Please include this or similar in your Methods section: '
+  , 'Data analyses were performed using the R package "surveytable" (version '
+  , version, ').', sep = ''
+)
+
+## Want to retain DOI.
+
 bibentry(
   bibtype  = "Manual",
-  title    = "surveytable: Streamlining Complex Survey Estimation and Reliability Assessment in R",
+  title    = "{surveytable}: Streamlining Complex Survey Estimation and Reliability Assessment in {R}",
   author   = "Alex Strashny",
   year     = 2023,
   url = "https://cdcgov.github.io/surveytable/",

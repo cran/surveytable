@@ -48,8 +48,9 @@ overflow: visible;
 }
 </style>
 <style type="text/css" data-origin="pandoc">
+html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -60,7 +61,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
 { counter-reset: source-line 0; }
@@ -354,7 +355,7 @@ case, <code>&quot;65-74 years&quot;</code>. Thus, in this case, the analysis is 
 follows:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="fu">library</span>(surveytable)</span>
 <span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a><span class="fu">set_survey</span>(namcs2019sv)</span></code></pre></div>
-<div id="icrasribpr" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="aflzixfunb" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false" style="-webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-family: system-ui, &#39;Segoe UI&#39;, Roboto, Helvetica, Arial, sans-serif, &#39;Apple Color Emoji&#39;, &#39;Segoe UI Emoji&#39;, &#39;Segoe UI Symbol&#39;, &#39;Noto Color Emoji&#39;; display: table; border-collapse: collapse; line-height: normal; margin-left: auto; margin-right: auto; color: #333333; font-size: 16px; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: auto; border-top-style: solid; border-top-width: 2px; border-top-color: #004D80; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #004D80; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3;" bgcolor="#FFFFFF">
 <thead style="border-style: none;">
 <tr class="gt_heading" style="border-style: none; background-color: #FFFFFF; text-align: center; border-bottom-color: #FFFFFF; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3;" bgcolor="#FFFFFF" align="center">
@@ -392,7 +393,7 @@ Stratified 1 - level Cluster Sampling design (with replacement) With
 </table>
 </div>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="fu">tab_subset</span>(<span class="st">&quot;AGER&quot;</span>, <span class="st">&quot;SPECCAT&quot;</span>, <span class="at">test =</span> <span class="st">&quot;65-74 years&quot;</span>)</span></code></pre></div>
-<div id="jkzomnnpax" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="zahxzwkdad" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false" style="-webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-family: system-ui, &#39;Segoe UI&#39;, Roboto, Helvetica, Arial, sans-serif, &#39;Apple Color Emoji&#39;, &#39;Segoe UI Emoji&#39;, &#39;Segoe UI Symbol&#39;, &#39;Noto Color Emoji&#39;; display: table; border-collapse: collapse; line-height: normal; margin-left: auto; margin-right: auto; color: #333333; font-size: 16px; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: auto; border-top-style: solid; border-top-width: 2px; border-top-color: #004D80; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #004D80; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3;" bgcolor="#FFFFFF">
 <thead style="border-style: none;">
 <tr class="gt_heading" style="border-style: none; background-color: #FFFFFF; text-align: center; border-bottom-color: #FFFFFF; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3;" bgcolor="#FFFFFF" align="center">
@@ -540,7 +541,7 @@ Medical care specialty
 </tfoot>
 </table>
 </div>
-<div id="djsdhgwecq" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="skngtzdpnb" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false" style="-webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-family: system-ui, &#39;Segoe UI&#39;, Roboto, Helvetica, Arial, sans-serif, &#39;Apple Color Emoji&#39;, &#39;Segoe UI Emoji&#39;, &#39;Segoe UI Symbol&#39;, &#39;Noto Color Emoji&#39;; display: table; border-collapse: collapse; line-height: normal; margin-left: auto; margin-right: auto; color: #333333; font-size: 16px; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: auto; border-top-style: solid; border-top-width: 2px; border-top-color: #004D80; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #004D80; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3;" bgcolor="#FFFFFF">
 <thead style="border-style: none;">
 <tr class="gt_heading" style="border-style: none; background-color: #FFFFFF; text-align: center; border-bottom-color: #FFFFFF; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3;" bgcolor="#FFFFFF" align="center">
@@ -653,14 +654,12 @@ all <code>surveytable</code> options to their default values.</p>
 <p>Some analysts might wish to compare the output from
 <code>surveytable</code> to the output from other statistical software,
 such as SAS / SUDAAN. In this situation,
-<code>set_opts(output = &quot;raw&quot;)</code> might be useful. This command
-tells <code>surveytable</code> to print unformatted and unrounded
-tables. In addition, when performing hypothesis testing, this option
-prints the test statistic and the degrees of freedom, not just the
-p-value.</p>
+<code>set_opts(raw = TRUE)</code> might be useful. This command tells
+<code>surveytable</code> to print unformatted and unrounded tables.
+Please be sure to also specify the <code>output</code> argument.</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="fu">library</span>(surveytable)</span>
 <span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a><span class="fu">set_survey</span>(namcs2019sv)</span></code></pre></div>
-<div id="ekdqygczml" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="tzvvsadvxw" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false" style="-webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-family: system-ui, &#39;Segoe UI&#39;, Roboto, Helvetica, Arial, sans-serif, &#39;Apple Color Emoji&#39;, &#39;Segoe UI Emoji&#39;, &#39;Segoe UI Symbol&#39;, &#39;Noto Color Emoji&#39;; display: table; border-collapse: collapse; line-height: normal; margin-left: auto; margin-right: auto; color: #333333; font-size: 16px; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: auto; border-top-style: solid; border-top-width: 2px; border-top-color: #004D80; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #004D80; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3;" bgcolor="#FFFFFF">
 <thead style="border-style: none;">
 <tr class="gt_heading" style="border-style: none; background-color: #FFFFFF; text-align: center; border-bottom-color: #FFFFFF; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3;" bgcolor="#FFFFFF" align="center">
@@ -697,40 +696,35 @@ Stratified 1 - level Cluster Sampling design (with replacement) With
 </tbody>
 </table>
 </div>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="fu">set_opts</span>(<span class="at">output =</span> <span class="st">&quot;raw&quot;</span>)</span>
-<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a><span class="fu">tab</span>(<span class="st">&quot;SPECCAT&quot;</span>, <span class="at">test =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a><span class="fu">set_opts</span>(<span class="at">reset =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
-<pre><code>## * Generating unformatted / raw output.
-## Type of specialty (Primary, Medical, Surgical) {NAMCS 2019 PUF}
-##                     Level    n    Number       SE        LL        UL  Percent
-## 1  Primary care specialty 2993 521466378 31136212 463840192 586251877 50.31107
-## 2 Surgical care specialty 3050 214831829 31110335 161661415 285489984 20.72697
-## 3  Medical care specialty 2207 300186150 43496739 225806019 399066973 28.96196
-##         SE       LL       UL
-## 1 2.576021 45.12608 55.49110
-## 2 2.989343 15.09426 27.33542
-## 3 3.557853 22.10191 36.61234
-## N = 8250. Checked NCHS presentation standards. Nothing to report.
-## 
-## Comparison of all pairs of Type of specialty (Primary, Medical, Surgical) {NAMCS 2019 PUF}
-##                   Level 1                 Level 2 Test statistic
-## 1  Primary care specialty Surgical care specialty      -6.223460
-## 2  Primary care specialty  Medical care specialty      -3.686136
-## 3 Surgical care specialty  Medical care specialty       1.382098
-##   Degrees of freedom      p-value Flag
-## 1                239 2.162375e-09    *
-## 2                207 2.908114e-04    *
-## 3                222 1.683308e-01     
-## Design-based t-test. *: p &lt;= 0.05
-## * Resetting all options to their default values.</code></pre>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a></span>
+<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a><span class="fu">set_opts</span>(<span class="at">output =</span> <span class="st">&quot;screen&quot;</span>, <span class="at">raw =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="fu">tab</span>(<span class="st">&quot;AGER&quot;</span>)</span></code></pre></div>
+<pre><code>## Patient age recode (knowns only) {NAMCS 2019 PUF}
+##               Level    n    Number       SE        LL        UL   Percent
+## 1    Under 15 years  887 117916772 14097315  93228928 149142177 11.376609
+## 2       15-24 years  542  64855698  7018359  52386950  80292164  6.257277
+## 3       25-44 years 1435 170270604 13965978 144924545 200049472 16.427706
+## 4       45-64 years 2283 309505956 23289827 266994092 358786727 29.861131
+## 5       65-74 years 1661 206865982 14365993 180480708 237108637 19.958428
+## 6 75 years and over 1442 167069344 15179082 139746193 199734713 16.118849
+##          SE        LL        UL
+## 1 1.3108198  8.913995 14.238468
+## 2 0.5933708  5.138530  7.534097
+## 3 1.1296060 14.254174 18.787872
+## 4 1.3662053 27.185465 32.643562
+## 5 1.2288913 17.580833 22.505589
+## 6 1.2673229 13.689540 18.789681
+## N = 8250. Checked NCHS presentation standards. Nothing to report.</code></pre>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="fu">set_opts</span>(<span class="at">reset =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a><span class="do">## * Resetting all options to their default values.</span></span></code></pre></div>
 </div>
 <div id="subset-a-survey" class="section level1">
 <h1>Subset a survey</h1>
 <p>Consider this example, in which we estimate the number of medications
 by age group:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="fu">library</span>(surveytable)</span>
-<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a><span class="fu">set_survey</span>(namcs2019sv)</span></code></pre></div>
-<div id="cvniniatav" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a><span class="fu">library</span>(surveytable)</span>
+<span id="cb8-2"><a href="#cb8-2" tabindex="-1"></a><span class="fu">set_survey</span>(namcs2019sv)</span></code></pre></div>
+<div id="ttuljayysc" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false" style="-webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-family: system-ui, &#39;Segoe UI&#39;, Roboto, Helvetica, Arial, sans-serif, &#39;Apple Color Emoji&#39;, &#39;Segoe UI Emoji&#39;, &#39;Segoe UI Symbol&#39;, &#39;Noto Color Emoji&#39;; display: table; border-collapse: collapse; line-height: normal; margin-left: auto; margin-right: auto; color: #333333; font-size: 16px; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: auto; border-top-style: solid; border-top-width: 2px; border-top-color: #004D80; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #004D80; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3;" bgcolor="#FFFFFF">
 <thead style="border-style: none;">
 <tr class="gt_heading" style="border-style: none; background-color: #FFFFFF; text-align: center; border-bottom-color: #FFFFFF; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3;" bgcolor="#FFFFFF" align="center">
@@ -767,8 +761,8 @@ Stratified 1 - level Cluster Sampling design (with replacement) With
 </tbody>
 </table>
 </div>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="fu">tab_subset</span>(<span class="st">&quot;NUMMED&quot;</span>, <span class="st">&quot;AGER&quot;</span>)</span></code></pre></div>
-<div id="lzvgvizmvc" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a><span class="fu">tab_subset</span>(<span class="st">&quot;NUMMED&quot;</span>, <span class="st">&quot;AGER&quot;</span>)</span></code></pre></div>
+<div id="xvmdqrllni" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false" style="-webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-family: system-ui, &#39;Segoe UI&#39;, Roboto, Helvetica, Arial, sans-serif, &#39;Apple Color Emoji&#39;, &#39;Segoe UI Emoji&#39;, &#39;Segoe UI Symbol&#39;, &#39;Noto Color Emoji&#39;; display: table; border-collapse: collapse; line-height: normal; margin-left: auto; margin-right: auto; color: #333333; font-size: 16px; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: auto; border-top-style: solid; border-top-width: 2px; border-top-color: #004D80; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #004D80; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3;" bgcolor="#FFFFFF">
 <thead style="border-style: none;">
 <tr class="gt_heading" style="border-style: none; background-color: #FFFFFF; text-align: center; border-bottom-color: #FFFFFF; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3;" bgcolor="#FFFFFF" align="center">
@@ -947,10 +941,10 @@ Under 15 years
 for which <code>NUMMED &gt; 0</code>?</p>
 <p>One way to do this is to create another survey object for which
 <code>NUMMED &gt; 0</code>, and then analyze this new survey object.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a>newsurvey <span class="ot">=</span> <span class="fu">survey_subset</span>(namcs2019sv, NUMMED <span class="sc">&gt;</span> <span class="dv">0</span></span>
-<span id="cb8-2"><a href="#cb8-2" tabindex="-1"></a>  , <span class="at">label =</span> <span class="st">&quot;NAMCS 2019 PUF: NUMMED 1+&quot;</span>)</span>
-<span id="cb8-3"><a href="#cb8-3" tabindex="-1"></a><span class="fu">set_survey</span>(newsurvey)</span></code></pre></div>
-<div id="kvsarygzvz" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a>newsurvey <span class="ot">=</span> <span class="fu">survey_subset</span>(namcs2019sv, NUMMED <span class="sc">&gt;</span> <span class="dv">0</span></span>
+<span id="cb10-2"><a href="#cb10-2" tabindex="-1"></a>  , <span class="at">label =</span> <span class="st">&quot;NAMCS 2019 PUF: NUMMED 1+&quot;</span>)</span>
+<span id="cb10-3"><a href="#cb10-3" tabindex="-1"></a><span class="fu">set_survey</span>(newsurvey)</span></code></pre></div>
+<div id="fhelrqcixc" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false" style="-webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-family: system-ui, &#39;Segoe UI&#39;, Roboto, Helvetica, Arial, sans-serif, &#39;Apple Color Emoji&#39;, &#39;Segoe UI Emoji&#39;, &#39;Segoe UI Symbol&#39;, &#39;Noto Color Emoji&#39;; display: table; border-collapse: collapse; line-height: normal; margin-left: auto; margin-right: auto; color: #333333; font-size: 16px; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: auto; border-top-style: solid; border-top-width: 2px; border-top-color: #004D80; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #004D80; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3;" bgcolor="#FFFFFF">
 <thead style="border-style: none;">
 <tr class="gt_heading" style="border-style: none; background-color: #FFFFFF; text-align: center; border-bottom-color: #FFFFFF; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3;" bgcolor="#FFFFFF" align="center">
@@ -991,8 +985,8 @@ Stratified 1 - level Cluster Sampling design (with replacement) With
 now want to analyze the new object <code>newsurvey</code>, not
 <code>namcs2019sv</code>.</p>
 <p>Now, let’s create the table:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a><span class="fu">tab_subset</span>(<span class="st">&quot;NUMMED&quot;</span>, <span class="st">&quot;AGER&quot;</span>)</span></code></pre></div>
-<div id="gaorxgiegz" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a><span class="fu">tab_subset</span>(<span class="st">&quot;NUMMED&quot;</span>, <span class="st">&quot;AGER&quot;</span>)</span></code></pre></div>
+<div id="rhvgfdcfrf" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false" style="-webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-family: system-ui, &#39;Segoe UI&#39;, Roboto, Helvetica, Arial, sans-serif, &#39;Apple Color Emoji&#39;, &#39;Segoe UI Emoji&#39;, &#39;Segoe UI Symbol&#39;, &#39;Noto Color Emoji&#39;; display: table; border-collapse: collapse; line-height: normal; margin-left: auto; margin-right: auto; color: #333333; font-size: 16px; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: auto; border-top-style: solid; border-top-width: 2px; border-top-color: #004D80; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #004D80; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3;" bgcolor="#FFFFFF">
 <thead style="border-style: none;">
 <tr class="gt_heading" style="border-style: none; background-color: #FFFFFF; text-align: center; border-bottom-color: #FFFFFF; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3;" bgcolor="#FFFFFF" align="center">

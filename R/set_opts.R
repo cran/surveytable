@@ -12,11 +12,13 @@
 #' * `"general"`:
 #'    * Round counts to the nearest integer -- same as `count = "int"`.
 #'    * Do not look for low-precision estimates -- same as `lpe = FALSE`.
+#'    * Retain missing values -- same as `drop_na = FALSE`.
 #'    * Percentage CI's: use standard Korn-Graubard CI's -- same as `adj = "none"`.
 #'
 #' * `"nchs"`:
 #'    * Round counts to the nearest 1,000 -- same as `count = "1k"`.
 #'    * Identify low-precision estimates -- same as `lpe = TRUE`.
+#'    * Drop missing values -- same as `drop_na = TRUE`.
 #'    * Percentage CI's: adjust Korn-Graubard CI's for the number of degrees of
 #'    freedom, matching the SUDAAN calculation -- same as `adj = "nchs"`. This
 #'    is appropriate for some, but not all, NCHS data systems. For some NCHS
@@ -29,22 +31,31 @@
 #'
 #' * `"auto"` (default): automatically select the table-making package, depending on the
 #' destination (such as screen, HTML, or PDF / LaTeX).
-#' * `"huxtable"`, `"gt"`, or `"kableExtra"`: use this table-making package. Be sure
+#' * `"huxtable"`, `"gt"`, `"kableExtra"`, `"flextable"`: use this table-making package. Be sure
 #' that this package is installed.
-#' * `"raw"`: unformatted / raw output. This is useful for getting lots of significant digits.
-#' * `"Excel"`: print to an Excel workbook. Please specify the name of an Excel file using
-#' the `file` argument. Before using Excel printing, please be sure to install these
+#' * `"screen"`: print plain-text tables to the screen.
+#' * `"Excel"`, `"Excel_v1"`: print to an Excel workbook. Please specify the name of an Excel
+#' file using the `file` argument. Before using Excel printing, please be sure to install these
 #' packages: `openxlsx2` and `mschart`.
+#' * `"Word"`: print to a Word document. Please specify the name of a Word
+#' file using the `file` argument. Before using Word printing, please be sure to install these
+#' packages: `flextable` and `officer`.
 #' * `"CSV"`: print to a comma-separated values (CSV) file. Please specify the name of a
 #' CSV file using the `file` argument.
+#'
+#' `raw = TRUE` prints unformatted / raw values. This is useful for getting lots of
+#' significant digits. It is supported with `output = "screen"`, `output = "CSV"`,
+#' and `output = "Excel"`. Also see [as.data.frame.astra_table()] and
+#' [restructure()].
 #'
 #' @param reset reset all options to their default values?
 #' @param mode `"general"` or `"NCHS"`. See below for details.
 #' @param adj adjustment to the Korn and Graubard confidence intervals for proportions. See
 #' `svyciprop_adjusted()` for details.
-#' @param output specify how the output is printed: `"auto"` (default); `"huxtable"`, `"gt"`, or
-#' `"kableExtra"`; `"raw"`; `"Excel"` or `"CSV"`. If `output` is `"Excel"` or `"CSV"`, must also specify
-#' `file`. If `output` is `"Excel"`, be sure to install `openxlsx2` and `mschart`.
+#' @param output specify how the output is printed: `"auto"` (default); `"huxtable"`, `"gt"`,
+#' `"kableExtra"`, `"flextable"`; `"screen"`. For the following output types, please
+#' also specify the `file` argument: `"Excel"`, `"Excel_v1"`, `"Word"`, `"CSV"`.
+#' @param raw print unformatted / raw values?
 #' @param file file name (see `output`).
 #' @param .file_temp place `file` in a temporary folder?
 #' @param count round counts to the nearest integer (`"int"`) or one thousand (`"1k"`).
@@ -54,7 +65,10 @@
 #' Used to avoid printing huge tables.
 #'
 #' @return (Nothing.)
+#'
 #' @family options
+#' @family print
+#'
 #' @export
 #'
 #' @examples
@@ -71,6 +85,7 @@ set_opts = function(
     , mode = NULL
     , adj = NULL
     , output = NULL
+    , raw = NULL
     , file = NULL
     , .file_temp = NULL
     , count = NULL
@@ -99,13 +114,15 @@ set_opts = function(
       options(surveytable.svyciprop_adj = "nchs"
         , surveytable.tx_count = ".tx_count_1k"
         , surveytable.names_count = c("n", "Number (000)", "SE (000)", "LL (000)", "UL (000)")
-        , surveytable.find_lpe = TRUE)
+        , surveytable.find_lpe = TRUE
+        , surveytable.drop_na = TRUE)
     } else if (mode == "general") {
       message("* Mode: General.")
       options(surveytable.svyciprop_adj = "none"
         , surveytable.tx_count = ".tx_count_int"
         , surveytable.names_count = c("n", "Number", "SE", "LL", "UL")
-        , surveytable.find_lpe = FALSE)
+        , surveytable.find_lpe = FALSE
+        , surveytable.drop_na = FALSE)
     }
   }
 
@@ -121,33 +138,54 @@ set_opts = function(
     options(surveytable.svyciprop_adj = adj)
   }
 
+  print_final = getOption("astra.print")
+  if (is.null(print_final)) {
+    print_final = ".print_auto"
+  }
+  raw_final = getOption("surveytable.raw")
+  if (is.null(raw_final)) {
+    raw_final = FALSE
+  }
   if (!is.null(output)) {
-    if (getOption("surveytable.print") == ".print_excel") .print_excel_finish()
+    output %<>% .mymatch(c("huxtable", "gt", "kableExtra", "flextable"
+                           , "auto", "screen"
+                           , "excel", "excel_v1", "word", "csv"))
+    print_final = .astra_print_for_output(output)
+  }
+  if (!is.null(raw)) {
+    assert_that(is.flag(raw), raw %in% c(TRUE, FALSE))
+    raw_final = raw
+  }
+  .check_raw_output(raw = raw_final, print = print_final)
 
-    output %<>% .mymatch(c("huxtable", "gt", "kableExtra", "auto", "raw", "excel", "csv"))
+  if (!is.null(output)) {
     if (output == "auto") {
       message("* Printing with huxtable for screen, gt for HTML, or kableExtra for PDF.")
-      options(surveytable.raw = FALSE
-              , surveytable.print = ".print_auto"
-              , surveytable.file = "", surveytable.file_show = "")
-    } else if (output %in% c("huxtable", "gt", "kableExtra") ) {
+      options(astra.print = ".print_auto"
+              , astra.file = "", astra.file_show = "")
+    } else if (output %in% c("huxtable", "gt", "kableextra", "flextable") ) {
       message(glue("* Printing with {output}."))
-      options(surveytable.raw = FALSE
-              , surveytable.print = glue(".print_{output}")
-              , surveytable.file = "", surveytable.file_show = "")
-    } else if (output == "raw") {
-      message("* Generating unformatted / raw output.")
-      options(surveytable.raw = TRUE
-              , surveytable.print = ".print_raw"
-              , surveytable.file = "", surveytable.file_show = "")
-    } else if (output %in% c("excel", "csv")) {
+      options(astra.print = .astra_print_for_output(output)
+              , astra.file = "", astra.file_show = "")
+    } else if (output == "screen") {
+      .set_output_screen()
+    } else if (output %in% c("excel", "excel_v1", "word", "csv")) {
       .set_output_file(output = output, file = file, .file_temp = .file_temp)
     }
   }
 
+  if (!is.null(raw)) {
+    if (raw) {
+      message("* Generating unformatted / raw values.")
+    } else {
+      message("* Generating rounded / formatted values.")
+    }
+    options(surveytable.raw = raw)
+  }
+
   if (!is.null(count)) {
     if (getOption("surveytable.raw")) {
-      message("* To perform rounding, first turn off raw output.")
+      message("* To perform rounding, first call set_opts(raw = FALSE).")
     } else {
       count %<>% .mymatch(c("int", "1k"))
       if (count == "int") {
@@ -192,13 +230,34 @@ set_opts = function(
   invisible(NULL)
 }
 
+.check_raw_output = function(raw, print = NULL) {
+  assert_that(is.flag(raw), raw %in% c(TRUE, FALSE))
+  if (is.null(print)) {
+    print = getOption("astra.print")
+  }
+  info = .astra_print_info(print = print)
+  assert_that(!isTRUE(raw) || isTRUE(info$raw)
+              , msg = glue('raw = TRUE is only supported with output = "screen", "CSV", or "Excel". Current output is "{info$output}".'))
+  invisible(NULL)
+}
+
+.set_output_screen = function() {
+  message("* Printing to the screen.")
+  options(astra.print = ".print_screen"
+          , astra.file = "", astra.file_show = "")
+}
+
 .set_output_file = function(output, file, .file_temp) {
-  assert_that(output %in% c("excel", "csv"))
+  assert_that(output %in% c("excel", "excel_v1", "word", "csv"))
   type = switch(output
                 , excel = "Excel"
+                , excel_v1 = "Excel"
+                , word = "Word"
                 , csv = "CSV")
   extension = switch(output
                      , excel = ".xlsx"
+                     , excel_v1 = ".xlsx"
+                     , word = ".docx"
                      , csv = ".csv")
   assert_that(is.string(file), nzchar(file)
               , msg = glue("For {type} printing, please specify a file name using the file argument."))
@@ -216,8 +275,6 @@ set_opts = function(
   if (file.exists(file)) {
     message("* NOTE: file already exists!")
   }
-  options(surveytable.raw = FALSE
-          , surveytable.print = glue(".print_{output}")
-          , surveytable.file = file, surveytable.file_show = file_show)
+  options(astra.print = .astra_print_for_output(output)
+          , astra.file = file, astra.file_show = file_show)
 }
-

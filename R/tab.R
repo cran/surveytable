@@ -90,7 +90,7 @@ tab = function(...
 		}
 	}
 
-	class(ret) = "surveytable_list"
+	class(ret) = "astra_list"
 	if (length(ret) == 1L) ret[[1]] else ret
 }
 
@@ -124,6 +124,19 @@ tab = function(...
 	}
 	assert_that(noNA(design$variables[,vr]), noNA(levels(design$variables[,vr])))
 	attr(design$variables[,vr], "label") = lbl
+
+	aa_vr = NULL
+	aa_pop = NULL
+	if (getOption("surveytable.age_adjusted")) {
+	  aa_info = .get_aa_info()
+	  aa_vr = aa_info$by_name
+	  aa_pop = data.frame(
+	    Level = aa_info$by_levels
+	    , Population = aa_info$population
+	    , stringsAsFactors = FALSE
+	  )
+	  design = .age_standardize_design(design)
+	}
 
 	nlv = nlevels(design$variables[,vr])
 	if (nlv < 2) {
@@ -213,9 +226,12 @@ tab = function(...
 		design$variables$.tmp = (design$variables[,vr] == lv)
 		# Korn and Graubard, 1998
 		xp = svyciprop_adjusted(formula = ~ .tmp, design = design, level = 0.95
-		                        , adj = getOption("surveytable.svyciprop_adj"))
+		                        , adj = getOption("surveytable.svyciprop_adj")
+		                        , aa_vr = aa_vr
+		                        , aa_pop = aa_pop)
 		ret1 = data.frame(Proportion = xp %>% as.numeric
 		                  , SE = attr(xp, "var") %>% as.numeric %>% sqrt)
+		ret1$`n effective` = if (is.null(n_eff <- attr(xp, "n.eff"))) NA else n_eff
 
 		ci = attr(xp, "ci") %>% t %>% data.frame
 		names(ci) = c("LL", "UL")
@@ -272,7 +288,7 @@ tab = function(...
 	  mp %<>% .add_flags( list(pro, pco, ppo) )
 	}
 
-	.finalize_tab(mp)
+	.finalize_tab(mp, aa = getOption("surveytable.age_adjusted"))
 }
 
 .add_flags = function(df1, lfo) {

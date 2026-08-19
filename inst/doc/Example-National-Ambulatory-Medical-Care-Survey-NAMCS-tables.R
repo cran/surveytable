@@ -18,24 +18,24 @@ total()
 tab("MDDO", "SPECCAT", "MSA")
 
 ## -----------------------------------------------------------------------------
-class(uspop2019)
-names(uspop2019)
+class(uspop_example)
+names(uspop_example)
 
 ## -----------------------------------------------------------------------------
-uspop2019$total
+uspop_example$total
 
 ## ----results='asis'-----------------------------------------------------------
-total_rate(uspop2019$total)
+total_rate(uspop_example$total)
 
 ## -----------------------------------------------------------------------------
-uspop2019$MSA
+uspop_example$MSA
 
 ## ----results='asis'-----------------------------------------------------------
-tab_rate("MSA", uspop2019$MSA)
+tab_rate("MSA", uspop_example$MSA)
 
 ## ----results='asis'-----------------------------------------------------------
-tab_rate("MDDO", uspop2019$total)
-tab_rate("SPECCAT", uspop2019$total)
+tab_rate("MDDO", uspop_example$total)
+tab_rate("SPECCAT", uspop_example$total)
 
 ## ----results='asis'-----------------------------------------------------------
 var_list("age")
@@ -50,15 +50,15 @@ tab("AGER", "Age group", "SEX")
 tab_cross("AGER", "SEX")
 
 ## ----results='asis'-----------------------------------------------------------
-tab_rate("AGER", uspop2019$AGER)
-tab_rate("Age group", uspop2019$`Age group`)
-tab_rate("SEX", uspop2019$SEX)
+tab_rate("AGER", uspop_example$AGER)
+tab_rate("Age group", uspop_example$`Age group`)
+tab_rate("SEX", uspop_example$SEX)
 
 ## -----------------------------------------------------------------------------
-uspop2019$`AGER x SEX`
+uspop_example$`AGER x SEX`
 
 ## ----results='asis'-----------------------------------------------------------
-tab_subset_rate("AGER", "SEX", uspop2019$`AGER x SEX`)
+tab_subset_rate("AGER", "SEX", uspop_example$`AGER x SEX`)
 
 ## ----results='asis'-----------------------------------------------------------
 #

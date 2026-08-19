@@ -19,7 +19,7 @@
 #'
 #' @examples
 #' set_survey(namcs2019sv)
-#' tab_subset_rate("AGER", "SEX", uspop2019$`AGER x SEX`)
+#' tab_subset_rate("AGER", "SEX", uspop_example$`AGER x SEX`)
 tab_subset_rate = function(vr, vrby
                            , pop
                            , lvls = c()
@@ -117,6 +117,6 @@ tab_subset_rate = function(vr, vrby
     ret[[ii]] = .finalize_tab(m1)
   }
 
-  class(ret) = "surveytable_list"
+  class(ret) = "astra_list"
   if (length(ret) == 1L) ret[[1]] else ret
 }

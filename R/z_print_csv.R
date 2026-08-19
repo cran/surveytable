@@ -1,35 +1,31 @@
 .print_csv = function(obj, ...) {
   ##
-  if (inherits(obj, "surveytable_table")) {
-    obj = list( table1 = obj )
-    class(obj) = "surveytable_list"
-  }
-
-  ##
-  assert_that(inherits(obj, "surveytable_list"), length(obj) >= 1)
-  file = getOption("surveytable.file")
-  assert_that(is.string(file), nzchar(file))
+  obj = .astra_as_list(obj)
+  file = .astra_file()
 
   ##
   len = length(obj)
-  t1 = .get_title(obj[[1]])
-  title = if (len == 1) {
-    t1
-  } else if (len == 2) {
-    glue("{t1} and {len-1} other table")
-  } else {
-    glue("{t1} and {len-1} other tables")
+  .say_printing(len = len, df1 = obj[[1]], output = "csv")
+
+  ##
+  file_exists = file.exists(file)
+  if (!file_exists) {
+    txt = data.frame(x = .astra_about_lines(markdown = TRUE))
+
+    write.table(txt, file = file
+                , append = TRUE, row.names = FALSE
+                , col.names = FALSE
+                , sep = ",", qmethod = "double") %>% suppressWarnings
   }
-  message(glue("* Printing {title} to CSV file {getOption('surveytable.file_show')}."))
 
   ##
   for (jj in 1:len) {
     df1 = obj[[jj]]
-    assert_that(inherits(df1, "surveytable_table"))
-    ##
+    .astra_assert_table(df1)
+
     ## Functions below might use as.data.frame() if the argument is not a data.frame,
     ## which creates unique column names, which is not what we want.
-    class(df1) = "data.frame"
+    df1 = .astra_as_data_frame(df1)
 
     if (!is.null(txt <- attr(df1, "title"))) {
       write.table(txt, file = file

@@ -8,8 +8,19 @@
 #' long name of the survey. Optionally, each variable in the survey can have an
 #' attribute called `label`, which is the variable's long name.
 #'
+#' For age-adjustment, `aa_pop$Population` can contain either population counts
+#' or proportions/weights for each level. Values are normalized internally, so
+#' counts and proportions produce the same age-adjusted estimates when they
+#' describe the same standard population distribution.
+#'
 #' @param design a survey object, created with [survey::svydesign()] or
 #' [survey::svrepdesign()]. For an unweighted survey, a `data.frame` or similar.
+#' @param aa_vr used to produce age-adjusted estimates only. The name of a
+#' categorical age variable located in `design`.
+#' @param aa_pop used to produce age-adjusted estimates only. A `data.frame` with
+#' columns named `Level` and `Population`. `Level` must exactly match the levels
+#' of `aa_vr`. `Population` is the population count or proportion/weight for
+#' that level of `aa_vr`.
 #' @param ... arguments to [set_opts()].
 #'
 #' @family options
@@ -18,12 +29,18 @@
 #'
 #' @examples
 #' set_survey(namcs2019sv)
-#' set_survey(namcs2019sv, mode = "general")
-set_survey = function(design, ...) {
+#' set_survey(namcs2019sv, mode = "NCHS")
+#'
+#' ## Age-adjusted estimation
+#' set_survey(nhis2024a, aa_vr = "age_group_std", aa_pop = uspop_example$age_group_std)
+set_survey = function(design
+                      , aa_vr = NULL, aa_pop = NULL
+                      , ...) {
   # In case there's an error below and we don't set a new survey,
   # don't retain the previous survey either.
-  env$survey = NULL
-  options(surveytable.survey_label = "")
+  env$survey = env$aa_info = NULL
+  options(surveytable.survey_label = ""
+          , surveytable.age_adjusted = FALSE)
 
   set_opts(...)
 
@@ -93,12 +110,37 @@ set_survey = function(design, ...) {
   }
   assert_that( all(design$prob > 0), all(design$prob < Inf) )
 
+  ###
+  tmp1 = is.null(aa_vr) + is.null(aa_pop)
+  assert_that(tmp1 %in% c(0,2)
+              , msg = "For age-adjusted estimates, specify both aa_vr and aa_pop.")
+  if (tmp1 == 0) {
+    env$aa_info = .aa_pop_info(design = design, aa_vr = aa_vr, aa_pop = aa_pop)
+    options(surveytable.age_adjusted = TRUE)
+    message("* Producing age-adjusted estimates.")
+
+    # design_new = svystandardize(
+    #   design = design
+    #   , by = as.formula(paste0("~ `", aa_vr, "`"))
+    #   , over = ~1
+    #   , population = aa_pop$Population
+    # )
+    # attr(design_new, "label") = glue('{attr(design, "label")} (age-adjusted)')
+    # design = design_new
+  }
+
+  ###
   out = data.frame(
     Variables = ncol(design$variables)
     , Observations = nrow(design$variables)
+    , `Age adjustment` = .age_adjustment_label()
     , Design = design %>% capture.output %>% paste(collapse = "\n")
     , check.names = FALSE
   )
+  if (!isTRUE(getOption("surveytable.age_adjusted"))) {
+    out$`Age adjustment` = NULL
+  }
+
   attr(out, "title") = "Survey info"
   attr(out, "num") = c(1,2)
 
@@ -117,4 +159,76 @@ set_survey = function(design, ...) {
               , msg = glue("Must be a survey.design or svyrep.design. Is: {o2s(design)}."))
   assert_that( all(design$prob > 0), all(design$prob < Inf) )
   design
+}
+
+.get_aa_info = function() {
+  assert_that(isTRUE(getOption("surveytable.age_adjusted"))
+              , msg = "Age-adjusted estimates have not been requested.")
+  aa_info = env$aa_info
+  assert_that(is.list(aa_info)
+              , all(c("by", "by_name", "by_levels", "population", "population_weights") %in% names(aa_info)))
+  aa_info
+}
+
+.aa_pop_info = function(design, aa_vr, aa_pop) {
+  assert_that(is.string(aa_vr), nzchar(aa_vr))
+  assert_that(aa_vr %in% names(design$variables)
+              , msg = glue("Age-adjustment variable {aa_vr} is not in the data."))
+  assert_that(is.factor(design$variables[,aa_vr])
+              , msg = glue("{aa_vr}: must be factor. Is {o2s(design$variables[,aa_vr])}."))
+  assert_that(is.data.frame(aa_pop)
+              , msg = glue("aa_pop must be a data frame. Is {o2s(aa_pop)}."))
+  assert_that(identical(names(aa_pop), c("Level", "Population"))
+              , msg = "aa_pop must have columns named Level and Population.")
+  assert_that(nrow(aa_pop) >= 1, msg = "aa_pop must have at least one row.")
+  assert_that(is.numeric(aa_pop$Population)
+              , msg = "aa_pop$Population must be numeric.")
+  assert_that(
+    all(!is.na(aa_pop$Population))
+    , all(is.finite(aa_pop$Population))
+    , all(aa_pop$Population >= 0)
+    , sum(aa_pop$Population) > 0
+    , msg = paste(
+      "aa_pop$Population must be finite, non-missing, nonnegative,"
+      , "and sum to a positive value."
+    )
+  )
+
+  aa_levels = as.character(aa_pop$Level)
+  assert_that(
+    are_equal(levels(design$variables[,aa_vr]), aa_levels)
+    , msg = "aa_pop$Level must exactly match the levels of aa_vr."
+  )
+
+  list(
+    by = as.formula(paste0("~ `", aa_vr, "`"))
+    , by_name = aa_vr
+    , by_levels = aa_levels
+    , population = aa_pop$Population
+    , population_weights = aa_pop$Population / sum(aa_pop$Population)
+  )
+}
+
+.age_adjustment_label = function() {
+  if (!isTRUE(getOption("surveytable.age_adjusted"))) {
+    return("None")
+  }
+  aa_info = .get_aa_info()
+  glue("Age-adjusted by {aa_info$by_name}: {glue_collapse(aa_info$by_levels, sep = ', ')}")
+}
+
+.age_standardize_design = function(design) {
+  aa_info = .get_aa_info()
+  assert_that(aa_info$by_name %in% names(design$variables)
+              , msg = glue("Age-adjustment variable {aa_info$by_name} is not in the data."))
+  missing_levels = setdiff(aa_info$by_levels, as.character(unique(design$variables[,aa_info$by_name])))
+  assert_that(length(missing_levels) == 0
+              , msg = glue("Cannot produce age-adjusted estimates: no observations for {aa_info$by_name} = {glue_collapse(missing_levels, sep = ', ')}."))
+
+  svystandardize(
+    design = design
+    , by = aa_info$by
+    , over = ~1
+    , population = aa_info$population
+  )
 }

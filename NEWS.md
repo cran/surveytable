@@ -1,3 +1,12 @@
+# surveytable 0.10.0
+
+* `raw` is now a separate argument to `set_opts()`, supported with `output = "screen"`, `"CSV"`, and `"Excel"`. `output = "raw"` is no longer supported.
+* More `set_opts(output = *)` options: `"Word"`, `"Excel"`, `"Excel_v1"`, `"flextable"`.
+* `restructure()`: Restructure tables to make them easier to process programmatically.
+* `set_opts(mode = "nchs")` now sets `drop_na = TRUE`.
+* Added another public use data file for use in examples: `nhis2024a`.
+* The package now can produce **age-adjusted estimates**! See `set_survey()`.
+
 # surveytable 0.9.10
 
 * Resolved issues affecting printing.

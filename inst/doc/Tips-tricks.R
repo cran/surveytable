@@ -13,9 +13,12 @@ tab_subset("AGER", "SPECCAT", test = "65-74 years")
 library(surveytable)
 set_survey(namcs2019sv)
 
+set_opts(output = "screen", raw = TRUE)
+
 ## ----echo=FALSE---------------------------------------------------------------
-set_opts(output = "raw")
-print( tab("SPECCAT", test = TRUE), destination = "")
+print(tab("AGER"), destination = "")
+
+## -----------------------------------------------------------------------------
 set_opts(reset = TRUE)
 
 ## ----results='asis', message=FALSE--------------------------------------------
